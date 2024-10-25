@@ -1,0 +1,816 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>SunoAI Prompt - Suno风格预设及自定义风格使用教程 | Dos7t3rのBlog</title><meta name="keywords" content="AI,Suno"><meta name="author" content="Dos7t3r"><meta name="copyright" content="Dos7t3r"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#18171d"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="SunoAI Prompt - Suno风格预设及自定义风格使用教程"><meta name="application-name" content="SunoAI Prompt - Suno风格预设及自定义风格使用教程"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#18171d"><meta property="og:type" content="article"><meta property="og:title" content="SunoAI Prompt - Suno风格预设及自定义风格使用教程"><meta property="og:url" content="https://blog.417.red/posts/815f0d88/index.html"><meta property="og:site_name" content="Dos7t3rのBlog"><meta property="og:description" content="这篇文章将为你提供几个常用的 SunoAI Prompt ，教你如何快速入门Suno来创建自己的音乐。 下方是几个常用的prompt chinese ballad heartfelt 民谣 深情ballad pop emotional 民谣流行情感alternative melancholic at"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://imagecdn01.iambzy.com/wp-content/uploads/2024/04/1712208219-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-04-04-132329.png"><meta property="article:author" content="Dos7t3r"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://imagecdn01.iambzy.com/wp-content/uploads/2024/04/1712208219-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-04-04-132329.png"><meta name="description" content="这篇文章将为你提供几个常用的 SunoAI Prompt ，教你如何快速入门Suno来创建自己的音乐。 下方是几个常用的prompt chinese ballad heartfelt 民谣 深情ballad pop emotional 民谣流行情感alternative melancholic at"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://blog.417.red/posts/815f0d88/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"(っ °Д °;)っ 等一等！再看看嘛！","backTitle":"ヾ(•ω•`)o 我想你啦！"},
+  LA51: {"enable":true,"ck":"KVo5Yoyuv6Y1MSNX","LingQueMonitorID":"KVo5Yoyuv6Y1MSNX"},
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"😴还在熬夜啊~要早点睡觉喔~","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝宝~","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","💻 分享与热心帮助","🏃 脚踏实地行动派","🧱 团队小组发动机","😘 内向心善のISFJ"]},
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"本文章距离上次更新已经过去","messageNext":"天,其中的内容或许已经不再适用,请悉知."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Dos7t3r","link":"链接: ","source":"来源: Dos7t3rのBlog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true,
+  shortcutKey: {"enable":true,"delay":100,"shiftDelay":200},
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Dos7t3rのBlog',
+  title: 'SunoAI Prompt - Suno风格预设及自定义风格使用教程',
+  postAI: '',
+  pageFillDescription: '歌词书写规则, 知识科普：歌曲结构, 进阶创作, 元标签, 实战部分, 前奏, 歌曲顺序生成, 拓展：, 常见问题, 音乐风格流派辨析, Genre（流派）, Styles（风格）, Song Types（歌曲类型）, Country（乡村）, Dance（舞曲）, Downtempo（缓拍）, Jazzx2FSoul（爵士x2F灵魂）, Latin（拉丁）, Reggae（雷鬼）, Metal（金属）, Popular（流行）, Rock（摇滚）, Urban（城市音乐）, Danceable（可跳舞的）, Dark（黑暗）, Electric（电子）, Hard（强硬）, Lyrical（抒情的）, Magical（神奇）, Minimal（简约）, Party（派对）, Soft（柔和）, Weird（奇怪）, Worldx2FEthnic（世界x2F民族）这篇文章将为你提供几个常用的教你如何快速入门来创建自己的音乐下方是几个常用的民谣深情民谣流行情感另类忧郁气氛流行民谣民谣深情民谣流行普通话流行女谣情感流行民谣怀旧民谣国语流行中国情感歌谣振奋人心的流行普通话中国振奋人心的流行音乐中国传统民谣中国忧郁传统摇滚流行女性流行歌曲现代中国电影传统宁静的中国流行音乐歌词书写规则歌词的输入最好控制在行左右生成的效果最好过长的歌词可能导致忽略部分提示或产生幻觉在提示中使用换行符把你歌曲的每一行都放在自己的一行上在诗句副歌等之间再加一行空白下面是一个格式良好的例子行尾处不要添加任何标点符号不然会影响生成效果但在行中间可以添加添加歌曲结构元标记主歌副歌部分回到前面的案例在唱完后几乎没有停顿直接进入了部分以至于节奏出现错误这里出现的问题也是随机的那么假设如果我们需要在两个部分之间停顿一下该怎么办呢停顿的片段一般是器乐演奏所以我们需要让停止人声的部分可以使用以下方法方法一使用让进入一段器乐演奏示例示例方法二创造一段乐器比如注意在同一个片段中当你使用类似指令让做休整需要在指令后继续用合唱部分或一个新的诗歌部分来保持人声温暖如果人声沉默太久可能会忘记那个声音应该是怎样的并创造一个新的声音来继续歌曲结尾部分前面案例中我在结尾处使用来表示尾奏在这里的意思是告诉我想在结束前再进行一段音乐再结束歌曲但经常不这么认为原因就是当完成一个歌曲循环时它会随机生成一个带有结尾的片段这个时候就能很自然的结束掉歌曲如果它还有更多的循环部分要完成它可能抵制结束如果出现最后一个片段的时长少于分钟的那大概率会在这个片段结束歌曲但偶尔会在看似快结束的时候突然来个强烈的鼓点然后又开始了歌曲挺无解的方法如下比如示例示例注意在使用这些元标签时尽量留出一整个片段给慢慢淡出或结束如果没有结束重复使用上述方法直到它停止知识科普歌曲结构引子或前奏歌曲的开始部分通常用来建立歌曲的基调和氛围引子可能包含一些基本的旋律或节奏元素但通常不包括主要的歌词诗歌部分主歌这部分是歌曲的主体通常包含歌曲的主要故事或情感内容每个诗歌部分可能有不同的歌词但通常保持相同的旋律和节奏模式合唱部分副歌通常是歌曲中最具辨识度的部分重复出现包含主要的主题和旋律合唱部分是歌曲中最易被记住的部分往往包含钩子一种特别引人入胜的旋律或歌词桥接部分这一部分出现在歌曲后半部提供了与前面诗歌和合唱部分不同的旋律和节奏用来增加歌曲的多样性和深度尾奏歌曲的结尾部分与引子相似但用来结束歌曲尾奏可以是对引子的重复或者提供一种平静下来的感觉渐渐带出歌曲前副歌可选在某些歌曲中前副歌作为从诗歌部分到合唱部分的过渡它可以增加歌曲的动态范围为合唱部分的到来建立情感张力间奏可选间奏是歌曲中的一个部分其中不包含歌词只有乐器演奏通常用于连接两个不同的歌唱部分如两个诗歌部分或诗歌部分到合唱部分之间提供歌曲的情感转换或增强歌曲的整体感觉可以在歌词末尾添加带有的单词表示旁白即兴尽管在句子中间插入也有一定的效果但通常在句尾使用的效果最佳与元标签不同旁白即兴是通过演唱或口头表达的和元标签一样我们建议适度使用以获得最佳效果加分项非词汇性发声尝试使用非词汇性发声这是一种在多种音乐风格中广泛应用的无意义音节形式可以试着在你的提示语中加入诸如啦啦啦呐呐呐沙呐呐等非词汇性发声特别是在较短的提示语中添加这类元素能够以有趣的方式拓展它们的表现力音乐风格的填写由逗号隔开的一系列乐器或音乐元素或者是音乐流派和风格词汇的混搭您可以使用摇滚乡村和等流派使用欢快和旋律等描述性形容词也可以使用欢快等两者的组合相对晦涩或很少配对的流派例如蒸汽波波尔卡恩卡蓝草或蓝草的组合更有可能导致混乱无论这是一个功能还是一个我们都让您自己决定示例现代电影音乐以电影剧情为主导创造氛围的音乐星际穿越世纪电影音乐世纪的电影配乐多元且富有历史感星际大战海洋风格歌曲航海者在海上唱的工作歌曲爵士乐强调即兴和节奏的音乐流行乐广受欢迎易于接受的音乐风格奇幻音乐创造神秘梦幻氛围的音乐魔戒摇滚乐强烈节奏激进的音乐风格中国传统音乐使用中国乐器二泉映月探戈源自阿根廷的热情舞曲音乐自由探戈电子音乐使用电子技术制作的音乐环境音乐创造舒适氛围注重声音纹理的音乐嘻哈音乐美国黑人街头文化的音乐风格包含饶舌填写风格的时候只需要复制前面的英文即可比如该模型不识别艺术家的名字如刘德华周杰伦等但可以指定演唱歌手的性别在风格输入框写上性别跟流派如或者流派加逗号加性别的格式如果你在让模特演唱复杂的歌曲描述时遇到困难可以尝试添加标签帮助模特识别歌词是要演唱的如果还没看懂的话尝试使用我们的随机生成歌词如果没输入直接点击的随机生成按钮他会生成随机的一首歌你也可以输入一个主题然后点击生成歌词按钮系统会根据你的输入主题进行联想生成歌词能看到正确的示例进阶创作元标签这里的元标签主要是充当引导提示的作用就像指挥家的手势一样你可以使用元标签来进行描述像等还有像描述歌曲结构中的等有很多种目的只有一个就是让能准确读出你给的指示在中元标签没有大小写之分元标签引导提示但本身并没有用语言表达就像电影剧本中的舞台指示或括号一样你可以使用元标记来描述提示的特定部分例如笑声和钢琴间奏或者通过描述耳语等说话者特征或摇滚等音乐流派来影响你的整个提示以下是一些适用的标签类型的示例但列表远非详尽无遗很多不同的标签都会起作用所以在使用它们时要有创意混搭尝试全新的东西元标记示例实战部分在这一部分我会着重讲解前奏该如何去生成以及一些注意事项来帮助更好地生成完整音频在歌曲中我们一般是按前奏主歌副歌间奏主歌副歌桥段主歌尾奏这个顺序进行的我对这个顺序进行了调整优化为下面的结构前奏在歌曲中我们需要通过前奏来确定整首歌曲的基调和旋律所以在这里我会介绍两种关于生成前奏的方法歌曲顺序生成这里的话我会从入手还是那个问题要让能够准确地读出你给它的指令部分一般情况下只是一段旋律没有歌词所以我们需要特殊处理把它作为一个独立部分与隔开这里用一些括号进行处理可以是我个人比较倾向于用第一和第三种为什么不能是因为这样意味着会把这两个元标签进行合并处理从而使生成的音乐没有一段旋律前奏但也不是说这样不好合并了的元标签意味着你的旋律与主歌同时进行相互叠加下能增强歌曲的动态效果拓展在说唱摇滚乐流行乐中会有包含歌词的情况一般是一小段用来增强歌曲的表现力这个时候就不用特殊处理了假如我想要在前奏加点乐器该怎么写呢比如说风格我想要加入个萨克斯进去可以用表示还记得前面提到的歌词书写规则吗每次的生成输入歌词行数最好在行因为最长只能生成秒的音频你输入过多会努力去唱完这些歌词所以速度会变快以致生成质量会变差所以要控制好输入的内容尤其是在开头部分我的建议是第一个音频生成只放两个段落即或生成的音频更稳定常见问题歌词的延续如果歌词被切断那么在下一个片段开始接上它们停止的地方如果一个单词被切成两半用下一个单词开始继续的歌词不要再次使用被中断的元标签例如如果你的被切断了那么在下一个片段中你接上的歌词不要添加这个元标签如果添加了会认为这是新的并开始新的生成如果尝试重复它刚唱过的完整行或者逐字重复合唱使用来打断歌曲流程考虑回到之前的片段重新使用延续功能生成进入一段器乐后如何让它停止并进入歌词试着在歌词前加入语气词比如来提示这里有人声让它做好过渡准备有时有用无法生成或尝试另一个提示的错误意味着你的文本请求被阻止了被拒绝的提示将退还积分一个歌曲提示可能因为多种原因被阻止你的歌词受版权保护你的音乐风格或歌曲描述使用了真实的乐队或艺术家名称你的歌词包含违规词汇你的实际积分用尽了但网页没有同步刷新页面在默认模式或生成随机歌词按钮下无法理解如何将你的请求转化为歌曲另外你还可以了解音乐风格流派辨析利用先进的语言模型把输入的文本转换成音乐想象一下如果要列出所有的音乐流派和风格那就像是编写一本字典一样繁杂但请记住这不是一份涵盖一切的清单而是一个旨在激发情感和探索新创意的宝贵资源这里提供了一系列经过测试的音乐流派子流派风格用词和歌曲类型你可以将它们灵活组合给提供丰富多彩的风格指引不过要注意这个列表是永远不会完整的我们还没能涵盖全球所有的音乐流派和地区特色更别提那些日常生活中还未被发掘的新鲜风格用词了别忘了积极探索去发现那些有着独特风味的子流派流派风格歌曲类型乡村草莓乐乡村音乐民谣舞曲阿弗罗古巴流行舞曲迪斯科配音步迪斯科放克电子舞曲电子高能量浩室音乐迷幻舞曲缓拍环境音鼓与贝斯配音步电子音乐智能舞曲合成流行合成波技术音乐陷阱音乐爵士灵魂比博普福音爵士拉丁爵士节奏蓝调灵魂乐拉丁波萨诺瓦拉丁爵士弗约罗萨尔萨舞探戈雷鬼舞厅配音雷鬼雷盖顿非洲节奏金属黑金属死亡核死亡金属节日重金属重金属新金属力量金属金属核流行流行音乐流行舞曲流行摇滚韩流音乐日流音乐节奏蓝调合成流行摇滚经典摇滚布鲁斯摇滚情绪华丽摇滚独立音乐工业摇滚朋克摇滚摇滚滑板摇滚滑板核城市音乐放克嘻哈节奏蓝调酸音乐说唱陷阱音乐可跳舞的迪斯科切分节奏悠扬微醺黑暗黑暗末日戏剧性阴险电子艺术新流行进步强硬激进热门曲目力量体育场重踏抒情的百老汇歌舞表演酒吧歌手歌剧式的讲故事酒吧歌曲戏剧性的吟游诗人拉斯维加斯风格神奇虚幻雄伟神秘简约环境音乐电影缓慢稀疏派对华丽闪耀悠扬活力爆发柔和环境音乐卧室轻松浪潮虚幻亲密奇怪嘉年华鬼屋随机音乐盒空洞世界民族',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-10 21:16:40',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://imagecdn01.iambzy.com/other/image/head/Free%20Pfp%20_3.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://iambzy.com/" title="WordPress博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="/img/favicon.ico" alt="WordPress博客"/><span class="back-menu-item-text">WordPress博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">内容</div><div class="back-menu-list"><a class="back-menu-item" href="https://blog.417.red/" title="blog.417.red"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="blog.417.red"/><span class="back-menu-item-text">blog.417.red</span></a><a class="back-menu-item" href="/essay/" title="说说·即刻"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://tse1-mm.cn.bing.net/th/id/OIP-C.-f8Oj2or4Ujox_iIpx_5GAHaHa?w=168&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" alt="说说·即刻"/><span class="back-menu-item-text">说说·即刻</span></a><a class="back-menu-item" href="/album/" title="相册集"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://tse2-mm.cn.bing.net/th/id/OIP-C.rgV6jtmvNJ-mwqjmejknQAHaHa?w=191&amp;h=191&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" alt="相册集"/><span class="back-menu-item-text">相册集</span></a><a class="back-menu-item" href="/music/?id=7666478338&amp;server=netease" title="音乐馆"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://ts1.cn.mm.bing.net/th/id/R-C.ee0749fc519ccc19a9848730603d6bdf?rik=3vASoE2ipOM7Tg&amp;riu=http%3a%2f%2fwww.kuaipng.com%2fUploads%2fpic%2fw%2f2020%2f03-26%2f75810%2fwater_75810_698_698_.png&amp;ehk=SAh2j%2bTynb9AdGGHGtM%2fMyW4j21Ke6HLFAHpvpL8fww%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0" alt="音乐馆"/><span class="back-menu-item-text">音乐馆</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">瞎折腾</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://iambzy.com/disk/" title="网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://pan.cccyun.cc/img/logo.png" alt="网盘"/><span class="back-menu-item-text">网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://nav.iambzy.com" title="网站导航"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://nav.iambzy.com/favicon.ico" alt="网站导航"/><span class="back-menu-item-text">网站导航</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://chatglm.cn/main/gdetail/66a36376a1963579dc94fe20" title="BAO(AI版)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://chatglm.cn/img/icons/favicon-32x32.png" alt="BAO(AI版)"/><span class="back-menu-item-text">BAO(AI版)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">其他玩意儿</div><div class="back-menu-list"><a class="back-menu-item" href="/about/" title="关于我"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://img.tukuppt.com/png_preview/00/08/25/CmtQLdc8b7.jpg!/fw/780" alt="关于我"/><span class="back-menu-item-text">关于我</span></a><a class="back-menu-item" href="/essay/" title="说说·即刻"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://tse1-mm.cn.bing.net/th/id/OIP-C.-f8Oj2or4Ujox_iIpx_5GAHaHa?w=168&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" alt="说说·即刻"/><span class="back-menu-item-text">说说·即刻</span></a><a class="back-menu-item" href="javascript:toRandomPost()" title="随便看看"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://img.88icon.com/upload/jpg/20210526/92637d8f33861bf45d4a843b849389e0_21975_512_512.jpg!bg" alt="随便看看"/><span class="back-menu-item-text">随便看看</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://shuixinglema.417.red/" title="睡醒了吗？"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://th.bing.com/th/id/OIP.kyLqaygZawnex8I7GUoCMwAAAA?rs=1&amp;pid=ImgDetMain" alt="睡醒了吗？"/><span class="back-menu-item-text">睡醒了吗？</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">Dos7t3rのBlog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=7666478338&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/equipment/"><i class="anzhiyufont anzhiyu-icon-dice-d20 faa-tada" style="font-size: 0.9em;"></i><span> 装备集</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://chatglm.cn/main/gdetail/66a36376a1963579dc94fe20"><i class="anzhiyufont anzhiyu-icon-comments faa-tada" style="font-size: 0.9em;"></i><span> AI版</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-heartbeat faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">音乐</div><span class="author-content-item-title">灵魂的碰撞💥</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">十月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">10</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/SunoAI/" itemprop="url">SunoAI</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/AI/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>AI</span></a><a class="article-meta__tags" href="/tags/Suno/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Suno</span></a></span></div></div><h1 class="post-title" itemprop="name headline">SunoAI Prompt - Suno风格预设及自定义风格使用教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-04-04T05:23:54.000Z" title="发表于 2024-04-04 13:23:54">2024-04-04</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-08-10T13:16:40.903Z" title="更新于 2024-08-10 21:16:40">2024-08-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">4.2k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="SunoAI Prompt - Suno风格预设及自定义风格使用教程"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为内蒙古"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>内蒙古</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://imagecdn01.iambzy.com/wp-content/uploads/2024/04/1712208219-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-04-04-132329.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://blog.417.red/posts/815f0d88/"><header><a class="post-meta-categories" href="/categories/SunoAI/" itemprop="url">SunoAI</a><a href="/tags/AI/" tabindex="-1" itemprop="url">AI</a><a href="/tags/Suno/" tabindex="-1" itemprop="url">Suno</a><h1 id="CrawlerTitle" itemprop="name headline">SunoAI Prompt - Suno风格预设及自定义风格使用教程</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Dos7t3r</span><time itemprop="dateCreated datePublished" datetime="2024-04-04T05:23:54.000Z" title="发表于 2024-04-04 13:23:54">2024-04-04</time><time itemprop="dateCreated datePublished" datetime="2024-08-10T13:16:40.903Z" title="更新于 2024-08-10 21:16:40">2024-08-10</time></header><p>这篇文章将为你提供几个常用的 SunoAI Prompt ，教你如何快速入门Suno来创建自己的音乐。</p>
+<p>下方是几个常用的prompt</p>
+<p>chinese ballad heartfelt 民谣 深情<br>ballad pop emotional 民谣流行情感<br>alternative melancholic atmospheric 另类忧郁气氛<br>pop chinese ballad 流行民谣<br>chinese ballad heartfelt 民谣 深情<br>ballad pop mandarin 民谣流行普通话<br>pop female ballad 流行女谣<br>emotional pop ballad nostalgic 情感流行民谣怀旧<br>ballad mandarin pop 民谣 国语 流行<br>chinese emotional ballad 中国情感歌谣<br>uplifting pop mandarin 振奋人心的流行普通话<br>chinese uplifting pop 中国振奋人心的流行音乐<br>chinese traditional ballad 中国传统民谣<br>chinese melancholic traditional 中国忧郁传统<br>Rock and roll pop 摇滚流行<br>Female pop songs 女性流行歌曲<br>Modern Cinematic chinese 现代中国电影<br>chinese Modern TV drama 传统宁静的中国流行音乐</p>
+<hr>
+<h2 id="歌词书写规则"><a href="#歌词书写规则" class="headerlink" title="歌词书写规则"></a>歌词书写规则</h2><ol>
+<li><p>歌词的输入最好控制在4-8行左右， 生成的效果最好， 过长的歌词可能导致Suno忽略部分提示或产生幻觉</p>
+</li>
+<li><p>在提示中使用换行符。把你歌曲的每一行都放在自己的一行上，在诗句、副歌等之间再加一行空白。下面是一个格式良好的例子</p>
+</li>
+<li><p>行尾处不要添加任何标点符号， 不然会影响生成效果，但在行中间可以添加</p>
+</li>
+<li><p>添加歌曲结构元标记。</p>
+</li>
+</ol>
+<p>[intro] [funky beats] [electric bass] [melodic instrumental]</p>
+<p>[verse]</p>
+<p><strong>##主歌、副歌部分</strong></p>
+<p>  回到前面的案例，在 verse 2 唱完后，几乎没有停顿，直接进入了 chorus 部分，以至于节奏出现错误，这里出现的问题也是随机的，那么假设，如果我们需要 在两个部分之间停顿一下，该怎么办呢？</p>
+<p>  停顿的片段，一般是器乐演奏，所以我们需要让 Suno停止人声的部分，可以使用以下方法。</p>
+<p>  方法一：使用 break 让 Suno 进入一段器乐演奏。</p>
+<p>  示例1: [verse]….</p>
+<p>[break]</p>
+<p>[chorus]….</p>
+<p>  示例2: [verse]…. [break][melodic interlude] [chorus]….</p>
+<p>  方法二：创造一段乐器 solo。</p>
+<p>  比如 [bass drop]、[percussion breakdown]、[melodic flute interlude]、[guitar solo]</p>
+<p><strong>###注意</strong></p>
+<p>  在同一个片段中，当你使用类似 [break] 指令让Suno 做休整，需要在指令后继续用合唱部分或一个新的诗歌部分来保持人声 “温暖”。如果人声沉默太久，Suno可能会 “忘记” 那个声音应该是怎样的，并创造一个新的声音来继续歌曲。</p>
+<p><strong>##结尾部分</strong></p>
+<p>  前面案例中，我在结尾处使用 [Outro] 来表示尾奏，[Outro] 在这里的意思是告诉 Chirp，我想在结束前再进行一段音乐，再结束歌曲，但 Chirp 经常不这么 “认为”。原因就是，当 Chirp 完成一个歌曲循环时，它会随机生成一个带有结尾的片段，这个时候就能很自然的结束掉歌曲。如果它还有更多的循环部分要完成，它可能抵制结束。</p>
+<p>  如果出现最后一个片段的时长少于1分钟的，那大概率 Suno 会在这个片段结束歌曲，但偶尔会在看似快结束的时候突然来个强烈的鼓点，然后又开始了歌曲 … 挺无解的。</p>
+<p>  方法如下：</p>
+<p>  比如</p>
+<p>  [big finish]</p>
+<p>  [end]</p>
+<p>  [fade out]</p>
+<p>  [fade out and end]</p>
+<p>  示例 [Song Ends] [Song Ends]</p>
+<p>  示例 [outro]</p>
+<p>  [fade out]</p>
+<p>  [fade out]</p>
+<p>  [fade out]</p>
+<p><strong>###注意</strong></p>
+<p>  在使用这些元标签时，尽量留出一整个片段给 Chirp 慢慢淡出或结束，如果没有结束，重复使用上述方法直到它停止。</p>
+<h2 id="知识科普：歌曲结构"><a href="#知识科普：歌曲结构" class="headerlink" title="知识科普：歌曲结构"></a>知识科普：歌曲结构</h2><p>  Intro（引子或前奏）：歌曲的开始部分，通常用来建立歌曲的基调和氛围。引子可能包含一些基本的旋律或节奏元素，但通常不包括主要的歌词。</p>
+<p>  Verse（诗歌部分 &#x2F; 主歌）：这部分是歌曲的主体，通常包含歌曲的主要故事或情感内容。每个诗歌部分可能有不同的歌词，但通常保持相同的旋律和节奏模式。</p>
+<p>  Chorus（合唱部分 &#x2F; 副歌）：通常是歌曲中最具辨识度的部分，重复出现，包含主要的主题和旋律。合唱部分是歌曲中最易被记住的部分，往往包含 “钩子”（hook）—— 一种特别引人入胜的旋律或歌词。</p>
+<p>  Bridge（桥接部分）：这一部分出现在歌曲后半部，提供了与前面诗歌和合唱部分不同的旋律和节奏，用来增加歌曲的多样性和深度。</p>
+<p>  Outro（尾奏）：歌曲的结尾部分，与引子相似，但用来结束歌曲。尾奏可以是对引子的重复，或者提供一种平静下来的感觉，渐渐带出歌曲。</p>
+<p>  Pre-Chorus（前副歌）（可选）：在某些歌曲中，前副歌作为从诗歌部分到合唱部分的过渡。它可以增加歌曲的动态范围，为合唱部分的到来建立情感张力。</p>
+<p>  间奏（Interlude）（可选）：间奏是歌曲中的一个部分，其中不包含歌词，只有乐器演奏，通常用于连接两个不同的歌唱部分，如两个诗歌部分或诗歌部分到合唱部分之间，提供歌曲的情感转换或增强歌曲的整体感觉。</p>
+<p>可以在歌词末尾添加带有()的单词表示旁白(即兴) ， 尽管在句子中间插入ad libs也有一定的效果，但通常在句尾使用ad libs的效果最佳。与元标签不同，旁白(即兴)是通过演唱或口头表达的。和元标签一样，我们建议适度使用以获得最佳效果。</p>
+<p>加分项 非词汇性发声 尝试使用非词汇性发声，这是一种在多种音乐风格中广泛应用的无意义音节形式。可以试着在你的提示语中加入诸如“啦啦啦”、“呐呐呐”、“沙呐呐”等非词汇性发声，特别是在较短的提示语中添加这类元素，能够以有趣的方式拓展它们的表现力。</p>
+<p>音乐风格的填写 由逗号隔开的一系列乐器或音乐元素，或者是音乐流派和风格词汇的混搭，您可以使用摇滚、乡村和edm等流派，使用欢快和旋律等描述性形容词，也可以使用欢快edm等两者的组合。相对晦涩或很少配对的流派（例如，蒸汽波波尔卡、恩卡蓝草或蓝草dubstep）的组合更有可能导致混乱。无论这是一个功能还是一个bug，我们都让您自己决定。 示例：</p>
+<ul>
+<li>Modern Cinematic （现代电影音乐）：以电影剧情为主导，创造氛围的音乐，ex：《 星际穿越》</li>
+<li>20th Century Cinematic （20世纪电影音乐）：20世纪的电影配乐，多元且富有历史感，ex：《 星际大战》</li>
+<li>Sea Shanty （海洋风格歌曲）：航海者在海上唱的工作歌曲，ex：《 Wellerman》</li>
+<li>Jazz （爵士乐）：强调即兴和节奏的音乐，ex：《 Fly Me To The Moon》</li>
+<li>Pop （流行乐）：广受欢迎，易于接受的音乐风格，ex：《 Beat It》</li>
+<li>Fantasy （奇幻音乐）： 创造神秘、梦幻氛围的音乐，ex：《 魔戒》</li>
+<li>Rock （摇滚乐）：强烈节奏，激进的音乐风格，ex：《 Paint It， Black》</li>
+<li>Chinese （中国传统音乐）：使用中国乐器，ex：《 二泉映月》</li>
+<li>Tango （探戈）：源自阿根廷的热情舞曲音乐，ex：《 自由探戈》</li>
+<li>Electronic （电子音乐）： 使用电子技术制作的音乐，ex：《 Endless Ocean 1》</li>
+<li>Ambient （环境音乐）： 创造舒适氛围，注重声音纹理的音乐，ex：《 Music for Airports》。</li>
+<li>Hip Hop （嘻哈音乐）：美国黑人街头文化的音乐风格，包含饶舌，ex：《 Changes》。</li>
+</ul>
+<p>填写风格的时候只需要复制前面的英文即可比如 ：Jazz</p>
+<p>该模型不识别艺术家的名字，如“刘德华”、“周杰伦”等。<strong>但可以指定演唱歌手的性别 。在风格输入框写上性别跟流派。如</strong> hard rock, male voice 或者 drum, female voice 流派加逗号加性别的格式。 如果你在让模特演唱复杂的歌曲描述时遇到困难，可以尝试添加“vocals”标签，帮助模特识别歌词是要演唱的。</p>
+<p>如果还没看懂的话，尝试使用我们的随机生成歌词，如果没输入直接点击的随机生成按钮他会生成随机的一首歌，你也可以输入一个主题，然后点击生成歌词按钮，系统会根据你的输入主题进行联想生成歌词，</p>
+<p>能看到正确的示例。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://hal1dru2av7.feishu.cn/space/api/box/stream/download/asynccode/?code=MTEzY2MxYzYyZTUyODMyYTI2ZGYwNmViZGQ2MTAzYjBfdDdNbFNJNHVsWElNY3BFcGozcTkxUTFwR0ZLUERNZ3hfVG9rZW46Rlc5NmI3cUF4b1A4SkJ4ZEVQZGMxWHJVbmtiXzE3MTIyMTI4NTY6MTcxMjIxNjQ1Nl9WNA"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://hal1dru2av7.feishu.cn/space/api/box/stream/download/asynccode/?code=OWEwOTY3MjBiM2E0NzYzNmVlZjNjN2MzODU3NjIzZDZfZVR0UkdKYUg1ZUNGalIxZ2JRRjRWelhkbFUxUWt2aktfVG9rZW46QVRzd2JjUk9Cb2NmaHR4dzVDNGNtMDVIbmVnXzE3MTIyMTI4NTY6MTcxMjIxNjQ1Nl9WNA"></p>
+<h2 id="进阶创作"><a href="#进阶创作" class="headerlink" title="进阶创作"></a>进阶创作</h2><h4 id="元标签"><a href="#元标签" class="headerlink" title="元标签"></a>元标签</h4><p>这里的元标签， 主要是充当引导、提示的作用， 就像指挥家的手势一样，你可以使用元标签来进行描述，像[laughter][whispering][spoken]等,还有像描述歌曲结构中的[intro][verse][chorus]等,有很多种, 目的只有一个，就是让Chirp能准确读出你给的指示。在Chirp中，元标签没有大小写之分。</p>
+<p>元标签引导提示，但本身并没有用语言表达。就像电影剧本中的舞台指示或括号一样，你可以使用元标记来描述提示的特定部分（例如“[笑声]”和“钢琴间奏”），或者通过描述“[耳语]”等说话者特征或“摇滚”等音乐流派来影响你的整个提示。</p>
+<p>以下是一些适用的标签类型的示例，但列表远非详尽无遗。很多不同的标签都会起作用，所以在使用它们时要有创意。混搭，尝试全新的东西</p>
+<p>元标记示例:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://hal1dru2av7.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDY1YmNiMzc2ZDUyMThhZWI0NmE5MjViOGQzNDc4NDZfSFFCc2REQWlQREpRVjlkdUluSEdYYVdKZUNjM2NDTUtfVG9rZW46QVZwdWJxOFN6b2dyV054Z3lkZ2NkM1dsblBmXzE3MTIyMTI4NTY6MTcxMjIxNjQ1Nl9WNA"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://hal1dru2av7.feishu.cn/space/api/box/stream/download/asynccode/?code=MjZhYzRjYTA4MjEwNmI4ZDE4MTExZjAzYzk5ZDZlOGVfRDlJeTNhVmVoYkJPenJ6aUZPdEFicEtHRVlaNXE4b2pfVG9rZW46V1pTT2JWVE5rb0xJSXV4ZEhYU2NRNGtqbkM2XzE3MTIyMTI4NTY6MTcxMjIxNjQ1Nl9WNA"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://hal1dru2av7.feishu.cn/space/api/box/stream/download/asynccode/?code=YzNmN2UzMDQwNDYxNjkyMzJjMWQyODllNmJjYTJmYWNfcmJka2RtSU9PRXdxS2dUcGtSbmFSWUt1N2dPSXhoRTlfVG9rZW46R0MxaWJyYjZib0pIZzd4YU1HcmNpU1RtbmVkXzE3MTIyMTI4NTY6MTcxMjIxNjQ1Nl9WNA"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://hal1dru2av7.feishu.cn/space/api/box/stream/download/asynccode/?code=NTNjOGQwNjhlZGRlMDMyMjRlM2ViNGU5YzBjMTZkOThfdjYwM0c3SWVIOHBLa21XckZUU256QlFDcTdUSUpMeUhfVG9rZW46R2ZIZWJPcGxnbzZlUFB4Q2VTQ2N1VzJKbjFnXzE3MTIyMTI4NTY6MTcxMjIxNjQ1Nl9WNA"></p>
+<h2 id="实战部分"><a href="#实战部分" class="headerlink" title="实战部分"></a>实战部分</h2><p>在这一部分，我会着重讲解前奏该如何去生成，以及一些注意事项， 来帮助更好地生成完整音频。</p>
+<p>在歌曲中,我们一般是按 前奏[intro]→主歌[verse]→副歌[chorus]→间奏[interlude]→主歌[verse]→副歌[chorus]→桥段[bridge]→主歌[verse]→尾奏[outro]这个顺序进行的。我对这个顺序进行了调整,优化为下面的结构:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://hal1dru2av7.feishu.cn/space/api/box/stream/download/asynccode/?code=YjE2M2E2ODMzYzk1YzA4OTg2MWMyMWQwMjdhNTIzMmJfbFgyUEo0bk9VMTdXWmVvMEhrakJxQlkyeG1ZSW5NVHlfVG9rZW46UndySGJWT0E0b2tzZXp4WmRCMmN0Rko5bkxkXzE3MTIyMTI4NTY6MTcxMjIxNjQ1Nl9WNA"></p>
+<h4 id="前奏"><a href="#前奏" class="headerlink" title="前奏"></a>前奏</h4><p>在歌曲中，我们需要通过前奏来确定整首歌曲的基调和旋律， 所以在这里， 我会介绍两种关于生成前奏的方法</p>
+<h4 id="歌曲顺序生成"><a href="#歌曲顺序生成" class="headerlink" title="歌曲顺序生成"></a>歌曲顺序生成</h4><p>这里的话，我会从intro—verse入手，还是那个问题，要让Suno能够准确地读出你给它的指令。intro部分一般情况下只是一段旋律， 没有歌词，所以我们需要特殊处理， 把它作为一个独立部分与verse隔开， 这里用一些括号进行处理,可以是(intro)—[verse], intro—[verse], (intro),(verse), 我个人比较倾向于用第一和第三种</p>
+<p>为什么不能是[intro]—[verse]，因为这样意味着Chirp会把这两个元标签进行合并处理，从而使生成的音乐没有一段旋律前奏，但也不是说这样不好，合并了的元标签意味着你的旋律与主歌同时进行， 相互叠加下能增强歌曲的动态效果。</p>
+<h4 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h4><p>在说唱，摇滚乐，流行乐中会有Intro包含歌词的情况， 一般是一小段， 用来增强歌曲的表现力，这个时候就不用特殊处理了。</p>
+<p>假如我想要在前奏加点乐器，该怎么写呢?比如说jazz风格，我想要加入个萨克斯进去?</p>
+<p>可以用(intro, saxophone, instrumental)表示。</p>
+<p>还记得前面提到的歌词书写规则吗?每次的生成，输入歌词行数最好在4-8行，因为Chirp最长只能生成40秒的音频，你输入过多， Chirp会努力去唱完这些歌词， 所以速度会变快，以致生成质量会变差，所以要控制好输入的内容，尤其是在开头部分， 我的建议是第一个音频生成只放两个段落， 即intro—verse 或verse—chorus， 生成的音频更稳定。</p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a><strong>常见问题</strong></h2><ul>
+<li>歌词的延续<ul>
+<li>如果歌词被切断，那么在下一个片段开始，接上它们停止的地方。如果一个单词被切成两半，用下一个单词开始继续的歌词。</li>
+<li>不要再次使用被中断的元标签。例如，如果你的 [Chorus] 被切断了，那么在下一个片段中，你接上的歌词不要添加 [Chorus] 这个元标签，如果添加了，Chirp 会认为这是新的 [Chorus] 并开始新的生成。</li>
+<li>如果 Suno 尝试重复它刚唱过的完整行，或者逐字重复合唱，使用 [Break] 来打断歌曲流程。</li>
+<li>考虑回到之前的片段，重新使用延续功能生成。</li>
+</ul>
+</li>
+<li>进入一段器乐后，如何让它停止并进入歌词</li>
+<li>试着在歌词前加入语气词，比如 (Ohh,Ohh ohh)，来提示 Suno 这里有人声，让它做好过渡准备，有时有用。</li>
+<li>“无法生成”或“尝试另一个提示”的错误（意味着你的文本请求被阻止了。被拒绝的提示将退还积分）。一个歌曲提示可能因为多种原因被阻止：<ul>
+<li>你的歌词受版权保护。</li>
+<li>你的音乐风格或歌曲描述使用了真实的乐队或艺术家名称。</li>
+<li>你的歌词包含违规词汇。</li>
+<li>你的实际积分用尽了，但网页没有同步。(刷新页面)</li>
+<li>在默认模式或“生成随机歌词”按钮下，AI 无法理解如何将你的请求转化为歌曲。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>另外，你还可以了解…</p>
+<h1 id="音乐风格流派辨析"><a href="#音乐风格流派辨析" class="headerlink" title="音乐风格流派辨析"></a>音乐风格流派辨析</h1><p>Chirp利用先进的语言模型，把输入的文本转换成音乐。想象一下，如果要列出所有的音乐流派和风格，那就像是编写一本字典一样繁杂。但请记住，这不是一份涵盖“一切”的清单，而是一个旨在激发情感和探索新创意的宝贵资源。</p>
+<p>这里提供了一系列经过测试的音乐流派、子流派、风格用词和歌曲类型。你可以将它们灵活组合，给Chirp提供丰富多彩的风格指引。不过，要注意这个列表是永远不会完整的。我们还没能涵盖全球所有的音乐流派和地区特色，更别提那些日常生活中还未被发掘的新鲜风格用词了。</p>
+<p>✅别忘了积极探索，去发现那些有着独特风味的子流派！</p>
+<h1 id="Genre（流派）"><a href="#Genre（流派）" class="headerlink" title="Genre（流派）"></a>Genre（流派）</h1><h1 id="Styles（风格）"><a href="#Styles（风格）" class="headerlink" title="Styles（风格）"></a>Styles（风格）</h1><h1 id="Song-Types（歌曲类型）"><a href="#Song-Types（歌曲类型）" class="headerlink" title="Song Types（歌曲类型）"></a>Song Types（歌曲类型）</h1><h2 id="Country（乡村）"><a href="#Country（乡村）" class="headerlink" title="Country（乡村）"></a>Country（乡村）</h2><ul>
+<li>Blueg+rass（草莓乐）</li>
+<li>Country（乡村音乐）</li>
+<li>Folk（民谣）</li>
+</ul>
+<h2 id="Dance（舞曲）"><a href="#Dance（舞曲）" class="headerlink" title="Dance（舞曲）"></a>Dance（舞曲）</h2><ul>
+<li>Afro-Cuban（阿弗罗-古巴）</li>
+<li>Dance Pop（流行舞曲）</li>
+<li>Disco（迪斯科）</li>
+<li>Dubstep（配音步）</li>
+<li>Disco Funk（迪斯科放克）</li>
+<li>EDM（电子舞曲）</li>
+<li>Electro（电子）</li>
+<li>High-NRG（高能量）</li>
+<li>House（浩室音乐）</li>
+<li>Trance（迷幻舞曲）</li>
+</ul>
+<h2 id="Downtempo（缓拍）"><a href="#Downtempo（缓拍）" class="headerlink" title="Downtempo（缓拍）"></a>Downtempo（缓拍）</h2><ul>
+<li>Ambient（环境音）</li>
+<li>Drum’n’bass（鼓与贝斯）</li>
+<li>Dubstep（配音步）</li>
+<li>Electronic（电子音乐）</li>
+<li>IDM（智能舞曲）</li>
+<li>Synthpop（合成流行）</li>
+<li>Synthwave（合成波）</li>
+<li>Techno（技术音乐）</li>
+<li>Trap（陷阱音乐）</li>
+</ul>
+<h2 id="Jazz-Soul（爵士-灵魂）"><a href="#Jazz-Soul（爵士-灵魂）" class="headerlink" title="Jazz&#x2F;Soul（爵士&#x2F;灵魂）"></a>Jazz&#x2F;Soul（爵士&#x2F;灵魂）</h2><ul>
+<li>Bebop（比博普）</li>
+<li>Gospel（福音）</li>
+<li>Jazz（爵士）</li>
+<li>Latin Jazz（拉丁爵士）</li>
+<li>RnB（节奏蓝调）</li>
+<li>Soul（灵魂乐）</li>
+</ul>
+<h2 id="Latin（拉丁）"><a href="#Latin（拉丁）" class="headerlink" title="Latin（拉丁）"></a>Latin（拉丁）</h2><ul>
+<li>Bossa Nova（波萨诺瓦）</li>
+<li>Latin Jazz（拉丁爵士）</li>
+<li>Forró（弗约罗）</li>
+<li>Salsa（萨尔萨舞）</li>
+<li>Tango（探戈）</li>
+</ul>
+<h2 id="Reggae（雷鬼）"><a href="#Reggae（雷鬼）" class="headerlink" title="Reggae（雷鬼）"></a>Reggae（雷鬼）</h2><ul>
+<li>Dancehall（舞厅）</li>
+<li>Dub（配音）</li>
+<li>Reggae（雷鬼）</li>
+<li>Reggaeton（雷盖顿）</li>
+<li>Afrobeat（非洲节奏）</li>
+</ul>
+<h2 id="Metal（金属）"><a href="#Metal（金属）" class="headerlink" title="Metal（金属）"></a>Metal（金属）</h2><ul>
+<li>Black Metal（黑金属）</li>
+<li>Deathcore（死亡核）</li>
+<li>Death Metal（死亡金属）</li>
+<li>Festive Heavy Metal（节日重金属）</li>
+<li>Heavy Metal（重金属）</li>
+<li>Nu Metal（新金属）</li>
+<li>Power Metal（力量金属）</li>
+<li>Metalcore（金属核）</li>
+</ul>
+<h2 id="Popular（流行）"><a href="#Popular（流行）" class="headerlink" title="Popular（流行）"></a>Popular（流行）</h2><ul>
+<li>Pop（流行音乐）</li>
+<li>Dance Pop（流行舞曲）</li>
+<li>Pop Rock（流行摇滚）</li>
+<li>Kpop（韩流音乐）</li>
+<li>Jpop（日流音乐）</li>
+<li>RnB（节奏蓝调）</li>
+<li>Synthpop（合成流行）</li>
+</ul>
+<h2 id="Rock（摇滚）"><a href="#Rock（摇滚）" class="headerlink" title="Rock（摇滚）"></a>Rock（摇滚）</h2><ul>
+<li>Classic Rock（经典摇滚）</li>
+<li>Blues Rock（布鲁斯摇滚）</li>
+<li>Emo（情绪）</li>
+<li>Glam Rock（华丽摇滚）</li>
+<li>Indie（独立音乐）</li>
+<li>Industrial Rock（工业摇滚）</li>
+<li>Punk（朋克摇滚）</li>
+<li>Rock（摇滚）</li>
+<li>Skate Rock（滑板摇滚）</li>
+<li>Skatecore（滑板核）</li>
+</ul>
+<h2 id="Urban（城市音乐）"><a href="#Urban（城市音乐）" class="headerlink" title="Urban（城市音乐）"></a>Urban（城市音乐）</h2><ul>
+<li>Funk（放克）</li>
+<li>HipHop（嘻哈）</li>
+<li>RnB（节奏蓝调）</li>
+<li>Phonk（酸音乐）</li>
+<li>Rap（说唱）</li>
+<li>Trap（陷阱音乐）</li>
+</ul>
+<h2 id="Danceable（可跳舞的）"><a href="#Danceable（可跳舞的）" class="headerlink" title="Danceable（可跳舞的）"></a>Danceable（可跳舞的）</h2><ul>
+<li>Disco（迪斯科）</li>
+<li>Syncopated（切分节奏）</li>
+<li>Groovy（悠扬）</li>
+<li>Tipsy（微醺）</li>
+</ul>
+<h2 id="Dark（黑暗）"><a href="#Dark（黑暗）" class="headerlink" title="Dark（黑暗）"></a>Dark（黑暗）</h2><ul>
+<li>Dark（黑暗）</li>
+<li>Doom（末日）</li>
+<li>Dramatic（戏剧性）</li>
+<li>Sinister（阴险）</li>
+</ul>
+<h2 id="Electric（电子）"><a href="#Electric（电子）" class="headerlink" title="Electric（电子）"></a>Electric（电子）</h2><ul>
+<li>Art（艺术）</li>
+<li>Nu（新流行）</li>
+<li>Progressive（进步）</li>
+</ul>
+<h2 id="Hard（强硬）"><a href="#Hard（强硬）" class="headerlink" title="Hard（强硬）"></a>Hard（强硬）</h2><ul>
+<li>Aggressive（激进）</li>
+<li>Banger（热门曲目）</li>
+<li>Power（力量）</li>
+<li>Stadium（体育场）</li>
+<li>Stomp（重踏）</li>
+</ul>
+<h2 id="Lyrical（抒情的）"><a href="#Lyrical（抒情的）" class="headerlink" title="Lyrical（抒情的）"></a>Lyrical（抒情的）</h2><ul>
+<li>Broadway（百老汇）</li>
+<li>Cabaret（歌舞表演）</li>
+<li>Lounge（酒吧歌手）</li>
+<li>Operatic（歌剧式的）</li>
+<li>Storytelling（讲故事）</li>
+<li>Torch-Lounge（酒吧歌曲）</li>
+<li>Theatrical（戏剧性的）</li>
+<li>Troubadour（吟游诗人）</li>
+<li>Vegas（拉斯维加斯风格）</li>
+</ul>
+<h2 id="Magical（神奇）"><a href="#Magical（神奇）" class="headerlink" title="Magical（神奇）"></a>Magical（神奇）</h2><ul>
+<li>Ethereal（虚幻）</li>
+<li>Majestic（雄伟）</li>
+<li>Mysterious（神秘）</li>
+</ul>
+<h2 id="Minimal（简约）"><a href="#Minimal（简约）" class="headerlink" title="Minimal（简约）"></a>Minimal（简约）</h2><ul>
+<li>Ambient（环境音乐）</li>
+<li>Cinematic（电影）</li>
+<li>Slow（缓慢）</li>
+<li>Sparse（稀疏）</li>
+</ul>
+<h2 id="Party（派对）"><a href="#Party（派对）" class="headerlink" title="Party（派对）"></a>Party（派对）</h2><ul>
+<li>Glam（华丽）</li>
+<li>Glitter（闪耀）</li>
+<li>Groovy（悠扬）</li>
+<li>Grooveout（活力爆发）</li>
+</ul>
+<h2 id="Soft（柔和）"><a href="#Soft（柔和）" class="headerlink" title="Soft（柔和）"></a>Soft（柔和）</h2><ul>
+<li>Ambient（环境音乐）</li>
+<li>Bedroom（卧室）</li>
+<li>Chillwave（轻松浪潮）</li>
+<li>Ethereal（虚幻）</li>
+<li>Intimate（亲密）</li>
+</ul>
+<h2 id="Weird（奇怪）"><a href="#Weird（奇怪）" class="headerlink" title="Weird（奇怪）"></a>Weird（奇怪）</h2><ul>
+<li>Carnival（嘉年华）</li>
+<li>Haunted（鬼屋）</li>
+<li>Random（随机）</li>
+<li>Musicbox（音乐盒）</li>
+<li>Hollow（空洞）</li>
+</ul>
+<h2 id="World-Ethnic（世界-民族）"><a href="#World-Ethnic（世界-民族）" class="headerlink" title="World&#x2F;Ethnic（世界&#x2F;民族）"></a>World&#x2F;Ethnic（世界&#x2F;民族）</h2></article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/other/image/head/Free%20Pfp%20_3.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/other/image/head/Free%20Pfp%20_3.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Dos7t3r</div><div class="post-copyright__author_desc"></div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://blog.417.red/posts/815f0d88/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://blog.417.red/posts/815f0d88/')">SunoAI Prompt - Suno风格预设及自定义风格使用教程</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://blog.417.red/posts/815f0d88/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=SunoAI Prompt - Suno风格预设及自定义风格使用教程&amp;url=https://blog.417.red/posts/815f0d88/&amp;pic=https://imagecdn01.iambzy.com/wp-content/uploads/2024/04/1712208219-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2024-04-04-132329.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.417.red" target="_blank">Dos7t3rのBlog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/AI/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>AI<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/Suno/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Suno<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://imagecdn01.iambzy.com/media/0-cover/article/241025/Window.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/b6191942/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/wp-content/uploads/2024/03/1709985780-OIP.jpg" onerror="onerror=null;src='https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">HTTP状态码说明</div></div></a></div><div class="next-post pull-right"><a href="/posts/909b7ac/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://www.dmoe.cc/random.php?_r_=1714978f-6845-220e-f372-2215276762f2" onerror="onerror=null;src='https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ChatGPT Suno脚本prompt</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/other/image/head/Free%20Pfp%20_3.jpg" onerror="this.onerror=null;this.src='https://imagecdn01.iambzy.com/other/image/loading/loading.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">科技、研究、开发</b>相关的记录，问题和看法，还有<b style="color:#fff">日常记录</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Dos7t3r</h1><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/dos7t3r" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/226570925" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">走进Dos7t3r的小世界</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%8C%E8%AF%8D%E4%B9%A6%E5%86%99%E8%A7%84%E5%88%99"><span class="toc-number">1.</span> <span class="toc-text">歌词书写规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%A7%91%E6%99%AE%EF%BC%9A%E6%AD%8C%E6%9B%B2%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">知识科普：歌曲结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E5%88%9B%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">进阶创作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E6%A0%87%E7%AD%BE"><span class="toc-number">3.0.1.</span> <span class="toc-text">元标签</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E9%83%A8%E5%88%86"><span class="toc-number">4.</span> <span class="toc-text">实战部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E5%A5%8F"><span class="toc-number">4.0.1.</span> <span class="toc-text">前奏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%8C%E6%9B%B2%E9%A1%BA%E5%BA%8F%E7%94%9F%E6%88%90"><span class="toc-number">4.0.2.</span> <span class="toc-text">歌曲顺序生成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%EF%BC%9A"><span class="toc-number">4.0.3.</span> <span class="toc-text">拓展：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">常见问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9F%B3%E4%B9%90%E9%A3%8E%E6%A0%BC%E6%B5%81%E6%B4%BE%E8%BE%A8%E6%9E%90"><span class="toc-number"></span> <span class="toc-text">音乐风格流派辨析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Genre%EF%BC%88%E6%B5%81%E6%B4%BE%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">Genre（流派）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Styles%EF%BC%88%E9%A3%8E%E6%A0%BC%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">Styles（风格）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Song-Types%EF%BC%88%E6%AD%8C%E6%9B%B2%E7%B1%BB%E5%9E%8B%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">Song Types（歌曲类型）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Country%EF%BC%88%E4%B9%A1%E6%9D%91%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">Country（乡村）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dance%EF%BC%88%E8%88%9E%E6%9B%B2%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">Dance（舞曲）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Downtempo%EF%BC%88%E7%BC%93%E6%8B%8D%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">Downtempo（缓拍）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jazz-Soul%EF%BC%88%E7%88%B5%E5%A3%AB-%E7%81%B5%E9%AD%82%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">Jazz&#x2F;Soul（爵士&#x2F;灵魂）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Latin%EF%BC%88%E6%8B%89%E4%B8%81%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">Latin（拉丁）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reggae%EF%BC%88%E9%9B%B7%E9%AC%BC%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">Reggae（雷鬼）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Metal%EF%BC%88%E9%87%91%E5%B1%9E%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">Metal（金属）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Popular%EF%BC%88%E6%B5%81%E8%A1%8C%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">Popular（流行）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rock%EF%BC%88%E6%91%87%E6%BB%9A%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">Rock（摇滚）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Urban%EF%BC%88%E5%9F%8E%E5%B8%82%E9%9F%B3%E4%B9%90%EF%BC%89"><span class="toc-number">10.</span> <span class="toc-text">Urban（城市音乐）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Danceable%EF%BC%88%E5%8F%AF%E8%B7%B3%E8%88%9E%E7%9A%84%EF%BC%89"><span class="toc-number">11.</span> <span class="toc-text">Danceable（可跳舞的）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dark%EF%BC%88%E9%BB%91%E6%9A%97%EF%BC%89"><span class="toc-number">12.</span> <span class="toc-text">Dark（黑暗）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Electric%EF%BC%88%E7%94%B5%E5%AD%90%EF%BC%89"><span class="toc-number">13.</span> <span class="toc-text">Electric（电子）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hard%EF%BC%88%E5%BC%BA%E7%A1%AC%EF%BC%89"><span class="toc-number">14.</span> <span class="toc-text">Hard（强硬）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lyrical%EF%BC%88%E6%8A%92%E6%83%85%E7%9A%84%EF%BC%89"><span class="toc-number">15.</span> <span class="toc-text">Lyrical（抒情的）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Magical%EF%BC%88%E7%A5%9E%E5%A5%87%EF%BC%89"><span class="toc-number">16.</span> <span class="toc-text">Magical（神奇）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Minimal%EF%BC%88%E7%AE%80%E7%BA%A6%EF%BC%89"><span class="toc-number">17.</span> <span class="toc-text">Minimal（简约）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Party%EF%BC%88%E6%B4%BE%E5%AF%B9%EF%BC%89"><span class="toc-number">18.</span> <span class="toc-text">Party（派对）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Soft%EF%BC%88%E6%9F%94%E5%92%8C%EF%BC%89"><span class="toc-number">19.</span> <span class="toc-text">Soft（柔和）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Weird%EF%BC%88%E5%A5%87%E6%80%AA%EF%BC%89"><span class="toc-number">20.</span> <span class="toc-text">Weird（奇怪）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#World-Ethnic%EF%BC%88%E4%B8%96%E7%95%8C-%E6%B0%91%E6%97%8F%EF%BC%89"><span class="toc-number">21.</span> <span class="toc-text">World&#x2F;Ethnic（世界&#x2F;民族）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/b1cfe2b6/" title="MacOS移植Windows - HEXO部署"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/media/0-cover/article/241025/Window.jpg" onerror="this.onerror=null;this.src='https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png'" alt="MacOS移植Windows - HEXO部署"/></a><div class="content"><a class="title" href="/posts/b1cfe2b6/" title="MacOS移植Windows - HEXO部署">MacOS移植Windows - HEXO部署</a><time datetime="2024-10-25T02:52:10.000Z" title="发表于 2024-10-25 10:52:10">2024-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8f48ad/" title="悬挂的约定"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/media/0-cover/article/240923/%E6%82%AC%E6%8C%82%E7%9A%84%E7%BA%A6%E5%AE%9A.png" onerror="this.onerror=null;this.src='https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png'" alt="悬挂的约定"/></a><div class="content"><a class="title" href="/posts/8f48ad/" title="悬挂的约定">悬挂的约定</a><time datetime="2024-09-23T07:22:31.000Z" title="发表于 2024-09-23 15:22:31">2024-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d0bb17fb/" title="0831 开启加拿大生活"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/media/0-cover/article/liuxue.png" onerror="this.onerror=null;this.src='https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png'" alt="0831 开启加拿大生活"/></a><div class="content"><a class="title" href="/posts/d0bb17fb/" title="0831 开启加拿大生活">0831 开启加拿大生活</a><time datetime="2024-08-30T16:00:00.000Z" title="发表于 2024-08-31 00:00:00">2024-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2ef49e1a/" title="致我亲爱的映超儿"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/media/0-cover/letter/wyc.png " onerror="this.onerror=null;this.src='https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png'" alt="致我亲爱的映超儿"/></a><div class="content"><a class="title" href="/posts/2ef49e1a/" title="致我亲爱的映超儿">致我亲爱的映超儿</a><time datetime="2024-08-27T15:22:16.000Z" title="发表于 2024-08-27 23:22:16">2024-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/55113733/" title="致我亲爱的鸿凯"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/media/0-cover/letter/hx%20(1).png" onerror="this.onerror=null;this.src='https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png'" alt="致我亲爱的鸿凯"/></a><div class="content"><a class="title" href="/posts/55113733/" title="致我亲爱的鸿凯">致我亲爱的鸿凯</a><time datetime="2024-08-24T15:22:16.000Z" title="发表于 2024-08-24 23:22:16">2024-08-24</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" href="mailto:3319326@gmail.com" title="email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/dos7t3r" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><img class="footer_mini_logo" title="返回顶部" alt="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://imagecdn01.iambzy.com/other/image/head/Free%20Pfp%20_3.jpg" size="50px"/><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/226570925" title="Bilibili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://www.douyin.com/user/MS4wLjABAAAAJ4xbihmwCMkSxPDGeEXhAli2kcL-fCylrMIRaM5kDMA" title="抖音"><i class="anzhiyufont anzhiyu-icon-tiktok"></i></a></div><div id="workboard"><div id="runtimeTextTip"></div></div><div class="footer_custom_text"><h3>不用担心,我从未离去.❤</h3></div><div id="anzhiyu-footer"><div class="footer-group"><div class="footer-title">服务</div><div class="footer-links"><a class="footer-item" title="51la统计" target="_blank" rel="noopener" href="https://v6.51.la/">51la统计</a><a class="footer-item" title="BAO（AI版）" target="_blank" rel="noopener" href="https://chatglm.cn/main/gdetail/66a36376a1963579dc94fe20">BAO（AI版）</a><a class="footer-item" title="音乐馆" href="/music/?id=7666478338&amp;server=netease">音乐馆</a></div></div><div class="footer-group"><div class="footer-title">主题</div><div class="footer-links"><a class="footer-item" title="Blog 评论管理" target="_blank" rel="noopener" href="https://waline-comments.417.red/ui/login?lng=zh-CN">Blog 评论管理</a><a class="footer-item" title="LocalSearch 本地搜索" target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search">LocalSearch 本地搜索</a><a class="footer-item" title="LeanCloud 国际版" target="_blank" rel="noopener" href="https://console.leancloud.app/apps">LeanCloud 国际版</a></div></div><div class="footer-group"><div class="footer-title">导航</div><div class="footer-links"><a class="footer-item" title="即刻·短文" href="/essay/">即刻·短文</a><a class="footer-item" title="留言板" href="/comments/">留言板</a></div></div><div class="footer-group"><div class="footer-title">协议</div><div class="footer-links"><a class="footer-item" title="隐私协议" href="/privacy/">隐私协议</a></div></div><div class="footer-group"><div class="footer-title">相关</div><div class="footer-links"><a class="footer-item" title="EasyHexo" target="_blank" rel="noopener" href="https://easyhexo.com/">EasyHexo</a></div></div><div class="footer-group"><div class="footer-title-group"><div class="footer-title">友链</div><a class="random-friends-btn" id="footer-random-friends-btn" href="javascript:addFriendLinksInFooter();" title="换一批友情链接"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i></a></div><div class="footer-links" id="friend-links-in-footer"></div></div></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"/></a><a class="github-badge" target="_blank" href="https://blog.anheyu.com/" style="margin-inline:5px" data-title="本站使用AnZhiYu主题" title="本站使用AnZhiYu主题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg" alt="本站使用AnZhiYu主题"/></a><a class="github-badge" target="_blank" href="https://www.dogecloud.com/?iuid=4600" style="margin-inline:5px" data-title="本站使用多吉云为静态资源提供CDN加速" title="本站使用多吉云为静态资源提供CDN加速"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg" alt="本站使用多吉云为静态资源提供CDN加速"/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title="本站项目由Github托管"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg" alt="本站项目由Github托管"/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg" alt="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"/></a></p></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2024 By <a class="footer-bar-link" href="/" title="Dos7t3r" target="_blank">Dos7t3r</a></div></div><div id="footer-type-tips"></div><div class="js-pjax"><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        const from = '出自 ' + data.from
+        const sub = ["我在爱你."]
+        sub.unshift(data.hitokoto, from)
+        window.typed = new Typed('#footer-type-tips', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('footer-type-tips').innerHTML = data.hitokoto
+      }
+    })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.cbd.int/typed.js@2.1.0/dist/typed.umd.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/" title="蒙ICP备2021003105号-1">蒙ICP备2021003105号-1</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">71</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">34</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">24</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://iambzy.com/" title="WordPress博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="/img/favicon.ico" alt="WordPress博客"/><span class="back-menu-item-text">WordPress博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">内容</div><div class="back-menu-list"><a class="back-menu-item" href="https://blog.417.red/" title="blog.417.red"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="blog.417.red"/><span class="back-menu-item-text">blog.417.red</span></a><a class="back-menu-item" href="/essay/" title="说说·即刻"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://tse1-mm.cn.bing.net/th/id/OIP-C.-f8Oj2or4Ujox_iIpx_5GAHaHa?w=168&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" alt="说说·即刻"/><span class="back-menu-item-text">说说·即刻</span></a><a class="back-menu-item" href="/album/" title="相册集"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://tse2-mm.cn.bing.net/th/id/OIP-C.rgV6jtmvNJ-mwqjmejknQAHaHa?w=191&amp;h=191&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" alt="相册集"/><span class="back-menu-item-text">相册集</span></a><a class="back-menu-item" href="/music/?id=7666478338&amp;server=netease" title="音乐馆"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://ts1.cn.mm.bing.net/th/id/R-C.ee0749fc519ccc19a9848730603d6bdf?rik=3vASoE2ipOM7Tg&amp;riu=http%3a%2f%2fwww.kuaipng.com%2fUploads%2fpic%2fw%2f2020%2f03-26%2f75810%2fwater_75810_698_698_.png&amp;ehk=SAh2j%2bTynb9AdGGHGtM%2fMyW4j21Ke6HLFAHpvpL8fww%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0" alt="音乐馆"/><span class="back-menu-item-text">音乐馆</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">瞎折腾</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://iambzy.com/disk/" title="网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://pan.cccyun.cc/img/logo.png" alt="网盘"/><span class="back-menu-item-text">网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://nav.iambzy.com" title="网站导航"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://nav.iambzy.com/favicon.ico" alt="网站导航"/><span class="back-menu-item-text">网站导航</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://chatglm.cn/main/gdetail/66a36376a1963579dc94fe20" title="BAO(AI版)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://chatglm.cn/img/icons/favicon-32x32.png" alt="BAO(AI版)"/><span class="back-menu-item-text">BAO(AI版)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">其他玩意儿</div><div class="back-menu-list"><a class="back-menu-item" href="/about/" title="关于我"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://img.tukuppt.com/png_preview/00/08/25/CmtQLdc8b7.jpg!/fw/780" alt="关于我"/><span class="back-menu-item-text">关于我</span></a><a class="back-menu-item" href="/essay/" title="说说·即刻"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://tse1-mm.cn.bing.net/th/id/OIP-C.-f8Oj2or4Ujox_iIpx_5GAHaHa?w=168&amp;h=180&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.3&amp;pid=1.7" alt="说说·即刻"/><span class="back-menu-item-text">说说·即刻</span></a><a class="back-menu-item" href="javascript:toRandomPost()" title="随便看看"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://img.88icon.com/upload/jpg/20210526/92637d8f33861bf45d4a843b849389e0_21975_512_512.jpg!bg" alt="随便看看"/><span class="back-menu-item-text">随便看看</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://shuixinglema.417.red/" title="睡醒了吗？"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png&quot;" data-lazy-src="https://th.bing.com/th/id/OIP.kyLqaygZawnex8I7GUoCMwAAAA?rs=1&amp;pid=ImgDetMain" alt="睡醒了吗？"/><span class="back-menu-item-text">睡醒了吗？</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=7666478338&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/equipment/"><i class="anzhiyufont anzhiyu-icon-dice-d20 faa-tada" style="font-size: 0.9em;"></i><span> 装备集</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://chatglm.cn/main/gdetail/66a36376a1963579dc94fe20"><i class="anzhiyufont anzhiyu-icon-comments faa-tada" style="font-size: 0.9em;"></i><span> AI版</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-heartbeat faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 0.88rem;">AI<sup>1</sup></a><a href="/tags/BUG/" style="font-size: 0.88rem;">BUG<sup>1</sup></a><a href="/tags/ChatGPT/" style="font-size: 0.88rem;">ChatGPT<sup>5</sup></a><a href="/tags/Hexo/" style="font-size: 0.88rem;">Hexo<sup>2</sup></a><a href="/tags/Hexo-Tag-Dplayer/" style="font-size: 0.88rem;">Hexo-Tag-Dplayer<sup>1</sup></a><a href="/tags/Nginx/" style="font-size: 0.88rem;">Nginx<sup>4</sup></a><a href="/tags/Python/" style="font-size: 0.88rem;">Python<sup>1</sup></a><a href="/tags/SSL/" style="font-size: 0.88rem;">SSL<sup>1</sup></a><a href="/tags/Suno/" style="font-size: 0.88rem;">Suno<sup>1</sup></a><a href="/tags/aimware/" style="font-size: 0.88rem;">aimware<sup>5</sup></a><a href="/tags/bat%E8%84%9A%E6%9C%AC/" style="font-size: 0.88rem;">bat脚本<sup>1</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>6</sup></a><a href="/tags/div/" style="font-size: 0.88rem;">div<sup>1</sup></a><a href="/tags/gamesense/" style="font-size: 0.88rem;">gamesense<sup>1</sup></a><a href="/tags/html/" style="font-size: 0.88rem;">html<sup>8</sup></a><a href="/tags/js/" style="font-size: 0.88rem;">js<sup>5</sup></a><a href="/tags/php/" style="font-size: 0.88rem;">php<sup>3</sup></a><a href="/tags/title/" style="font-size: 0.88rem;">title<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>2</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.88rem;">博客<sup>1</sup></a><a href="/tags/%E5%9B%9E%E5%BF%86/" style="font-size: 0.88rem;">回忆<sup>1</sup></a><a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA/" style="font-size: 0.88rem;">奇奇怪怪<sup>1</sup></a><a href="/tags/%E5%AD%A6%E6%97%A5/" style="font-size: 0.88rem;">学日<sup>1</sup></a><a href="/tags/%E5%AD%A6%E6%A0%A1/" style="font-size: 0.88rem;">学校<sup>1</sup></a><a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 0.88rem;">建站<sup>2</sup></a><a href="/tags/%E6%82%AC%E6%8C%82/" style="font-size: 0.88rem;">悬挂<sup>1</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 0.88rem;">教程<sup>2</sup></a><a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 0.88rem;">日记<sup>9</sup></a><a href="/tags/%E6%9C%8B%E5%8F%8B/" style="font-size: 0.88rem;">朋友<sup>1</sup></a><a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 0.88rem;">游戏<sup>1</sup></a><a href="/tags/%E7%BA%A6%E5%AE%9A/" style="font-size: 0.88rem;">约定<sup>1</sup></a><a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 0.88rem;">网站<sup>4</sup></a><a href="/tags/%E9%94%99%E8%AF%AF/" style="font-size: 0.88rem;">错误<sup>1</sup></a><a href="/tags/%E9%AB%98%E4%B8%AD/" style="font-size: 0.88rem;">高中<sup>1</sup></a></div></div><hr/></div></div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keybordList"><div class="keybordItem"><div class="keyGroup"><div class="key">shift K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift A</div></div><div class="keyContent"><div class="content">打开/关闭中控台</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift D</div></div><div class="keyContent"><div class="content">深色/浅色显示模式</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift S</div></div><div class="keyContent"><div class="content">站内搜索</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift R</div></div><div class="keyContent"><div class="content">随机访问</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift F</div></div><div class="keyContent"><div class="content">友链鱼塘</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift L</div></div><div class="keyContent"><div class="content">友链页面</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift P</div></div><div class="keyContent"><div class="content">关于本站</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift I</div></div><div class="keyContent"><div class="content">原版/本站右键菜单</div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7666478338" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://music.163.com/#/playlist?id=12345199778&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("06/14/2020 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Dos7t3r 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("06/14/2020 00:00:00"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
+
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
+
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      if (img != null) {
+        img.src = "";
+        img.title = "";
+        img.alt = "";
+      }
+
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const initWaline = () => {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://waline-comments.417.red/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  const loadWaline = async () => {
+    if (typeof Waline === 'object') initWaline()
+    else {
+      await getCSS('https://cdn.cbd.int/@waline/client@2.15.5/dist/waline.css')
+      await getScript('https://cdn.cbd.int/@waline/client@2.15.5/dist/waline.js')
+      initWaline()
+    }
+  }
+
+  if ('Waline' === 'Waline' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = async () => {
+    try {
+      const res = await fetch('https://waline-comments.417.red/api/comment?type=recent&count=6', { method: 'GET' })
+      const result = await res.json()
+      const walineArray = result.data.map(e => {
+        return {
+          'content': changeContent(e.comment),
+          'avatar': e.avatar,
+          'nick': e.nick,
+          'url': e.url + '#' + e.objectId,
+          'date': e.time || e.insertedAt
+        }
+      })
+      saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 10/(60*24))
+      generateHtml(walineArray)
+    } catch (err) {
+      console.error(err)
+      const $dom = document.querySelector('#card-newest-comments .aside-list')
+      $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+    }
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('waline-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "guest@417.red";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script id="click-show-text" src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/click-show-text.min.js" data-mobile="true" data-text="I,LOVE,YOU" data-fontsize="15px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
