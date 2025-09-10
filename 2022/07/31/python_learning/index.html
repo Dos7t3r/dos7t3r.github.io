@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Manda">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://notes.417.red/2022/07/31/python_learning/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manda&#39;s Python Learning Notes">
+<meta property="og:url" content="http://notes.417.red/2022/07/31/python_learning/index.html">
+<meta property="og:site_name" content="Manda&#39;s Note">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://notes.417.red/images/redefine-og.webp">
+<meta property="article:published_time" content="2022-07-31T11:47:45.000Z">
+<meta property="article:modified_time" content="2025-09-10T02:12:00.684Z">
+<meta property="article:author" content="Manda">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://notes.417.red/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="http://blog.iambzy.com/wp-content/uploads/2025/07/cropped-1752471210-round.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://blog.iambzy.com/wp-content/uploads/2025/07/cropped-1752471210-round.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="http://blog.iambzy.com/wp-content/uploads/2025/07/cropped-1752471210-round.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Manda&#39;s Python Learning Notes | Manda&#39;s Notes
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"notes.417.red","root":"/","language":"en","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"recommendation","limit":3,"mobile_limit":2,"placeholder":"https://placehold.co/1280x720?text=No\\nPicture","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":"AlimamaFangYuanTiVF","url":"https://blog.iambzy.com/cdn/fonts/AlimamaFangYuanTiVF-Thin.woff2"},"english":{"enable":false,"family":"AlimamaFangYuanTiVF","url":"https://blog.iambzy.com/cdn/fonts/AlimamaFangYuanTiVF-Thin.woff2"},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"M A N D A"},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://w.wallhaven.cc/full/9o/wallhaven-9omr8k.png","dark":"https://ooo.0x0.ooo/2025/09/10/OlmUlq.jpg"},"title":"Welcome to <br> Manda's Notes","subtitle":{"text":["Feel the world"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Dos7t3r/","instagram":null,"zhihu":null,"twitter":null,"email":"hello@417.red"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"泡沫（Swang Remix|remix：多雷）","artist":"序不是序# 艺术家","url":"https://blog.iambzy.com/wp-content/uploads/2025/03/1740798841-%E5%BA%8F%E4%B8%8D%E6%98%AF%E5%BA%8F-%E6%B3%A1%E6%B2%AB-Swang-Remix.mp3# 音乐链接","cover":"https://blog.iambzy.com/wp-content/uploads/2025/03/1740798843-WechatIMG495.jpg","lrc":"https://dos7t3r.github.io/lyric.lrc"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Dos7t3r","Blog":"https://blog.iambzy.com","Friends":"/friends"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Hi there! Welcome to Manda's Note. I'll record my university programming experience here. Wish you a great day!","show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        M A N D A
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Manda&#39;s Notes
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/Dos7t3r">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://blog.iambzy.com">
+                                                    BLOG
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/friends">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/Dos7t3r">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://blog.iambzy.com">BLOG</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/friends">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://blog.iambzy.com/wp-content/uploads/2022/07/pycharm.png" alt="Manda&#39;s Python Learning Notes" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">Manda&#39;s Python Learning Notes</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://ooo.0x0.ooo/2025/04/16/OcodBY.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Manda</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2022-07-31 07:47:45</span>
+        <span class="mobile">2022-07-31 07:47:45</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-09-09 22:12</span>
+            <span class="mobile">2025-09-09 22:12</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Programming/">Programming</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Python/">Python</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Learning/">Learning</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Notes/">Notes</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>7.3k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>45 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p>Hey there!<br>I’m Manda. I’m currently studying Computer Science at the University of Toronto.<br>This is a continuously updated Python learning diary.<br>I will record my error-prone content and notes here. Thank you for coming. Wish you a wonderful day ~</p>
+<hr>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.iambzy.com/p/1218" >CHINESE VERSION<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h2 id="1-Install-the-environment"><a href="#1-Install-the-environment" class="headerlink" title="1. Install the environment"></a>1. Install the environment</h2><h3 id="1-Install-the-development-environment-and-compiler"><a href="#1-Install-the-development-environment-and-compiler" class="headerlink" title="(1) Install the development environment and compiler"></a>(1) Install the development environment and compiler</h3><p>You need to install the development environment and compiler.</p>
+<p>Python installation tips:</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.python.org/" >https://www.python.org/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>①. When installing Python, you need to check the “Add Python3.10 to PATH” box below.</p>
+<p>②. After completing, click “Disable path length limit” (if it disappears, it is successful)</p>
+<p>③. Verify whether Python is installed - Run CMD and enter Python. If Python is prompted and the leading path changes to “&gt;&gt;&gt;”, it is successful.</p>
+<p>PyCharm installation tips:</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.jetbrains.com/zh-cn/pycharm/download/#section=windows" >https://www.jetbrains.com/zh-cn/pycharm/download/#section=windows<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> (Select the gray free personal version)</p>
+<p>①. Check the first and bottom two checkboxes in the installation options. The contents are Create Desktop ShotCut (creating a desktop shortcut) and Create Associations (.py) (to compile all .py files using PyCharm).</p>
+<p>②. DATASHARNG is optional.</p>
+<p>③. If you want to use Chinese, search for “Chinese” in the Plugins section and install the plugin with the “汉” icon. Restart PyCharm following the prompts.</p>
+<h3 id="2-PyCharm-configuration"><a href="#2-PyCharm-configuration" class="headerlink" title="(2). PyCharm configuration"></a>(2). PyCharm configuration</h3><ol>
+<li><p>When creating a new project, remember to select the installed Python version (3.10) in the “Basic Editor”</p>
+</li>
+<li><p>Do not check Create main.py Welcome</p>
+</li>
+<li><p>Do not touch the venv in the project folder. This is the project’s independent Python virtual environment. Do not change or write to it!</p>
+</li>
+<li><p>When creating a new file, click Cancel when prompted to “Add file to Git” (you can check “Do not prompt again”)</p>
+</li>
+<li><p>To open the editing panel, right-click the project folder in PyCharm and select New-Python File (note that you should not create it in venv)</p>
+</li>
+</ol>
+<h2 id="2-Basic-knowledge"><a href="#2-Basic-knowledge" class="headerlink" title="2. Basic knowledge"></a>2. Basic knowledge</h2><h3 id="1-Data-types"><a href="#1-Data-types" class="headerlink" title="(1). Data types"></a>(1). Data types</h3><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>示例1</th>
+<th>示例2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符串 str</td>
+<td><code>&quot;Hello&quot;</code></td>
+<td><code>&quot;呐!&quot;</code></td>
+</tr>
+<tr>
+<td>整数 int</td>
+<td><code>6</code></td>
+<td><code>-32</code></td>
+</tr>
+<tr>
+<td>浮点数 float</td>
+<td><code>6.0</code></td>
+<td><code>10.07</code></td>
+</tr>
+<tr>
+<td>布尔类型 bool</td>
+<td><code>True</code></td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td>空值类型 NoneType</td>
+<td><code>-</code></td>
+<td><code>-</code></td>
+</tr>
+</tbody></table>
+<p>NoneType 就叫 <code>None</code></p>
+<h4 id="②-字符串-str"><a href="#②-字符串-str" class="headerlink" title="②.字符串 str"></a>②.字符串 str</h4><p>A string of characters representing text (can be enclosed in single or double quotes!)</p>
+<p>The len function returns the length of the string!</p>
+<p>By the way, spaces, numbers, and symbols all take up a single length.</p>
+<p>However, a complete transition character takes up a single length. For example, len(‘\n’) &#x3D; 1, len(‘hi!!\n’) &#x3D; 5.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Get the string length</span><br><span class="line">len(&#x27;Hello&#x27;)</span><br><span class="line">len(&#x27;Yo!&#x27;)</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>After adding the print event</strong> the output is as follows</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">2</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>Next we will learn a new thing: index</strong></p>
+<p>[buy] index, use English parentheses, for example [[]][&#x2F;buy]</p>
+<p>You can extract a single character at a certain position in the string!</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&quot;Hello&quot;[3]</span><br></pre></td></tr></table></figure></div>
+
+<p>Note! The index order starts from 0, which means from left to right it is 0, 1, 2, 3…</p>
+<p>For example, the code above returns the fourth letter (although it is written as 3), which means “l”</p>
+<h4 id="③-Integer-Floating-Point-Number-int-float"><a href="#③-Integer-Floating-Point-Number-int-float" class="headerlink" title="③. Integer&#x2F;Floating Point Number int&#x2F;float"></a>③. Integer&#x2F;Floating Point Number int&#x2F;float</h4><p>Floating point numbers are called float in Python and support mathematical operations.</p>
+<h4 id="④-Boolean-Type-bool"><a href="#④-Boolean-Type-bool" class="headerlink" title="④. Boolean Type bool"></a>④. Boolean Type bool</h4><p>Can only return true or false (1 or 0) True or False (note that T and F are capitalized!!!)</p>
+<p>Often used in logical reasoning</p>
+<h4 id="⑤-Null-Type-NoneType"><a href="#⑤-Null-Type-NoneType" class="headerlink" title="⑤. Null Type NoneType"></a>⑤. Null Type NoneType</h4><p>This type has only one value: None.</p>
+<p>None ≠ 0 or “ “ or False; it represents the absence of a value.</p>
+<p>If you need a variable but don’t know its value yet, you can use NoneType as a placeholder.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># e.g.</span><br><span class="line">my_wife = None</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<p>When you’re unsure of an object’s type, you can use ↓</p>
+<p>[buy]Type function: Returns the object’s type[&#x2F;buy]</p>
+<p>Homework ↓</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/study-1.png"
+                     
+                ></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/lesson12.zip" >lesson 12<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><a class="link"   target="_blank" rel="noopener" href="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/lesson12.zip" >Download<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<hr>
+<h3 id="2-Python-interactive-mode"><a href="#2-Python-interactive-mode" class="headerlink" title="(2). Python interactive mode"></a>(2). Python interactive mode</h3><h4 id="①-Command-line-mode"><a href="#①-Command-line-mode" class="headerlink" title="①. Command line mode"></a>①. Command line mode</h4><p>Write the command → Save → Run</p>
+<p>This is our most normal way of writing code</p>
+<h4 id="②-Interactive-mode"><a href="#②-Interactive-mode" class="headerlink" title="②. Interactive mode"></a>②. Interactive mode</h4><p>You can think of it as green run mode</p>
+<p>You can run it in the console under cmd&#x2F;Pycharm</p>
+<p>The first advantage is that you don’t need to create any files and can run it directly</p>
+<p>And you don’t need to write print statements, Python will directly output the results of the operation</p>
+<h3 id="3-Variables"><a href="#3-Variables" class="headerlink" title="(3). Variables"></a>(3). Variables</h3><p>Basic syntax: variable name &#x3D; variable value</p>
+<p>e.g.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_love = &quot;15199999999&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p> As mentioned earlier, Python runs line by line from top to bottom. If you print first and then assign a value, the program will not get the result. </p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_love = &quot;15199999999&quot;</span><br><span class="line">print(&quot;Call: &quot; + my_love)</span><br></pre></td></tr></table></figure></div>
+
+<p>In this code, my_love is not enclosed in quotes, so it appears as a variable.</p>
+<p>If you want to store multiple variables, you can use another variable to store them.</p>
+<p>For example, use my_friend to store the original my_love and then overwrite the new value of my_love.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_love = &quot;15199999999&quot; # The original value of the mylove variable</span><br><span class="line">my_friend = my_love # Assign mylove to the new variable</span><br><span class="line">my_love = &quot;13366666666&quot; # Assign the new value to mylove</span><br></pre></td></tr></table></figure></div>
+
+<p>Hard rules for Python variable names: They can only contain letters, numbers, and underscores, cannot start with a number, and cannot contain keywords.   Python variable names are case-sensitive! userage and userAge are two different variables! </p>
+<p>Note that the reason I mentioned that they cannot be keywords is because if you assign a value to print…</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print = &quot;u123&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>Then you won’t be able to use print to print later!</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print = &quot;u123&quot;</span><br><span class="line">print(&quot;Hello&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>Because in the current program, print is no longer a function with printing function</p>
+<p>In PyCharm, if the variable name you type turns into color, it means it is keyword 2. It is recommended to change it!</p>
+<h3 id="4-Python-mathematical-operations"><a href="#4-Python-mathematical-operations" class="headerlink" title="(4). Python mathematical operations"></a>(4). Python mathematical operations</h3><p>First, Python uses an asterisk [*] for multiplication and a slash [&#x2F;] for division</p>
+<p>Second, Python also operates according to the priority of mathematical operations</p>
+<p><strong>Parenthesis are calculated first, followed by exponentiation, then multiplication and division, and finally addition and subtraction</strong></p>
+<p>In Python, exponentiation can be represented by two asterisks connecting numbers. For example, the square is [** 2]</p>
+<p>Or you can import a math function library and add import math at the beginning</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br></pre></td></tr></table></figure></div>
+
+<p>Then you need to add math at the beginning of the function name when calling it below</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line">math.functionname(...)</span><br><span class="line">// For example, calculate sin1 Then use the sin function with a value of 1.</span><br><span class="line">math.sin(1)</span><br><span class="line">// This step only performs the calculation but does not print the result. So to get the result, you can write it like this↓</span><br><span class="line">print(math.sin(1))</span><br><span class="line">// Or assign the value print to a variable</span><br><span class="line">result = math.sin(1) // Register a function named result to store the result of the mathematical operation</span><br><span class="line">print(result) // Print the value of result</span><br><span class="line"></span><br><span class="line">// P.S. The code editor for this part has an error and recognizes it as a Lua script</span><br><span class="line">// You can only write comments in Lua, but Python&#x27;s comment method is the pound sign (Shift + 4)</span><br></pre></td></tr></table></figure></div>
+
+<p>For more mathematical functions and usage methods, you can click the link below to jump to the official documentation</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/math.html" >https://docs.python.org/zh-cn/3/library/math.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<hr>
+<p><strong><em>Example ①</em></strong></p>
+<p>❤Goal: Calculate the two roots of a quadratic function</p>
+<p>❤【-x²-2x+3&#x3D;0】</p>
+<p>Use the root-finding formula</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/07/7acb0a46f21fbe096b63584e152b1b338744ebf8071f-edited.jpg"
+                     
+                ></p>
+<p>❤【-x²-2x+3&#x3D;0】</p>
+<p>In this formula, a &#x3D; -1, b &#x3D; -2, c &#x3D; 3</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = -1</span><br><span class="line">b = 2</span><br><span class="line">c = 3</span><br><span class="line"># First, assign variables</span><br><span class="line"># Because the root-finding formula involves addition or subtraction, there are two results, so we need to write two code snippets~</span><br><span class="line"># First, calculate the addition solution</span><br><span class="line">-b + (b ** 2 - 4 * a * c) **(1/2)</span><br><span class="line"># b² - 4ac, the square root is replaced with the square root of one-half!</span><br><span class="line"># If you&#x27;ve imported the math library, you can use the sqrt function, which returns the square root.</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import math # First import the library</span><br><span class="line">a = -1</span><br><span class="line">b = 2</span><br><span class="line">c = 3</span><br><span class="line"></span><br><span class="line">(-b + math.sqrt(b ** 2 - 4 * a * c)) / 2 * a</span><br><span class="line"># This is the first solution we&#x27;re looking for</span><br><span class="line"># For the second solution, simply change the sign to a negative.</span><br><span class="line">(-b - math.sqrt(b ** 2 - 4 * a * c)) / 2 * a</span><br><span class="line"># Remember to use print(), otherwise the result won&#x27;t be output!</span><br></pre></td></tr></table></figure></div>
+
+<p>If you want to calculate other functions, this is even more convenient; just change the values ​​of a, b, and c.</p>
+<p>Tip: If you want to make the code simpler, you can register a value called delta (△).</p>
+<p>Specify it as b² - 4ac</p>
+<p>a &#x3D; 1<br>b &#x3D; 9<br>c &#x3D; 20<br>delta &#x3D; b ** 2 - 4 * a * c<br>print((-b + math.sqrt(delta)) &#x2F; (2 * a))<br>print((-b - math.sqrt(delta)) &#x2F; (2 * a))</p>
+<p>This makes it much more convenient.</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://imagecdn01.iambzy.com/wp-content/uploads/2022/07/pythonProject.zip" >pythonProject<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>Oh, and there’s a str function in lines 6 and 7 in this image.</p>
+<p>If you don’t add it, you’ll get a message like</p>
+<p>can only concatenate str (not “float”) to str</p>
+<p>I searched online and found that</p>
+<blockquote>
+<p>In Python, the print function doesn’t recognize two data types simultaneously. In the code, money is of type float and preceded by a string. It can be printed by itself using print(money). However, since it has a string at the beginning, the money at the end also needs to be a string. To do this, simply convert the type: print(“Total price is “ + str(money))</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/fqfq123456/article/details/119506330" >https://blog.csdn.net/fqfq123456/article/details/119506330<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<p>So, I converted the variables resulta and resultb to strings.</p>
+<p>This is additional information I learned while debugging and is not part of the main storyline of this diary!</p>
+<hr>
+<h3 id="5-Comments"><a href="#5-Comments" class="headerlink" title="(5). Comments"></a>(5). Comments</h3><blockquote>
+<p>When you first write code, only you and God know what it does. After a few days, only God knows.</p>
+</blockquote>
+<blockquote>
+<p>The Importance of Comments</p>
+</blockquote>
+<p>Comments in Python use the pound sign [#]</p>
+<p>For example</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># This is a line of comment</span><br></pre></td></tr></table></figure></div>
+
+<p> In the Win+PyCharm environment, click CTRL+? You can annotate the selected content with one click (same as VSCODE)</p>
+<p>Tip: You can also use triple quotes “”” to wrap the comment</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">This is a</span><br><span class="line">multi-line</span><br><span class="line">comment</span><br><span class="line">&quot;&quot;</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h3 id="6-Data-structure"><a href="#6-Data-structure" class="headerlink" title="(6). Data structure"></a>(6). Data structure</h3><h4 id="①-List"><a href="#①-List" class="headerlink" title="①. List"></a>①. List</h4><p>In Python, to represent a list (data structure), use a pair of square brackets[ ]</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># e.g.</span><br><span class="line">shopping_list = []</span><br></pre></td></tr></table></figure></div>
+
+<p>If you want to preset data, you can use quotes to enclose it and use <strong>English commas</strong> to separate it</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># list</span><br><span class="line">shopping_list = [&quot;keyboard&quot;,&quot;mouse&quot;]</span><br></pre></td></tr></table></figure></div>
+
+<p>Here, the course progress introduces a new <strong>method</strong> append. Other methods can be found under the heading <strong>4. Method</strong>!</p>
+<p>[buy] method: Similar to a function, but methods are generally called as [object.method name(…)]. Functions are Use [Function Name (Object)] like this. [&#x2F;buy]</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Method: (For details on methods, see 4. Methods below.)</span><br><span class="line">shopping_list = [&quot;Keyboard&quot;,&quot;Mouse&quot;]</span><br><span class="line">shopping_list.append(&quot;Display&quot;)</span><br><span class="line"># This code adds a new item, &quot;Display,&quot; to the shopping_list list.</span><br></pre></td></tr></table></figure></div>
+
+<p>Another point is that lists can be used like strings to find the number of elements using the len function!</p>
+<p>For example</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># len function to find the number of elements in a list</span><br><span class="line">list1 = [&quot;A&quot;,&quot;B&quot;,&quot;C&quot;]</span><br><span class="line">print(len(list1))</span><br></pre></td></tr></table></figure></div>
+
+<p>Running this will print 3, indicating that the list contains 3 items.</p>
+<p>Of course, you can use indexing to access the element at a specific position in a list!</p>
+<p>For example</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># retrieval of an element at a specific position in a list</span><br><span class="line">list1 = [&quot;Position 1&quot;,&quot;Position 2&quot;,&quot;Position 3&quot;]</span><br><span class="line">print(list1[0])</span><br></pre></td></tr></table></figure></div>
+
+<p>It should be noted that the index is from left to right, with the first position set to 0 and increasing in sequence.</p>
+<p>The position of the last data &#x3D; the length of the list - 1</p>
+<p>The output is:</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Position 1</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="6-1-1-List-index-assignment"><a href="#6-1-1-List-index-assignment" class="headerlink" title="6.1.1. List index assignment"></a>6.1.1. List index assignment</h5><p>If there is a list with elements keyboard, monitor, and hard disk. And you want to change the element at the monitor position to a new element.</p>
+<p>You can write it like this↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># index overwrite element (position)</span><br><span class="line">shopping_list = [&quot;mouse&quot;,&quot;keyboard&quot;,&quot;monitor&quot;]</span><br><span class="line">shopping_list[1] = &quot;sound&quot; # Change the index position to 1, that is, the element at the &quot;keyboard&quot; position is overwritten with &quot;sound&quot;</span><br><span class="line">print(shopping_list)</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h4 id="②-Dictionary"><a href="#②-Dictionary" class="headerlink" title="②. Dictionary"></a>②. Dictionary</h4><p>Dictionary is used to store key-value pairs, Keys have corresponding values, and keys are used to look up values.</p>
+<p>To represent an empty dictionary: Use a pair of curly braces [{ }]</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Dictionary - Key-Value Pairs</span><br><span class="line">contacts = &#123;&quot;Xiaoming&quot; : &quot;13700000000&quot;,</span><br><span class="line">&quot;Xiaohua&quot; : &quot;13700000001&quot;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p> Note: Use a colon to assign a value to a key, for example, assign “Xiaoming” : “13700000000”. Multiple key-value pairs are separated by commas. </p>
+<p>To get the value of a key, use the dictionary name followed by square brackets with the key inside.</p>
+<p>For example</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Get the value of a key in a dictionary</span><br><span class="line">contacts = &#123;&quot;Xiaoming&quot; : &quot;13700000000&quot;,</span><br><span class="line">&quot;Xiaohua&quot; : &quot;13700000001&quot;&#125;</span><br><span class="line">contact[&quot;Xiaoming&quot;]</span><br></pre></td></tr></table></figure></div>
+
+<p> Note: The key type must be immutable! ! For example, a mutable data type like “list” cannot be used as a key.</p>
+<h5 id="6-2-1-Tuples"><a href="#6-2-1-Tuples" class="headerlink" title="6.2.1. Tuples"></a>6.2.1. Tuples</h5><p>A data structure that looks very similar to lists, but is immutable. This is the tuple.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># Tuples</span><br></pre></td></tr></table></figure></div>
+
+<p>It looks very similar to lists, but there are differences.</p>
+<p>What’s visible to the naked eye is</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Tuple vs. List</span><br><span class="line">example_tuple = (&quot;mouse&quot;, &quot;keyboard&quot;, &quot;keycap&quot;) # This is a tuple</span><br><span class="line">example_list = [&quot;mouse&quot;, &quot;keyboard&quot;, &quot;keycap&quot;] # This is a list</span><br></pre></td></tr></table></figure></div>
+
+<p>Note that since tuples are immutable, methods like remove and append are not available.</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/tuple.png"
+                     
+                ></p>
+<p>Although it’s not very flexible or convenient, it can help us achieve our goal of storing three Zhang Weis in our address book.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Where did the three Zhang Weis come from? ?</span><br><span class="line">contacts = &#123;(&quot;张伟&quot;,23):&quot;13800000001&quot;,</span><br><span class="line">(&quot;张伟&quot;,34):&quot;13700000002&quot;,</span><br><span class="line">(&quot;张伟&quot;,56):&quot;13600000003&quot;,&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>At this point, these tuples are the keys of the dictionary. When looking for a phone number, you can use the entire tuple as the key.</p>
+<p>For example</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Based on the above code</span><br><span class="line">zhangwei23_phone = contacts[(&quot;张伟&quot;,23)]</span><br><span class="line"># Get the Zhang Wei whose phone number is 23</span><br><span class="line">print(zhangwei23_phone)</span><br></pre></td></tr></table></figure></div>
+
+<p>Running print will return the phone number of Zhang Wei whose phone number is 23: 13800000001</p>
+<hr>
+<h5 id="6-2-2-Editing-Dictionary-Content"><a href="#6-2-2-Editing-Dictionary-Content" class="headerlink" title="6.2.2 Editing Dictionary Content"></a>6.2.2 Editing Dictionary Content</h5><h6 id="1-Adding-Keys"><a href="#1-Adding-Keys" class="headerlink" title="1. Adding Keys"></a>1. Adding Keys</h6><p>First, dictionaries, like lists, are mutable; key-value pairs can be added or deleted.</p>
+<p>If you want to add a new key-value pair to a dictionary, you can write it like this:</p>
+<p>dictionary name [key] &#x3D; value</p>
+<p>For example</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Add a new key-value pair to the dictionary</span><br><span class="line">contacts = &#123;&quot;Xiaoming&quot;:&quot;13800000022&quot;,</span><br><span class="line">&quot;Zhangwei&quot;:&quot;13700000002&quot;,</span><br><span class="line">&quot;Xiaohua&quot;:&quot;13700000095&quot;,</span><br><span class="line">&#125;</span><br><span class="line"># dictionary name [key] = value</span><br><span class="line">contacts[&quot;美女A&quot;] = &quot;15500000001&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>However, this approach has a drawback: if the key-value pair already exists, the value corresponding to the key will be overwritten.</p>
+<p>What should we do?</p>
+<p>We need to know if the key already exists in the dictionary.</p>
+<p>In this case, we can use [key in dictionary]</p>
+<p>It will return a Boolean value.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># key in dictionary</span><br><span class="line">contacts = &#123;&quot;Xiao Ming&quot;:&quot;13800000022&quot;,</span><br><span class="line">&quot;Zhang Wei&quot;:&quot;13700000002&quot;,</span><br><span class="line">&quot;Xiao Hua&quot;:&quot;13700000095&quot;,</span><br><span class="line">&#125;</span><br><span class="line">print(&quot;Xiao Ming&quot; in contacts)</span><br><span class="line"># This `in` function returns a Boolean value.</span><br></pre></td></tr></table></figure></div>
+
+<h6 id="2-Deleting-a-Key"><a href="#2-Deleting-a-Key" class="headerlink" title="2. Deleting a Key"></a>2. Deleting a Key</h6><p>If you want to delete a key-value pair, you can use <code>del</code>.</p>
+<p><strong>del dictionary name[key]</strong></p>
+<p>This will delete the key and its corresponding value from the dictionary.</p>
+<p>Note, however, that if the key doesn’t exist, Python will report an error.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># del Delete a key</span><br><span class="line">contacts = &#123;&quot;Xiaoming&quot;:&quot;13800000022&quot;,</span><br><span class="line">&quot;Zhangwei&quot;:&quot;13700000002&quot;,</span><br><span class="line">&quot;Xiaohua&quot;:&quot;13700000095&quot;,</span><br><span class="line">&#125;</span><br><span class="line">del contacts[&quot;Xiaoming&quot;] # Delete the key &quot;Xiaoming&quot; from the dictionary</span><br><span class="line">print(contacts)</span><br></pre></td></tr></table></figure></div>
+
+<h6 id="3-Number-of-Dictionary-Contents"><a href="#3-Number-of-Dictionary-Contents" class="headerlink" title="3. Number of Dictionary Contents"></a>3. Number of Dictionary Contents</h6><p>The old friend len can also be used to output the number of key-value pairs in a dictionary.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># len Output the number of key-value pairs in a dictionary.</span><br><span class="line">contacts = &#123;&quot;Xiaoming&quot;:&quot;13800000022&quot;,</span><br><span class="line">&quot;Zhangwei&quot;:&quot;13700000002&quot;,</span><br><span class="line">&quot;Xiaohua&quot;:&quot;13700000095&quot;,</span><br><span class="line">&#125;</span><br><span class="line">print(len(contacts))</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>Practical Section: Input &amp; If &amp; Dictionary Combining Popular Speech Meaning Dictionary</strong></p>
+<p>Goal: Look up a popular phrase in the dictionary and return its meaning. If it doesn’t exist, return “not found.”</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># Practice: Input &amp; if &amp; Dictionary Combining Buzzword Dictionary-------------------------------------------</span><br><span class="line">slang_dict = &#123;&quot;干饭人&quot;:&quot; Meaning: Someone who is very active while eating. People who enjoy eating and love food often love life. Only by eating well can they have the energy to work. Work hard to earn money. Come on, 干饭人!&quot;, # Create a new dictionary and preset content</span><br><span class="line">&quot;尾巴款人&quot;:&quot; Meaning: Consumers who participate in online pre-sale events and still need to pay the final payment. Changes in the online consumption environment have led to two deposits for events like Double 11 (Singles&#x27; Day). Therefore, on Double 11 itself, consumers are required to pay the final payment.&quot;,</span><br><span class="line">&quot;爷青回&quot;:&quot;爷的青春回辣热! Meaning: Seeing familiar things, my youth is back. This phrase is used to express the joy that arises when people encounter familiar people and things in a changed environment. This comment is often used when people, movies, TV shows, games, animations, and other things from one&#x27;s youth are revisited and returned to the present in a new form.&quot;,</span><br><span class="line">&quot;老鼠尾汁&quot;: Meaning: A pun on the idiom &quot;hao zi wei zhi&quot; (haozi wei zhi), also known as &quot;hao zi wei zhi&quot; (haozi wei zhi) or &quot;hao zi wei zhi&quot; (haozi wei zhi). It means the same as &quot;hao zi wei zhi&quot; (haozi wei zhi), metaphorically telling someone to figure things out for themselves, used in the context of admonishing others.</span><br><span class="line"></span><br><span class="line">&quot;Young people have no martial ethics&quot;: &quot;Meaning: Used to describe young people who are &quot;violent.&quot; This also comes from Ma Baoguo. In a competition, Ma Baoguo was knocked out. Later, Ma Baoguo posted a video saying, &quot;Young people have no martial ethics. They attacked a 69-year-old man like me.&quot; This was later used by netizens to mock him, which was quite outrageous. In a match against a young man named Wang Qingmin, Ma Baoguo was knocked down three times in 30 seconds. A video of Ma Baoguo, wearing a bruised eyelid, posted in January 2020 circulated online, in which he complained, &quot;This young man has no martial ethics and attacked a 69-year-old like me. Traditional Kung Fu emphasizes &#x27;stop when, stop when&#x27;. If he had stopped when, he would have lost. If I had used more force with this punch, I would have broken his nose.&quot; According to Ma Baoguo, this story happened in January 2020 between two young men who were treating cervical spondylosis and him. It just happened to go viral after his match with Wang Qingmin. Furthermore, it contrasted sharply with Ma Baoguo&#x27;s previous boasts about rehabilitating traditional kung fu, so this sentence has become a meme.</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">slang_dict[&quot;U1S1&quot;] = &quot;Meaning: Speak the truth. This abbreviation is a homophonic combination of letters and numbers, mostly used by netizens in comments on websites. Adding U1S1 makes one&#x27;s point more convincing.&quot; # Add a new key-value pair</span><br><span class="line">slang_dict[&quot;有内味了&quot;] = &quot;Meaning: It has that flavor.&quot; &quot;You have that taste&quot; is a popular internet term. In northern dialects, the word &quot;that&quot; is pronounced as &quot;nei,&quot; meaning &quot;that taste.&quot; It&#x27;s often used to indicate whether something mentioned previously is authentic or genuine. It originates from Douyu game streamers Da Sima and Diangun (otto). Da Sima played a game live with Diangun during a live stream. Because of his poor playing skills, Diangun called him &quot;Da Sima.&quot; Da Sima played the hero Gragas in that game. As a result, viewers would comment on someone playing Gragas poorly and say, &quot;You have that taste.&quot; The meaning of the term has since expanded, taking on different meanings in different contexts.</span><br><span class="line"></span><br><span class="line">slang_dict[&quot;工具人&quot;] = &quot;Meaning: To be treated like a tool by another person. To work tirelessly for others but not receive equal treatment, being used as a tool. Often used in relationships where a woman treats a man as a &quot;lapdog&quot; or &quot;spare tire.&quot;</span><br><span class="line"></span><br><span class="line">slang_dict[&quot;醉是我&quot;] = &quot;Meaning: I&#x27;m actually a clown.&quot; Refers to &quot;suck-ups,&quot; &quot;people with unhappy lives,&quot; &quot;self-indulgent people,&quot; and other terms netizens use to mock themselves. Even when life is unpleasant, keep smiling.</span><br><span class="line"></span><br><span class="line">print(&quot;Current entries in this dictionary: &quot; + str(len(slang_dict)) + &quot;&quot;)</span><br><span class="line"># This completes the dictionary. Next, complete the query function.</span><br><span class="line"></span><br><span class="line">query = input(&quot;Please enter the buzzword you want to search for:&quot;) # Requires the user to enter the query and assigns it to the query variable.</span><br><span class="line"></span><br><span class="line">if query in slang_dict: # Checks whether the user&#x27;s input exists in the dictionary. If it does, continue; otherwise, prompts that it&#x27;s not yet included.</span><br><span class="line"></span><br><span class="line">print(&quot;Query [&quot; + query + &quot;] successful!&quot;)</span><br><span class="line"></span><br><span class="line">print(&quot;The meaning of the word you searched for is as follows&quot;)</span><br><span class="line"></span><br><span class="line">print(slang_dict[query]) # Outputs the value corresponding to the key found in the dictionary.</span><br><span class="line"></span><br><span class="line"># What I didn&#x27;t understand at first was that slang_dict[query] refers to the value corresponding to the query key in the slang_dict dictionary!</span><br><span class="line"></span><br><span class="line"># This variable is the corresponding value! So you can print it directly!</span><br><span class="line"></span><br><span class="line">else:</span><br><span class="line">print(&quot;Sorry! The popular phrase dictionary you searched for is not included~&quot;) # If the query is not found, it will prompt that it is not included yet and the number of entries already included</span><br><span class="line">print(&quot;This dictionary currently contains entries: &quot; + str(len(slang_dict)) + &quot;items&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/dictionary.png"
+                     
+                ></p>
+<h3 id="7-For-loop-iteration"><a href="#7-For-loop-iteration" class="headerlink" title="(7). For loop iteration"></a>(7). For loop iteration</h3><p>The iterative object can be a list, dictionary, string, etc.~</p>
+<p>Iteration means doing something to the data in the list (dictionary) in order</p>
+<p>The basic structure of Python’s For loop looks like this↓</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/forloop.png"
+                     
+                ></p>
+<p>For example, to find the body temperature that meets specific requirements in the body temperature list, you can write it like this↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># For example, let&#x27;s search for temperatures that meet specific requirements in a temperature list.</span><br><span class="line"></span><br><span class="line">temperature_list = [36.4, 36.6, 36.2, 37.0] # This is a predefined temperature list.</span><br><span class="line"></span><br><span class="line">for temperature in temperature_list # Search from t_list</span><br><span class="line"></span><br><span class="line">if temperature &gt;= 38:</span><br><span class="line"></span><br><span class="line">print(temperature)</span><br><span class="line"></span><br><span class="line">print(&quot;Abnormal temperature! Game over! QAQ&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>You can simply check the number of games over to determine how many people have a fever.</p>
+<p>However, this method doesn’t tell you which person has a fever.</p>
+<p>So, we need to create a dictionary with employee ID (or name) as the key and temperature as the value.</p>
+<p>Using a for loop, we can filter out people with a fever.</p>
+<p>Python dictionaries have three methods.</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/dic.png"
+                     
+                ></p>
+<p>First, <code>dictionary_name.keys</code> returns all the keys in the dictionary (where “111” is located).</p>
+<p><code>dictionary_name.values</code> will return all values ​​in the dictionary (that’s where “36.4” is).</p>
+<p>dictionary_name.items will return all key-value pairs in the dictionary.</p>
+<p>We can use a for loop with an if statement to print the keys corresponding to values ​​with a temperature greater than 38 degrees Celsius!</p>
+<p>This will print the employee ID of the person with a fever!</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># for + if + t_dict.items prints the employee ID of the person with a fever</span><br><span class="line">temperature_dict = &#123;&quot;111&quot;:36.4,&quot;112&quot;:36.6,&quot;113&quot;:37.0,&quot;114&quot;:38.1,&quot;115&quot;:35.1&#125;</span><br><span class="line">for stuff_id,temperature in temperature_dict.items():</span><br><span class="line">if temperature &gt;= 38:</span><br><span class="line">print(stuff_id)</span><br></pre></td></tr></table></figure></div>
+
+<p>Note: Two variables (stuff_id and temperature) are used after the for loop because dictionary_name.items() is assigned a tuple consisting of a key and a value during the for loop. This is equivalent to assigning the first element of the tuple to staff_id and the second element to temperature.</p>
+<p>To put it simply, there are two values ​​in the for statement: the employee ID and the temperature. Because they exist in pairs in the dictionary,</p>
+<p>therefore, the for statement must correspond!</p>
+<p>This is equivalent to the following:</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line">temperature_dict = &#123;&quot;111&quot;:36.4,&quot;112&quot;:36.6,&quot;113&quot;:37.0,&quot;114&quot;:38.1,&quot;115&quot;:35.1&#125;</span><br><span class="line">for temperature_tuple in temperature_dict.items():</span><br><span class="line">staff_id = temperature_tuple[0]</span><br><span class="line">temperature = temperature_tuple[1]</span><br><span class="line">if temperature &gt;= 38:</span><br><span class="line">print(staff_id)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="7-1-range-A-magical-combination-with-for"><a href="#7-1-range-A-magical-combination-with-for" class="headerlink" title="(7.1).range - A magical combination with for"></a>(7.1).range - A magical combination with for</h4><p>Do you know how Gauss calculated the sum from 1 to 100?</p>
+<p>The famous Gauss formula: (first term + last term) x number of terms &#x2F; 2</p>
+<p>range is used to represent a sequence of integers.</p>
+<p>The first value in the brackets represents the starting value, and the second value represents the ending value.</p>
+<p>For example, range(5,10) yields 5, 6, 7, 8, 9, in that order.</p>
+<p>Note! The ending value is not included!</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># e.g.</span><br><span class="line">for i in range(5,10)</span><br><span class="line">print(i)</span><br></pre></td></tr></table></figure></div>
+
+<p>This code means assigning values ​​of 5, 6, 7, 8, and 9 to i and printing them in sequence</p>
+<p>In addition, range can contain a <strong>third parameter</strong></p>
+<p>The third number (2) in range(5,10,2) represents the step size, that is, the number of numbers to step over each time</p>
+<p>If you want to print all odd numbers between 1 and 9</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Print all odd numbers between 1 and 9</span><br><span class="line">for num in range(1,10,2)</span><br><span class="line">print(num)</span><br></pre></td></tr></table></figure></div>
+
+<p>Then we can solve Gauss’s problem like this:</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 1+2+...+99+100 = ?</span><br><span class="line">total = 0 # Define a new variable called total, initially 0</span><br><span class="line">for i in range(1,101): # range lets the variable i be 1, 2, 3... until 100</span><br><span class="line">total = total + i # Add i to the total variable in increments of 1 Variable</span><br><span class="line">print(total) # Print total variable</span><br></pre></td></tr></table></figure></div>
+
+<p>-</p>
+<hr>
+<h2 id="3-Function"><a href="#3-Function" class="headerlink" title="3. Function"></a>3. Function</h2><p>Python cannot add spaces at the beginning of each line. Adding spaces in the code is to make it more beautiful~</p>
+<h3 id="1-print"><a href="#1-print" class="headerlink" title="(1).print"></a>(1).print</h3><p>Quotation marks can be single or double, but they must be paired. Otherwise, a bug will occur</p>
+<h4 id="①print-“content”"><a href="#①print-“content”" class="headerlink" title="①print(“content”)"></a>①print(“content”)</h4><p>(The origin of all things Print hahaha)</p>
+<p>e.g.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;Here is the content to be printed&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>After running, the words “Here is the content to be printed” will be output</p>
+<p>Tip: The console output should have three lines. The first line is the file path where the project is located, and the third line is the exit code. Normally, it should be 0</p>
+<p>If it is a non-zero number, then it means there is a problem with the code. For example, the code brackets are Chinese brackets</p>
+<h4 id="②-String-Concatenation"><a href="#②-String-Concatenation" class="headerlink" title="② String Concatenation"></a>② String Concatenation</h4><p>Print a string composed of concatenated single characters!</p>
+<p>e.g.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;Hello&quot; + &quot;World&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>If you need to print double quotes within the content, you should write it like this↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&#x27;He said &quot;Good!&quot;&#x27;)</span><br></pre></td></tr></table></figure></div>
+
+<p>In this sentence, two single quotes form a pair, so the content within will be printed intact (including the “”).</p>
+<h4 id="③-Escaping-Single-and-Double-Quotes"><a href="#③-Escaping-Single-and-Double-Quotes" class="headerlink" title="③. Escaping Single and Double Quotes"></a>③. Escaping Single and Double Quotes</h4><p>If you want to print double quotes, you can use double quotes outside and single quotes inside.</p>
+<p>But what if a sentence contains both single and double quotes?</p>
+<p>Next, let’s introduce a new escape character: the “escape character.”</p>
+<p> Backslash: [ \ ]</p>
+<p>This character should be placed before the quotation mark within the sentence to indicate that the following quotation mark is just a symbol, not a pair.</p>
+<p>This indicates that it is part of the content, not the end of the string.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;He said \&quot;Let\&#x27; go!\&quot;&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>When a backslash (escape character) precedes a quotation mark, Python knows to read the following characters together.</p>
+<p>The print result is as follows↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">He said &quot;Let go!&quot;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="④-Line-Breaks"><a href="#④-Line-Breaks" class="headerlink" title="④. Line Breaks"></a>④. Line Breaks</h4><p>Python reads and executes line by line, so the following is incorrect. **</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;Hello!</span><br><span class="line">Hi!&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>Python reaches the end of the first line and sees that you haven’t finished yet, assuming you forgot to end the line.</p>
+<p>So what if you need to print with a line break? We need to use the second escape character ↓</p>
+<p> Backslash + n [\n] indicates a line break</p>
+<p>I personally think it’s a bit like the <br> or </br> syntax in HTML. It also wraps the content (printing) to a new line.</p>
+<p>If you write it like this↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;Hello!\nHI!&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>The program will output the result↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello!</span><br><span class="line">HI!</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="⑤-Triple-quote-string-spanning-lines"><a href="#⑤-Triple-quote-string-spanning-lines" class="headerlink" title="⑤. Triple-quote string spanning lines"></a>⑤. Triple-quote string spanning lines</h4><p>If you’re printing a poem, line breaks using the previous method can be quite troublesome.</p>
+<p>Next, let’s introduce triple quotes.</p>
+<p> Triple quotes [“”” “””]</p>
+<p>Three single or double quotes together will wrap the content to the next line.</p>
+<p>For example</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;&quot;&quot;</span><br><span class="line">Have you not seen the Yellow River&#x27;s waters flow from heaven, rushing to the sea and never returning?</span><br><span class="line">Have you not seen the white hair in the mirror of the hall, which was black in the morning but has turned to snow in the evening?</span><br><span class="line">When life is good, enjoy it to the fullest, don&#x27;t let the golden cup face the moon in vain.</span><br><span class="line">I was born with talents that will be useful, even if I spend all my money, I will get it back.</span><br><span class="line">Cooking sheep and slaughtering cattle is fun, and I must drink three hundred cups at a time.</span><br><span class="line">Master Cen, Mr. Danqiu, let&#x27;s drink, don&#x27;t stop.</span><br><span class="line">I will sing a song for you, please listen carefully.</span><br><span class="line">Bells, drums, and jade are not expensive, I only wish to be drunk forever and never wake up.</span><br><span class="line">Throughout history, sages and wise men have all been lonely, only drinkers have left their names.</span><br><span class="line">King Chen once feasted in Pingle, drinking ten thousand dou of wine and enjoying himself.</span><br><span class="line">Why does the host say he has little money? I must buy some to drink with you.</span><br><span class="line">Five-colored horses, furs worth thousands of gold, call the boys to go out and exchange them for fine wine, so that we can share our eternal sorrows.</span><br><span class="line">&quot;&quot;&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>The output is as follows↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Have you not seen the Yellow River&#x27;s waters flow from heaven, rushing to the sea and never returning?</span><br><span class="line">Have you not seen the white hair in the mirror of the hall, which was black in the morning but has turned to snow in the evening?</span><br><span class="line">When life is good, enjoy it to the fullest, and don&#x27;t let the golden cup face the moon empty.</span><br><span class="line">I was born with talents that will be useful, and even if I spend all my money, I will get it back.</span><br><span class="line">Cooking sheep and slaughtering cattle is fun, and I must drink three hundred cups at a time.</span><br><span class="line">Master Cen, Mr. Danqiu, I will drink, and I will not stop.</span><br><span class="line">I will sing a song for you, please listen carefully.</span><br><span class="line">Bells, drums, and jade are not expensive, I only wish to be drunk forever and never wake up.</span><br><span class="line">Sages and wise men in ancient times were all lonely, only drinkers left their names.</span><br><span class="line">King Chen once feasted in Pingle, and he drank ten thousand cups of wine and enjoyed himself.</span><br><span class="line">Why does the host say he has little money? I must buy some to drink with you.</span><br><span class="line">A horse with five colors, a fur coat worth thousands of gold, I will call my son to go out and exchange it for fine wine, so that we can share our eternal sorrow.</span><br></pre></td></tr></table></figure></div>
+
+<p>Note that it also appears in pairs~‘</p>
+<p>If you want a single blank line, just write it like this~</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;\n&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2-input"><a href="#2-input" class="headerlink" title="(2).input"></a>(2).input</h3><p>Used to get input from the user</p>
+<p>Standard writing↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">input(&quot;Here are some tips for the user&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>The user will be prompted and wait for input.</p>
+<p>After the user enters, we need to return the result. Python can be used directly.</p>
+<p>You can write this like this↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Get the user&#x27;s age</span><br><span class="line">user_age = input(&quot;Please enter your age:&quot;)</span><br><span class="line"># At this point, the userage variable has been assigned a value and can be used in the code.</span><br><span class="line"># For example, output the result</span><br><span class="line">print(&quot;Got it. You are: &quot; + user_age + &quot;years old!&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p> Caution! In Python, the return value of the input function is treated as a string (even if you enter a number). Using it directly for calculations will result in an error! </p>
+<p>For example, the following example shows a typical error!</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Incorrect way to use the input function!</span><br><span class="line">user_age = input(&quot;Please enter your age:&quot;)</span><br><span class="line">user_age + 10.0</span><br><span class="line"># Writing this way will result in a Python error! Because no matter what value input takes, it always returns a string (mathematical operations are not supported)</span><br></pre></td></tr></table></figure></div>
+
+<p>Here we introduce several new concepts (or functions) again</p>
+<h3 id="3-int"><a href="#3-int" class="headerlink" title="(3).int"></a>(3).int</h3><p>Usage: Convert other types to int type (convert non-numeric types to numbers!)</p>
+<p>Open method: [int(“ “)]</p>
+<p>For example↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int(&quot;666&quot;)</span><br><span class="line"># The result will return 666 (integer type)</span><br></pre></td></tr></table></figure></div>
+
+<p>Of course, the parameter passed must be something that can be converted to an integer</p>
+<p>For example, non-numeric characters are not supported!</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># int function error demonstration</span><br><span class="line">int(&quot;Try it, will you get an error?&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="4-float"><a href="#4-float" class="headerlink" title="(4).float"></a>(4).float</h3><p>Can convert other types of functions to floating point numbers</p>
+<p>Open method: [float(“ “)]</p>
+<h3 id="5-str"><a href="#5-str" class="headerlink" title="(5).str"></a>(5).str</h3><p>Can convert other types of functions to strings</p>
+<p>Open method: [str(“ “)]</p>
+<p>**This is very useful when you use print! **</p>
+<p>For example, the example in Basic Functions - (4) Mathematical Operations</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://imagecdn01.iambzy.com/p/1218#(4).Python%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97" >https://imagecdn01.iambzy.com/p/1218#(4).Python%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>Integers cannot be concatenated with strings for printing!</p>
+<p>So you can use str to convert integer types to strings for use in print</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Important uses of str</span><br><span class="line">print(&quot;Got it, you are now: &quot; + 16 + &quot;years old!&quot;)</span><br><span class="line"># This will result in an error because 16 is an integer type and cannot be concatenated with a string for printing!</span><br></pre></td></tr></table></figure></div>
+
+<p>At this point, we need to use our srt function to convert 16 from an integer to a string. ↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;Got it, you are now: &quot; + str(16) + &quot;years old!&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>Back to the example above! (This is the example of age from the input function learning section)</p>
+<p>When getting the content in the first step, convert it to an integer (int function)</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Correct way to open it</span><br><span class="line">user_age = int(input(&quot;Please enter your age:&quot;))</span><br><span class="line">user_age_after_ten_year = user_age + 10</span><br><span class="line"># Once the user_age function is converted to an integer using the int function, you can perform operations directly!</span><br><span class="line"></span><br><span class="line"># If printing is needed, convert the integer back to a string (str function)</span><br><span class="line">print(&quot;You will be: &quot; + str(user_age_after_ten_years) + &quot;years.&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/int%E5%87%BD%E6%95%B0.png"
+                     
+                ></p>
+<hr>
+<p><strong>Practical Section: BMI Calculator</strong> (no judgment required)</p>
+<p>Objective: Calculate the user’s BMI after they enter their weight and height (no judgment required)</p>
+<p>Hint: BMI &#x3D; weight &#x2F; (height ** 2). BMI is weight divided by height squared.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># BMI = weight / (height ** 2)</span><br><span class="line">user_weight = float(input(&quot;Please enter your weight in kilograms):&quot;))</span><br><span class="line"># ↑ User enters weight and defines the variable</span><br><span class="line"># Note: Both weight and height must be floats because the units are kilograms and meters. If you use int, it will be automatically rounded (right)</span><br><span class="line">user_height = float(input(&quot;Please enter your height in meters):&quot;))</span><br><span class="line">user_BMI = user_weight / (user_height ** 2)</span><br><span class="line">print(&quot;Your BMI is: &quot; + str(user_BMI) + &quot;!&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p>Run the code and get the following results.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Please enter your weight in kilograms: 60</span><br><span class="line">Please enter your height in meters: 1.7</span><br><span class="line">Your BMI is: 20.761245674740486!</span><br><span class="line"></span><br><span class="line">Process terminated with exit code 0</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/example.png"
+                     
+                ></p>
+<h3 id="6-if-Conditional-Judgment-I"><a href="#6-if-Conditional-Judgment-I" class="headerlink" title="(6).if - Conditional Judgment - I"></a>(6).if - Conditional Judgment - I</h3><p>This part has a lot of content, so I will take notes in two parts.</p>
+<p>Here’s a video by Lin Lili (the entire tutorial is based on her videos~)</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1944y1x7SW?p=15" >https://www.bilibili.com/video/BV1944y1x7SW?p=15<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>Conditional statements: Use a condition to select the execution target.</p>
+<p>The if function returns a Boolean value (True or False).</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Python conditional statement structure</span><br><span class="line">if [condition]:</span><br><span class="line">[Execute 1]</span><br><span class="line">[Execute 2]</span><br><span class="line"># Note that the execution statements following the condition need to be indented (usually four spaces, but three for alignment).</span><br><span class="line"># If you want to do nothing if the condition is false, you can leave the following alone.</span><br><span class="line">else:</span><br><span class="line">[Execute 1]</span><br><span class="line">[Execute 1]</span><br><span class="line"># Python will use the indentation to determine whether this execution is part of an if or else statement, or whether it&#x27;s not a conditional statement!</span><br></pre></td></tr></table></figure></div>
+
+<p>**Practical Section: Can we play games tonight? **</p>
+<p>Goal: Determine if we can play games tonight</p>
+<p>Background: Observe parents’ facial expressions and determine the value of mood_index</p>
+<p>Settings: 60 or greater, yes; less than 60, no</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Can we play games tonight?</span><br><span class="line"></span><br><span class="line">mood_index = int(input(&quot;Parents&#x27; mood index today:&quot;))</span><br><span class="line"># Define a new function to store the input mood index</span><br><span class="line">if mood_index &gt;= 60: # Don&#x27;t miss the colon!!!</span><br><span class="line"># As a side note, as mentioned earlier, input always returns a string; this statement only works with integers.</span><br><span class="line"># We also need to perform a type conversion: str → int</span><br><span class="line"></span><br><span class="line">print(&quot;Congratulations! If nothing goes wrong, we should be able to play games tonight~ Go Pikachu!&quot;)</span><br><span class="line">print(&quot;(￣▽￣)~*&quot;)</span><br><span class="line">else: # Don&#x27;t miss the colon here!!! This else statement is equivalent to mood_index &lt; 60</span><br><span class="line">print(&quot;Hmm, it seems playing games isn&#x27;t a wise choice~&quot;)</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/lesson14.png"
+                     
+                ></p>
+<h3 id="6-2-if-Conditional-Judgment-II"><a href="#6-2-if-Conditional-Judgment-II" class="headerlink" title="(6.2).if - Conditional Judgment - II"></a>(6.2).if - Conditional Judgment - II</h3><p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1944y1x7SW?p=16" >https://www.bilibili.com/video/BV1944y1x7SW?p=16<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>This section discusses nested conditional statements (adding another conditional statement within a conditional statement).</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Nested Conditional Statements (Remember to indent correctly!)</span><br><span class="line">if [Condition 1]:</span><br><span class="line">if [Condition 2]:</span><br><span class="line">[Statement A]</span><br><span class="line">else:</span><br><span class="line">[Statement B]</span><br></pre></td></tr></table></figure></div>
+
+<p>Note! Statement A is nested within both Condition 1 and Condition 2. Both must be met!</p>
+<p>The same applies to adding an else clause. Both conditions must be met before the statement is triggered.</p>
+<p> Python typically uses 4 spaces for indentation. Statements below the if or else clause will be indented to determine which branch they belong to. </p>
+<p>Of course, we can also add an else clause to condition 1.</p>
+<p>This means that if condition 1 isn’t met, condition 2 won’t be considered, let alone triggering A or B.</p>
+<p>Only condition C will be triggered. ↓</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Nested conditional statements (remember to indent correctly!)</span><br><span class="line">if [condition 1]:</span><br><span class="line">if [condition 2]:</span><br><span class="line">[Statement A]</span><br><span class="line">else:</span><br><span class="line">[Statement B]</span><br><span class="line">else:</span><br><span class="line">[Statement C]</span><br></pre></td></tr></table></figure></div>
+
+<p>**Introduction: There’s also a thing called elif! **It can also be used for nested conditionals.</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># elif</span><br><span class="line">if [condition 1]:</span><br><span class="line">[Statement A]</span><br><span class="line">elif [condition 2]:</span><br><span class="line">[Statement B]</span><br><span class="line">elif [condition 3]:</span><br><span class="line">[Statement C]</span><br><span class="line">else:</span><br><span class="line">[Statement D]</span><br></pre></td></tr></table></figure></div>
+
+<p>This structure is simpler and clearer.</p>
+<p>However, since Python executes from top to bottom, if both conditions 2 and 3 are met, Python will only execute statement B (condition 2).</p>
+<p>Because condition 2 is at the top, once that branch is entered, other conditions at the same level will not be considered!</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/tree.png"
+                     
+                ></p>
+<p><strong>Practical Section: BMI Calculator Upgrade (with Conditions)</strong></p>
+<p>Goal: Calculate BMI + Determine Physical Fitness!</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># BMI Calculator Upgrade - Multiple Conditions</span><br><span class="line"># This version of the calculator includes a conditional module!</span><br><span class="line"># BMI = weight / (height ** 2)</span><br><span class="line">user_weight = float(input(&quot;Please enter your weight in kilograms&quot;)) # User enters weight and defines the variable</span><br><span class="line"># Note: Both weight and height must be floats because the units are kilograms and meters. Using int will automatically round them up (right?)</span><br><span class="line">user_height = float(input(&quot;Please enter your height in meters&quot;)) # User enters height and defines the variable</span><br><span class="line">user_BMI = user_weight / (user_height ** 2)</span><br><span class="line">print(&quot;Your BMI is: &quot; + str(user_BMI) + &quot;!&quot;)</span><br><span class="line"></span><br><span class="line"># Underweight: user_BMI &lt;= 18.5</span><br><span class="line"># Normal: 18.5 &lt; user_BMI &lt;= 25</span><br><span class="line"># Overweight: 25 &lt; user_BMI &lt;= 30</span><br><span class="line"># Obese: user_BMI &gt; 30</span><br><span class="line"></span><br><span class="line">if user_BMI &lt;= 18.5:</span><br><span class="line">print(&quot;Your BMI falls within the underweight range.&quot;)</span><br><span class="line">elif 18.5 &lt; user_BMI &lt;= 25:</span><br><span class="line">print(&quot;Your BMI value is within the normal range.&quot;)</span><br><span class="line">elif 25 &lt; user_BMI &lt;= 30:</span><br><span class="line">print(&quot;Your BMI value is within the obese range.&quot;)</span><br><span class="line">else:</span><br><span class="line">print(&quot;Your BMI value is within the obese range.&quot;)</span><br><span class="line"># If all the previous conditions are false, use else directly</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/lesson16.png"
+                     
+                ></p>
+<p>Of course, you can try to create a new variable to store the range value</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/status.png"
+                     
+                ></p>
+<hr>
+<h3 id="7-and-or-not-logical-operation"><a href="#7-and-or-not-logical-operation" class="headerlink" title="(7)and &amp; or &amp; not (logical operation)"></a>(7)and &amp; or &amp; not (logical operation)</h3><p>This part is very important, but it is relatively simple. It is the three logical operations of AND, OR, and NOT.</p>
+<h4 id="①-and"><a href="#①-and" class="headerlink" title="①.and"></a>①.and</h4><p>The standard syntax is as follows</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = 10 and y = 15</span><br><span class="line"># Both x = 10 and y = 15 must be met to trigger the event</span><br><span class="line"># x and y can be variables~</span><br></pre></td></tr></table></figure></div>
+
+<p>Both and or can connect two or more operands</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &gt; 5 and x &lt; 10 and x * 2 == 12</span><br><span class="line"># Returns True only if all are True</span><br><span class="line"># If any one is False, the evaluation evaluates to False</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="②-or"><a href="#②-or" class="headerlink" title="②.or"></a>②.or</h4><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = 10 or y = 15</span><br><span class="line"># Only if either x = 10 or y = 15 is met to trigger the event</span><br><span class="line"># x and y can be variables~</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="③-not"><a href="#③-not" class="headerlink" title="③.not"></a>③.not</h4><p>not can only be used to operate on one operand</p>
+<p>Its characteristic is that if the original value is True, it will return False</p>
+<p>Originally False It will return True.</p>
+<p>This is equivalent to inverting the Boolean value.</p>
+<p>Tip: Do not prefix! </p>
+<h1 id="Method-type-mutable"><a href="#Method-type-mutable" class="headerlink" title="Method type (mutable)"></a>Method type (mutable)</h1><p>shopping_list &#x3D; [“Keyboard”]<br>shopping_list.append(“Display”) # The append method directly modifies the original list!</p>
+<h1 id="At-this-point-the-contents-of-the-list-have-changed"><a href="#At-this-point-the-contents-of-the-list-have-changed" class="headerlink" title="At this point, the contents of the list have changed"></a>At this point, the contents of the list have changed</h1><p>print(shopping_list)</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> Therefore, when using the append method, you should not (and do not need to) reassign the value of shopping_list. </span><br><span class="line"></span><br><span class="line">As follows</span><br><span class="line"></span><br><span class="line">shopping_list = shopping_list.append(&quot;Display&quot;) \[buy\]shopping_list.append(&quot;Display&quot;)\[/buy\]</span><br><span class="line"></span><br><span class="line">### 1. upper</span><br><span class="line"></span><br><span class="line">upper is a method that capitalizes the contents of a string. The object to which this method is applied is a variable.</span><br><span class="line"></span><br><span class="line">For example, the following s.upper method applies the upper method to the s function.</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h1 id="String-contents-are-all-capitalized"><a href="#String-contents-are-all-capitalized" class="headerlink" title="String contents are all capitalized"></a>String contents are all capitalized</h1><p>s &#x3D; “Hello”<br>print(s.upper())</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 2.append</span><br><span class="line"></span><br><span class="line">Appends content to the specified list.</span><br><span class="line"></span><br><span class="line">Usage: [variable.method(content)]</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method:"></a>Method:</h1><p>shopping_list &#x3D; [“keyboard”,”mouse”]<br>shopping_list.append(“display”)</p>
+<h1 id="This-code-adds-a-new-item-“display-”-to-the-shopping-list-list"><a href="#This-code-adds-a-new-item-“display-”-to-the-shopping-list-list" class="headerlink" title="This code adds a new item, “display,” to the shopping_list list."></a>This code adds a new item, “display,” to the shopping_list list.</h1><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 3.remove</span><br><span class="line"></span><br><span class="line">Remove content from a list.</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h1 id="Remove-method"><a href="#Remove-method" class="headerlink" title="Remove method"></a>Remove method</h1><p>shopping_list &#x3D; [“keyboard”,”mouse”]<br>shopping_list.remove(“mouse”)</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Note that the object (content) being removed must actually exist in the list.</span><br><span class="line"></span><br><span class="line">Otherwise, an error will be reported!</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h1 id="Error-example"><a href="#Error-example" class="headerlink" title="Error example"></a>Error example</h1><p>shopping_list &#x3D; [“Keyboard”,”Mouse”]<br>shopping_list.remove(“Mouse icon”)</p>
+<h1 id="Try-this-and-see-if-you-get-an-error"><a href="#Try-this-and-see-if-you-get-an-error" class="headerlink" title="(Try this and see if you get an error)"></a>(Try this and see if you get an error)</h1><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">One very convenient thing about Python lists is that they can store different types of values.</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h1 id="Lists-can-hold-values-​​of-different-types"><a href="#Lists-can-hold-values-​​of-different-types" class="headerlink" title="Lists can hold values ​​of different types."></a>Lists can hold values ​​of different types.</h1><p>list1 &#x3D; [“Hello”]<br>list1.append(66.6)<br>list1.append(True)<br>list1.append(False)<br>print(list1)</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">This means you can add values ​​of different data types to a list and still get the desired result.</span><br><span class="line"></span><br><span class="line">The output of the above is:</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>[‘Hello’, 66.6, True, False]</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**Practical part:** Shopping cart (list)</span><br><span class="line"></span><br><span class="line">Objective: Review what you have learned</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h1 id="Shopping-list-Shopping-list-List-practical-part"><a href="#Shopping-list-Shopping-list-List-practical-part" class="headerlink" title="Shopping_list Shopping list - List practical part"></a>Shopping_list Shopping list - List practical part</h1><p>shopping_list &#x3D; [] # Define an empty list<br>shopping_list.append(“keyboard”) # Add a new element<br>shopping_list.append(“keycap”)<br>shopping_list.remove(“keycap”) # Remove an element<br>shopping_list.append(“speaker”)<br>shopping_list.append(“gaming chair”)<br>shopping_list[1] &#x3D; “hard drive” # Replace the second element with the hard drive - Note that the second element has an index of 1! !</p>
+<h1 id="print-shopping-list-Output-elements"><a href="#print-shopping-list-Output-elements" class="headerlink" title="print(shopping_list) # Output elements"></a>print(shopping_list) # Output elements</h1><h1 id="print-len-shopping-list-Output-the-number-of-elements-in-the-list"><a href="#print-len-shopping-list-Output-the-number-of-elements-in-the-list" class="headerlink" title="print(len(shopping_list)) # Output the number of elements in the list"></a>print(len(shopping_list)) # Output the number of elements in the list</h1><h1 id="print-shopping-list-0-Output-the-first-element-in-the-list"><a href="#print-shopping-list-0-Output-the-first-element-in-the-list" class="headerlink" title="print(shopping_list[0]) # Output the first element in the list"></a>print(shopping_list[0]) # Output the first element in the list</h1><p>price &#x3D; [799,1024,200,800] # Create a new list to place price elements<br>max_price &#x3D; max(price) # Assign the max_price variable to the maximum value from price<br>min_price &#x3D; min(price) # Assign the min_price variable to the minimum value from price<br>sorted_price &#x3D; sorted(price) # Assign the sorted_price variable to the sorted elements from price<br>print(max_price)<br>print(min_price)<br>print(sorted_price)</p>
+<pre><code>
+![](https://imagecdn01.iambzy.com/wp-content/uploads/2022/08/lesson17.png)
+
+This lesson consists of two parts, Pages 17 &amp; 18. It contains quite a bit of content. Download the source code ↓
+
+[https://dos73.lanzouj.com/ipT6f08y7eed](https://dos73.lanzouj.com/ipT6f08y7eed)
+
+* * *
+
+## To be continued. . .
+</code></pre>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Manda&#39;s Python Learning Notes</li>
+        <li><strong>Author:</strong> Manda</li>
+        <li><strong>Created at
+                :</strong> 2022-07-31 07:47:45</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-09-09 22:12:00
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://dos7t3r.github.io/2022/07/31/python_learning/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Python/">#Python</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Learning/">#Learning</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Notes/">#Notes</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+    </div>
+    <div class="recommended-article-group"></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+   </div>
+   <div class="recommended-article-group"></div>
+   </div>
+  </div>
+
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://waline-comments.417.red/',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+                    lang: 'zh-CN',
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">Manda&#39;s Python Learning Notes</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Install-the-environment"><span class="nav-text">1. Install the environment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Install-the-development-environment-and-compiler"><span class="nav-text">(1) Install the development environment and compiler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-PyCharm-configuration"><span class="nav-text">(2). PyCharm configuration</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Basic-knowledge"><span class="nav-text">2. Basic knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Data-types"><span class="nav-text">(1). Data types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Python-interactive-mode"><span class="nav-text">(2). Python interactive mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Variables"><span class="nav-text">(3). Variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Python-mathematical-operations"><span class="nav-text">(4). Python mathematical operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Comments"><span class="nav-text">(5). Comments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Data-structure"><span class="nav-text">(6). Data structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-For-loop-iteration"><span class="nav-text">(7). For loop iteration</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Function"><span class="nav-text">3. Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-print"><span class="nav-text">(1).print</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-input"><span class="nav-text">(2).input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-int"><span class="nav-text">(3).int</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-float"><span class="nav-text">(4).float</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-str"><span class="nav-text">(5).str</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-if-Conditional-Judgment-I"><span class="nav-text">(6).if - Conditional Judgment - I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-if-Conditional-Judgment-II"><span class="nav-text">(6.2).if - Conditional Judgment - II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-and-or-not-logical-operation"><span class="nav-text">(7)and &amp; or &amp; not (logical operation)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-type-mutable"><span class="nav-text">Method type (mutable)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#At-this-point-the-contents-of-the-list-have-changed"><span class="nav-text">At this point, the contents of the list have changed</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String-contents-are-all-capitalized"><span class="nav-text">String contents are all capitalized</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method"><span class="nav-text">Method:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#This-code-adds-a-new-item-%E2%80%9Cdisplay-%E2%80%9D-to-the-shopping-list-list"><span class="nav-text">This code adds a new item, “display,” to the shopping_list list.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remove-method"><span class="nav-text">Remove method</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error-example"><span class="nav-text">Error example</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Try-this-and-see-if-you-get-an-error"><span class="nav-text">(Try this and see if you get an error)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lists-can-hold-values-%E2%80%8B%E2%80%8Bof-different-types"><span class="nav-text">Lists can hold values ​​of different types.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shopping-list-Shopping-list-List-practical-part"><span class="nav-text">Shopping_list Shopping list - List practical part</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-shopping-list-Output-elements"><span class="nav-text">print(shopping_list) # Output elements</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-len-shopping-list-Output-the-number-of-elements-in-the-list"><span class="nav-text">print(len(shopping_list)) # Output the number of elements in the list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-shopping-list-0-Output-the-first-element-in-the-list"><span class="nav-text">print(shopping_list[0]) # Output the first element in the list</span></a>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Manda</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        1 posts in total
+                    </span>
+                    
+                        <span>
+                            7.3k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+	<div id="aplayer"></div>
+
+<script src="/js/build/libs/APlayer.min.js"></script>
+
+
+<script src="/js/build/plugins/aplayer.js"></script>
+
+
+	
+</body>
+
+</html>
