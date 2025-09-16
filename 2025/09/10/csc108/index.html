@@ -123,7 +123,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://manda.417.red/2025/09/10/note_addings_new/"/>
+    <link rel="canonical" href="https://manda.417.red/2025/09/10/csc108/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -134,13 +134,13 @@
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSC108 补充">
-<meta property="og:url" content="https://manda.417.red/2025/09/10/note_addings_new/index.html">
+<meta property="og:url" content="https://manda.417.red/2025/09/10/csc108/index.html">
 <meta property="og:site_name" content="Manda&#39;s Note">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://manda.417.red/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-09-11T01:08:21.000Z">
-<meta property="article:modified_time" content="2025-09-15T18:58:14.051Z">
+<meta property="article:modified_time" content="2025-09-16T02:14:42.134Z">
 <meta property="article:author" content="Manda">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Learning">
@@ -686,15 +686,15 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">10</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -749,8 +749,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-09-15 14:58:14</span>
-            <span class="mobile">2025-09-15 14:58:14</span>
+            <span class="desktop">2025-09-15 22:14:42</span>
+            <span class="mobile">2025-09-15 22:14:42</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -803,12 +803,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>12 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>17 Mins</span>
         </span>
     
     
@@ -981,6 +981,79 @@
 <p>在以后的函数中 可能会需要按照这种的标准写~</p>
 <h2 id="help"><a href="#help" class="headerlink" title="help()"></a>help()</h2><p>help() 括号内写定义好的函数，可以输出写到””””””里面的内容，可以用作帮助文档，</p>
 <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def foo():</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    this is a docstring part , which will be printed if help() executed</span><br><span class="line">    this is the line 2 of docstring part</span><br><span class="line">    and this is line 3</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(help(foo))</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="doctests"><a href="#doctests" class="headerlink" title="doctests"></a>doctests</h1><h2 id="doctest介绍"><a href="#doctest介绍" class="headerlink" title="doctest介绍"></a>doctest介绍</h2><p>doctest 是 Python 标准库中的一个模块，主要用于 在文档字符串（docstring）里写测试用例。它能够让文档中展示的示例代码既能作为说明，也能直接作为测试运行，既是“文档”，又是“测试”，保证文档示例和代码行为的一致性。</p>
+<p>说人话就是 <strong>你在 docstring 里写的例子，doctest 会自动运行，检查输出是否和写的一致。</strong></p>
+<p>使用案例<br>在函数的 docstring 中写例子</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def add(a, b):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    返回两个数的和。</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; add(2, 3)</span><br><span class="line">    5</span><br><span class="line">    &gt;&gt;&gt; add(-1, 5)</span><br><span class="line">    4</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return a + b</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>通常来说，会在代码底部加入下面的运行代码。（aka在代码里直接运行）</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    import doctest</span><br><span class="line">    doctest.testmod()</span><br></pre></td></tr></table></figure></div>
+<p>这样运行 python文件 时，就会自动测试，<br>如果例子正确 → 没有任何输出（安静通过）。<br>如果错了 → 会报出错误，说预期结果和实际不一样。。</p>
+<hr>
+<h2 id="doctest-的匹配规则"><a href="#doctest-的匹配规则" class="headerlink" title="doctest 的匹配规则"></a>doctest 的匹配规则</h2><p>doctest 会逐行匹配示例代码和输出。<br>必须和 Python 交互式解释器的输出一致。<br>for example:</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def square(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    &gt;&gt;&gt; square(3)</span><br><span class="line">    9</span><br><span class="line">    &gt;&gt;&gt; square(2.5)</span><br><span class="line">    6.25</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return x * x</span><br></pre></td></tr></table></figure></div>
+<p>如果你写成了</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; square(2.5)</span><br><span class="line">6.250</span><br></pre></td></tr></table></figure></div>
+<p>测试就会失败，因为输出是 6.25 而不是 6.250。</p>
+<p>另一个案例</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def square(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    &gt;&gt;&gt; square(3)</span><br><span class="line">    9</span><br><span class="line">    &gt;&gt;&gt; square(2)</span><br><span class="line">    4</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return x * x</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    import doctest</span><br><span class="line">    doctest.testmod()</span><br></pre></td></tr></table></figure></div>
+<p>运行这段代码<br>如果 square 写对了 → 通过。<br>如果你写成 return x + x → 测试会失败，提示 expected 9, got 6。</p>
+<h2 id="doctest-和三引号”””"><a href="#doctest-和三引号”””" class="headerlink" title="doctest 和三引号”””"></a>doctest 和三引号”””</h2><p>三引号 “”” … “”” 里面的内容就是 docstring（文档字符串），而 doctest 的“魔法”就在这里：</p>
+<p>平时，docstring 是写给人看的说明文字。<br>但是如果里面出现了像 Python 交互式命令行 那样的代码（&gt;&gt;&gt; …），doctest 就会把它当成“测试用例”来运行。</p>
+<p>举个例子，</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def add(a, b):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    这是一个加法函数。# 普通文字：只是说明，不会被运行。</span><br><span class="line"></span><br><span class="line">    &gt;&gt;&gt; add(2, 3) # &gt; 开头的代码：会被 doctest 当成测试用例。</span><br><span class="line">    5             # &gt;开头的下一行 doctest 会检查实际运行结果是否一致。</span><br><span class="line">    &gt;&gt;&gt; add(-1, 1)</span><br><span class="line">    0</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return a + b</span><br></pre></td></tr></table></figure></div>
+<p>这里：</p>
+<p>普通文字（这是一个加法函数。） → 只是说明，不会被运行。</p>
+<p><code>&gt;&gt;&gt;</code> add(2, 3) → doctest 会真的运行这行代码。<br>5 → doctest 会检查运行结果是不是 5。<br>如果结果对 → 测试通过；如果结果错 → 测试失败。</p>
+<h2 id="doctest总结"><a href="#doctest总结" class="headerlink" title="doctest总结"></a>doctest总结</h2><p>对于Doctest，总结一下：</p>
+<ul>
+<li><p><strong>doctest</strong> 是 Python 标准库中的一个模块，它的作用是：把写在 <strong>docstring（三引号里的文档字符串）</strong> 中的例子拿出来运行，检查结果是否和文档里写的一致。简单理解：<strong>文档 + 测试 &#x3D; doctest</strong>。</p>
+</li>
+<li><p><code>&quot;&quot;&quot; &quot;&quot;&quot;</code> 里面既可以写说明（文字），也可以写测试（<code>&gt;&gt;&gt; ...</code> 形式的例子）。</p>
+</li>
+<li><p>doctest <strong>只会尝试运行 <code>&gt;&gt;&gt;</code> 开头的代码行</strong>，其他文字它不会管。</p>
+</li>
+</ul>
+<h1 id="德摩根定律-De-Morgan’s-laws"><a href="#德摩根定律-De-Morgan’s-laws" class="headerlink" title="德摩根定律 De Morgan’s laws"></a>德摩根定律 De Morgan’s laws</h1><p>德摩根定律给出“否定（negation）”对**与（conjunction &#x2F; AND）和或（disjunction &#x2F; OR）**的分配规则：</p>
+<ul>
+<li><p><strong>not (A and B) ≡ (not A) or (not B)</strong></p>
+</li>
+<li><p><strong>not (A or B) ≡ (not A) and (not B)</strong></p>
+</li>
+</ul>
+<p>直观理解：</p>
+<ul>
+<li>否定“同时成立”，等价于“至少有一个不成立”；</li>
+<li>否定“至少一个成立”，等价于“两个都不成立”。</li>
+</ul>
+<p>再直观一点，就是<br>“一个大括号前面有个‘不是’，可以把它分到括号里，但要把‘和’换成‘或’，‘或’换成‘和’。”</p>
+<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><p>想象你爸妈跟你说：</p>
+<p>原话：</p>
+<ul>
+<li>“你不可以 (出去玩 和 看电视)。”</li>
+<li>意思就是两件事不能同时干。</li>
+</ul>
+<p>德摩根定律改写：</p>
+<ul>
+<li>“要么你不能出去玩，要么你不能看电视。”</li>
+<li>（至少有一个被禁止）</li>
+</ul>
+<p>意思完全一样，只是换了说法。</p>
+<p>再举一个：</p>
+<p>原话：</p>
+<ul>
+<li>“不是 (你出去玩 或 你看电视)”</li>
+<li>意思：你两件事都不能干。</li>
+</ul>
+<p>改写：</p>
+<ul>
+<li>“你不能出去玩 而且你不能看电视。”</li>
+</ul>
+<p>就是把“或”变成“和”。</p>
+<p>代码方面的话，看下面的例子</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">比如 a=True, b=False</span><br><span class="line"></span><br><span class="line">原本：a and b → True and False → False</span><br><span class="line">用德摩根：not (not a or not b)</span><br><span class="line">not a = False</span><br><span class="line">not b = True</span><br><span class="line">False or True = True</span><br><span class="line">not True = False ✅ 结果一样</span><br></pre></td></tr></table></figure></div>
+
+
 		</div>
 
 		
@@ -994,11 +1067,11 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-09-15 14:58:14
+                    :</strong> 2025-09-15 22:14:42
             </li>
         
         <li>
-            <strong>Link:</strong> https://manda.417.red/2025/09/10/note_addings_new/
+            <strong>Link:</strong> https://manda.417.red/2025/09/10/csc108/
         </li>
         <li>
             <strong>
@@ -1040,9 +1113,9 @@
     <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>recommendation</span>
     </div>
-    <div class="recommended-article-group"><a class="recommended-article-item" href="/2022/07/31/python_learning/" title="Python Learning Notes" rel="bookmark">
-  <img src="https://blog.iambzy.com/wp-content/uploads/2022/07/pycharm.png" alt="Python Learning Notes" class="!max-w-none">
-  <span class="title">Python Learning Notes</span>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/2022/07/31/python_learning/" title="Legendary Python Learning Notes" rel="bookmark">
+  <img src="https://blog.iambzy.com/wp-content/uploads/2022/07/pycharm.png" alt="Legendary Python Learning Notes" class="!max-w-none">
+  <span class="title">Legendary Python Learning Notes</span>
 </a><a class="recommended-article-item" href="/2025/09/14/mat135_note/" title="MAT135 知识点" rel="bookmark">
   <img src="https://p.ipic.vip/ae6ny9.png" alt="MAT135 知识点" class="!max-w-none">
   <span class="title">MAT135 知识点</span>
@@ -1055,9 +1128,9 @@
    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>recommendation</span>
    </div>
-   <div class="recommended-article-group"><a class="recommended-article-item" href="/2022/07/31/python_learning/" title="Python Learning Notes" rel="bookmark">
-  <img src="https://blog.iambzy.com/wp-content/uploads/2022/07/pycharm.png" alt="Python Learning Notes" class="!max-w-none">
-  <span class="title">Python Learning Notes</span>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/2022/07/31/python_learning/" title="Legendary Python Learning Notes" rel="bookmark">
+  <img src="https://blog.iambzy.com/wp-content/uploads/2022/07/pycharm.png" alt="Legendary Python Learning Notes" class="!max-w-none">
+  <span class="title">Legendary Python Learning Notes</span>
 </a><a class="recommended-article-item" href="/2025/09/14/mat135_note/" title="MAT135 知识点" rel="bookmark">
   <img src="https://p.ipic.vip/ae6ny9.png" alt="MAT135 知识点" class="!max-w-none">
   <span class="title">MAT135 知识点</span>
@@ -1069,12 +1142,12 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/09/11/diary-09/">
+				<a class="prev" rel="prev" href="/2025/09/12/hexo-buildversion-code/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">diary_09</span>
+						<span class="post-nav-title-item truncate max-w-48">Hexo Redefine 主题博客页脚添加自动更新时间与构建版本记录</span>
 						<span class="post-nav-item">Prev posts</span>
 					</span>
 				</a>
@@ -1084,7 +1157,7 @@
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
 				<a class="next" rel="next" href="/2022/07/31/python_learning/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">Python Learning Notes</span>
+						<span class="post-nav-title-item truncate max-w-48">Legendary Python Learning Notes</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -1147,7 +1220,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">CSC108 补充</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Intro"><span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-Function"><span class="nav-text">Method &amp; Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-method"><span class="nav-text">方法 (method)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0-function"><span class="nav-text">函数 (function)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stack-frames-Call-Stack"><span class="nav-text">Stack &amp; frames &amp; Call Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="nav-text">1. 定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Stack"><span class="nav-text">1.1 Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Call-Stack"><span class="nav-text">1.2 Call Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Stack-Frame"><span class="nav-text">1.3 Stack Frame</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%AC%A6%E5%8F%B7-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">一些符号 [,],: 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8-%E8%BF%9B%E8%A1%8C%E7%B4%A2%E5%BC%95%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C"><span class="nav-text">1.使用[,],:进行索引切片操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95indexing"><span class="nav-text">索引indexing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%98%93%E9%94%99%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-text">2. 易错知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E4%B8%8D%E5%8F%AF%E4%BB%A5%E5%88%87%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">2.1 不可以切字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E4%B8%8D%E5%8C%85%E6%8B%AC%E5%8F%B3%E6%96%B9%E6%8B%AC%E5%8F%B7"><span class="nav-text">2.2 不包括右方括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E9%95%BF%E5%BA%A6%E4%B8%8D%E5%A4%9F%EF%BC%9F"><span class="nav-text">2.3 长度不够？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E6%8C%89%E8%AF%8D%E8%AF%AD%E6%9B%BF%E6%8D%A2-%E8%80%8C%E4%B8%8D%E6%98%AF%E9%95%BF%E5%BA%A6"><span class="nav-text">2.4 按词语替换 而不是长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%AD%A3%E5%8F%8D%E6%80%8E%E4%B9%88%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%9F"><span class="nav-text">2.5 正反怎么不一样？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#is%E7%B3%BB%E5%88%97%E8%A1%A5%E5%85%85"><span class="nav-text">is系列补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#islower"><span class="nav-text">islower</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isupper"><span class="nav-text">isupper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isspace"><span class="nav-text">isspace()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isdigit"><span class="nav-text">isdigit()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isalnum"><span class="nav-text">isalnum()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isalpha"><span class="nav-text">isalpha()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isnumberic"><span class="nav-text">isnumberic()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#str%E5%AE%9E%E4%BE%8B%E7%9A%84%E6%96%B9%E6%B3%95-methods"><span class="nav-text">str实例的方法 methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#str-lower"><span class="nav-text">str.lower</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-strip"><span class="nav-text">str.strip()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-count"><span class="nav-text">str.count()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-find"><span class="nav-text">str.find()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-rfind"><span class="nav-text">str.rfind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-index"><span class="nav-text">str.index()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-replace"><span class="nav-text">str.replace()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-split"><span class="nav-text">str.split()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-join"><span class="nav-text">str.join()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-startwith"><span class="nav-text">str.startwith()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-endswith"><span class="nav-text">str.endswith()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#math%E6%A8%A1%E5%9D%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">math模块的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#math-ceiling"><span class="nav-text">math.ceiling()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print%E6%A8%A1%E5%9D%97%E7%9A%84%E7%9F%A5%E8%AF%86"><span class="nav-text">print模块的知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E6%8E%92%E9%99%A4"><span class="nav-text">错误排除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SyntaxError"><span class="nav-text">SyntaxError</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndentationError"><span class="nav-text">IndentationError</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeError"><span class="nav-text">TypeError:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string-indices-must-be-integers-not-%E2%80%98tuple%E2%80%99"><span class="nav-text">string indices must be integers, not ‘tuple’</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function-Design-Recipe-%E8%AE%BE%E8%AE%A1"><span class="nav-text">Function Design Recipe 设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#help"><span class="nav-text">help()</span></a></li></ol></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Intro"><span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-Function"><span class="nav-text">Method &amp; Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-method"><span class="nav-text">方法 (method)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0-function"><span class="nav-text">函数 (function)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stack-frames-Call-Stack"><span class="nav-text">Stack &amp; frames &amp; Call Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="nav-text">1. 定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Stack"><span class="nav-text">1.1 Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Call-Stack"><span class="nav-text">1.2 Call Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Stack-Frame"><span class="nav-text">1.3 Stack Frame</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%AC%A6%E5%8F%B7-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">一些符号 [,],: 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8-%E8%BF%9B%E8%A1%8C%E7%B4%A2%E5%BC%95%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C"><span class="nav-text">1.使用[,],:进行索引切片操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95indexing"><span class="nav-text">索引indexing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%98%93%E9%94%99%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-text">2. 易错知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E4%B8%8D%E5%8F%AF%E4%BB%A5%E5%88%87%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">2.1 不可以切字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E4%B8%8D%E5%8C%85%E6%8B%AC%E5%8F%B3%E6%96%B9%E6%8B%AC%E5%8F%B7"><span class="nav-text">2.2 不包括右方括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E9%95%BF%E5%BA%A6%E4%B8%8D%E5%A4%9F%EF%BC%9F"><span class="nav-text">2.3 长度不够？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E6%8C%89%E8%AF%8D%E8%AF%AD%E6%9B%BF%E6%8D%A2-%E8%80%8C%E4%B8%8D%E6%98%AF%E9%95%BF%E5%BA%A6"><span class="nav-text">2.4 按词语替换 而不是长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%AD%A3%E5%8F%8D%E6%80%8E%E4%B9%88%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%9F"><span class="nav-text">2.5 正反怎么不一样？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#is%E7%B3%BB%E5%88%97%E8%A1%A5%E5%85%85"><span class="nav-text">is系列补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#islower"><span class="nav-text">islower</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isupper"><span class="nav-text">isupper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isspace"><span class="nav-text">isspace()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isdigit"><span class="nav-text">isdigit()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isalnum"><span class="nav-text">isalnum()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isalpha"><span class="nav-text">isalpha()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isnumberic"><span class="nav-text">isnumberic()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#str%E5%AE%9E%E4%BE%8B%E7%9A%84%E6%96%B9%E6%B3%95-methods"><span class="nav-text">str实例的方法 methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#str-lower"><span class="nav-text">str.lower</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-strip"><span class="nav-text">str.strip()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-count"><span class="nav-text">str.count()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-find"><span class="nav-text">str.find()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-rfind"><span class="nav-text">str.rfind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-index"><span class="nav-text">str.index()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-replace"><span class="nav-text">str.replace()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-split"><span class="nav-text">str.split()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-join"><span class="nav-text">str.join()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-startwith"><span class="nav-text">str.startwith()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-endswith"><span class="nav-text">str.endswith()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#math%E6%A8%A1%E5%9D%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">math模块的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#math-ceiling"><span class="nav-text">math.ceiling()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print%E6%A8%A1%E5%9D%97%E7%9A%84%E7%9F%A5%E8%AF%86"><span class="nav-text">print模块的知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E6%8E%92%E9%99%A4"><span class="nav-text">错误排除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SyntaxError"><span class="nav-text">SyntaxError</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndentationError"><span class="nav-text">IndentationError</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TypeError"><span class="nav-text">TypeError:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string-indices-must-be-integers-not-%E2%80%98tuple%E2%80%99"><span class="nav-text">string indices must be integers, not ‘tuple’</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function-Design-Recipe-%E8%AE%BE%E8%AE%A1"><span class="nav-text">Function Design Recipe 设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#help"><span class="nav-text">help()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#doctests"><span class="nav-text">doctests</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#doctest%E4%BB%8B%E7%BB%8D"><span class="nav-text">doctest介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#doctest-%E7%9A%84%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="nav-text">doctest 的匹配规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#doctest-%E5%92%8C%E4%B8%89%E5%BC%95%E5%8F%B7%E2%80%9D%E2%80%9D%E2%80%9D"><span class="nav-text">doctest 和三引号”””</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#doctest%E6%80%BB%E7%BB%93"><span class="nav-text">doctest总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%B7%E6%91%A9%E6%A0%B9%E5%AE%9A%E5%BE%8B-De-Morgan%E2%80%99s-laws"><span class="nav-text">德摩根定律 De Morgan’s laws</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90"><span class="nav-text">举个栗子</span></a></li></ol></li></ol>
 
 	</div>
 </div>
@@ -1174,11 +1247,11 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        6 posts in total
+                        5 posts in total
                     </span>
                     
                         <span>
-                            12.9k words in total
+                            14k words in total
                         </span>
                     
                 </p>
@@ -1226,7 +1299,7 @@
         
         
     <div class="build-meta mt-2 text-sm text-third-text-color text-center">
-  Updated @ 2025-09-15 16:35
+  Updated @ 2025-09-16 00:20
   <span class="ml-1 text-xs opacity-60">(Toronto, UTC-4)</span>
 </div></div>  
 </footer>
