@@ -140,7 +140,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://manda.417.red/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-09-24T15:59:22.000Z">
-<meta property="article:modified_time" content="2025-09-24T15:57:34.878Z">
+<meta property="article:modified_time" content="2025-09-24T19:04:18.009Z">
 <meta property="article:author" content="Manda">
 <meta property="article:tag" content="Physics">
 <meta property="article:tag" content="Mechanics">
@@ -690,7 +690,7 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">25</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">27</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
@@ -698,7 +698,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">14</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -753,8 +753,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-09-24 11:57:34</span>
-            <span class="mobile">2025-09-24 11:57:34</span>
+            <span class="desktop">2025-09-24 15:04:18</span>
+            <span class="mobile">2025-09-24 15:04:18</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -816,12 +816,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>314 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.7k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>7 Mins</span>
         </span>
     
     
@@ -1157,6 +1157,227 @@
                      data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20250924115617910.png"
                       alt="image-20250924115617910"
                 ></p>
+<hr>
+<h1 id="→→→-Formulas-←←←"><a href="#→→→-Formulas-←←←" class="headerlink" title="→→→ Formulas ←←←"></a>→→→ Formulas ←←←</h1><h2 id="1-Projectile"><a href="#1-Projectile" class="headerlink" title="1.Projectile"></a>1.Projectile</h2><ul>
+<li><p>忽略空气阻力。</p>
+</li>
+<li><p>运动分解：</p>
+<ul>
+<li><strong>水平方向</strong>：匀速直线运动 $x &#x3D; v_x t &#x3D; v_0 \cos\theta \cdot t$</li>
+<li><strong>竖直方向</strong>：初速度 $v_y &#x3D; v_0 \sin\theta$，受重力加速度 $g$ $y &#x3D; v_y t - \tfrac{1}{2} g t^2$</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-1常用公式总结"><a href="#1-1常用公式总结" class="headerlink" title="1.1常用公式总结"></a>1.1常用公式总结</h3><ol>
+<li><strong>水平位移公式（射程 Range）</strong><br> 当抛射点和落地点在同一水平面： $R &#x3D; \frac{v_0^2 \sin(2\theta)}{g}$ 👉 最大射程在 $\theta &#x3D; 45^\circ$ 时。</li>
+</ol>
+<hr>
+<ol>
+<li><strong>飞行时间（Total Time of Flight）</strong> $T &#x3D; \frac{2 v_0 \sin\theta}{g}$</li>
+</ol>
+<hr>
+<ol>
+<li><strong>最大高度（Maximum Height）</strong> $H &#x3D; \frac{v_0^2 \sin^2\theta}{2g}$</li>
+</ol>
+<hr>
+<ol>
+<li><strong>任意时刻的位置</strong> $x(t) &#x3D; v_0 \cos\theta \cdot t$ $y(t) &#x3D; v_0 \sin\theta \cdot t - \tfrac{1}{2} g t^2$</li>
+</ol>
+<hr>
+<ol>
+<li><strong>轨迹方程（消去 $t$）</strong> $y &#x3D; x \tan\theta - \frac{g x^2}{2 v_0^2 \cos^2\theta}$ 👉 这是典型的二次曲线（抛物线方程）。</li>
+</ol>
+<h3 id="1-2解题技巧"><a href="#1-2解题技巧" class="headerlink" title="1.2解题技巧"></a>1.2解题技巧</h3><ol>
+<li><strong>分解法则</strong><ul>
+<li>水平方向：用 $x &#x3D; v_x t$</li>
+<li>竖直方向：用 $y &#x3D; v_y t - \tfrac{1}{2} g t^2$<br> → 联立可以消去 $t$，得到轨迹或射程。</li>
+</ul>
+</li>
+<li><strong>特殊情况要记</strong><ul>
+<li><strong>水平抛出</strong>（$\theta &#x3D; 0^\circ$）：<ul>
+<li>飞行时间只由高度决定 $T &#x3D; \sqrt{\tfrac{2h}{g}}$</li>
+<li>射程 $R &#x3D; v_x T$</li>
+</ul>
+</li>
+<li><strong>竖直上抛</strong>（$\theta &#x3D; 90^\circ$）：射程为 0。</li>
+</ul>
+</li>
+<li><strong>比例法</strong><ul>
+<li>如果题目涉及重力变化（比如地球 vs 月球），射程与 $1&#x2F;g$ 成正比，飞行时间也与 $1&#x2F;g$ 成正比。</li>
+</ul>
+</li>
+<li><strong>常见考点</strong><ul>
+<li><strong>比较时间</strong>：水平抛和自由落体下落时间相同。</li>
+<li><strong>最远射程角度</strong>：$\theta &#x3D; 45^\circ$。</li>
+<li><strong>对称性</strong>：上升时间 &#x3D; 下降时间（同高度）。</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-Circular-Motion"><a href="#2-Circular-Motion" class="headerlink" title="2.Circular Motion"></a>2.Circular Motion</h2><h3 id="2-1基本概念"><a href="#2-1基本概念" class="headerlink" title="2.1基本概念"></a>2.1基本概念</h3><ul>
+<li>物体做圆周运动时，速度大小可以不变，但方向时刻在改变。</li>
+<li><strong>向心力（Centripetal Force）</strong>：指向圆心的合力。</li>
+<li><strong>向心加速度（Centripetal Acceleration）</strong>：保持物体运动轨迹为圆。</li>
+</ul>
+<h3 id="2-2常用公式总结"><a href="#2-2常用公式总结" class="headerlink" title="2.2常用公式总结"></a>2.2常用公式总结</h3><ol>
+<li><strong>线速度（Linear Speed）</strong></li>
+</ol>
+<p>$v &#x3D; \frac{2\pi r}{T} &#x3D; \omega r$</p>
+<p>其中：</p>
+<ul>
+<li>$r$：半径</li>
+<li>$T$：周期</li>
+<li>$\omega$：角速度</li>
+</ul>
+<hr>
+<ol>
+<li><strong>角速度（Angular Velocity）</strong></li>
+</ol>
+<p>$\omega &#x3D; \frac{\theta}{t} &#x3D; \frac{2\pi}{T} &#x3D; \frac{v}{r}$</p>
+<hr>
+<ol>
+<li><strong>向心加速度（Centripetal Acceleration）</strong></li>
+</ol>
+<p>$a_c &#x3D; \frac{v^2}{r} &#x3D; \omega^2 r$</p>
+<hr>
+<ol>
+<li><strong>向心力（Centripetal Force）</strong></li>
+</ol>
+<p>$F_c &#x3D; m a_c &#x3D; \frac{m v^2}{r} &#x3D; m \omega^2 r$</p>
+<hr>
+<ol>
+<li><strong>周期与频率关系</strong></li>
+</ol>
+<p>$f &#x3D; \frac{1}{T}, \quad \omega &#x3D; 2\pi f$</p>
+<hr>
+<ol>
+<li><strong>向心力的来源（根据题目不同）</strong></li>
+</ol>
+<ul>
+<li>绳子拉力</li>
+<li>摩擦力</li>
+<li>重力或重力分量（例如：行星运动、斜面上的小球）</li>
+</ul>
+<h3 id="2-3常见题型-技巧"><a href="#2-3常见题型-技巧" class="headerlink" title="2.3常见题型 &amp; 技巧"></a>2.3常见题型 &amp; 技巧</h3><ol>
+<li><strong>水平圆周运动</strong></li>
+</ol>
+<ul>
+<li>常见场景：绳子拉着小球做水平圆周运动。</li>
+<li>向心力一般由绳子张力的水平分量提供。</li>
+</ul>
+<hr>
+<ol>
+<li><strong>竖直圆周运动</strong></li>
+</ol>
+<ul>
+<li>在竖直面做圆周运动时，不同位置合力不同。</li>
+<li><strong>最低点</strong>： $T - mg &#x3D; \frac{m v^2}{r}$</li>
+<li><strong>最高点</strong>： $T + mg &#x3D; \frac{m v^2}{r}$</li>
+<li><strong>能量守恒</strong>：常用来算最低点&#x2F;最高点的速度。</li>
+</ul>
+<hr>
+<ol>
+<li><strong>临界条件题</strong></li>
+</ol>
+<ul>
+<li>小球刚好能转到最高点： $v_{\text{top}}^2 &#x3D; g r$</li>
+<li>此时绳子张力为 0。</li>
+</ul>
+<hr>
+<ol>
+<li><strong>摩擦力提供向心力</strong></li>
+</ol>
+<ul>
+<li>常见场景：小车在水平圆周轨道上转弯。</li>
+<li>最大静摩擦力： $f_{\max} &#x3D; \mu_s N$</li>
+<li>圆周运动条件： $\frac{m v^2}{r} \leq \mu_s m g$ → 求最大速度。</li>
+</ul>
+<hr>
+<ol>
+<li><strong>天体运动（开普勒第三定律衍生）</strong></li>
+</ol>
+<ul>
+<li>人造卫星绕地球： $\frac{G M m}{r^2} &#x3D; \frac{m v^2}{r}$ → $v &#x3D; \sqrt{\frac{GM}{r}}, \quad T &#x3D; 2\pi \sqrt{\frac{r^3}{GM}}$</li>
+</ul>
+<h2 id="2-1-万有引力与航天"><a href="#2-1-万有引力与航天" class="headerlink" title="2-1.万有引力与航天"></a>2-1.万有引力与航天</h2><h3 id="2-1-1-万有引力定律"><a href="#2-1-1-万有引力定律" class="headerlink" title="2-1.1 万有引力定律"></a>2-1.1 万有引力定律</h3><p>$F &#x3D; G \frac{m_1 m_2}{r^2}$</p>
+<ul>
+<li>$G&#x3D;6.67\times10^{-11}\ \text{N·m}^2&#x2F;\text{kg}^2$（万有引力常量）</li>
+<li>万有引力属于<strong>平方反比律</strong>，与 $1&#x2F;r^2$ 成反比。</li>
+</ul>
+<h3 id="2-1-2-重力加速度（广义）"><a href="#2-1-2-重力加速度（广义）" class="headerlink" title="2-1.2 重力加速度（广义）"></a>2-1.2 重力加速度（广义）</h3><p>$g &#x3D; \frac{GM}{r^2}$</p>
+<ul>
+<li>$r&#x3D;R_\oplus + h$，地心到物体的距离。</li>
+<li>在地表： $g_0&#x3D;\frac{GM}{R_\oplus^2}$</li>
+<li>在高空： $g_h&#x3D;g_0\left(\frac{R_\oplus}{R_\oplus+h}\right)^2$</li>
+</ul>
+<h3 id="2-1-3-圆轨道运动"><a href="#2-1-3-圆轨道运动" class="headerlink" title="2-1.3 圆轨道运动"></a>2-1.3 圆轨道运动</h3><ol>
+<li><strong>平衡条件</strong></li>
+</ol>
+<p>$\frac{GMm}{r^2}&#x3D;\frac{mv^2}{r}$</p>
+<ol>
+<li><strong>轨道速度</strong></li>
+</ol>
+<p>$v&#x3D;\sqrt{\frac{GM}{r}}$</p>
+<ol>
+<li><strong>轨道周期</strong></li>
+</ol>
+<p>$T&#x3D;2\pi \sqrt{\frac{r^3}{GM}}$</p>
+<p>（万能公式）</p>
+<p>如果已知该高度的 $g$：</p>
+<p>$T&#x3D;2\pi\sqrt{\frac{r}{g_h}}$</p>
+<h3 id="2-1-4-几类特殊速度"><a href="#2-1-4-几类特殊速度" class="headerlink" title="2-1.4 几类特殊速度"></a>2-1.4 几类特殊速度</h3><ol>
+<li><strong>第一宇宙速度（近地圆轨道速度）</strong></li>
+</ol>
+<p>$v_1&#x3D;\sqrt{\frac{GM}{R_\oplus}}&#x3D;\sqrt{g_0R_\oplus}\approx7.9\ \text{km&#x2F;s}$</p>
+<ol>
+<li><strong>第二宇宙速度（地球逃逸速度）</strong></li>
+</ol>
+<p>$v_2&#x3D;\sqrt{2},v_1\approx11.2\ \text{km&#x2F;s}$</p>
+<ol>
+<li><strong>第三宇宙速度（摆脱太阳引力速度）</strong></li>
+</ol>
+<p>$v_3&#x3D;\sqrt{\frac{GM_\odot}{R_\oplus}} \approx 42.1\ \text{km&#x2F;s}$</p>
+<h3 id="2-1-5能量公式"><a href="#2-1-5能量公式" class="headerlink" title="2-1.5能量公式"></a>2-1.5能量公式</h3><ol>
+<li><strong>轨道总能量（单位质量）</strong></li>
+</ol>
+<p>$\varepsilon &#x3D; E&#x2F;m &#x3D; \frac{v^2}{2}-\frac{GM}{r}&#x3D;-\frac{GM}{2r}$</p>
+<ol>
+<li><strong>圆轨道动能&#x2F;势能关系</strong></li>
+</ol>
+<p>$E_k &#x3D; -\tfrac{1}{2}E_p$$E_p&#x3D;-\frac{GMm}{r},\quad E_k&#x3D;\frac{GMm}{2r}$</p>
+<h3 id="2-1-6-航天常见结论"><a href="#2-1-6-航天常见结论" class="headerlink" title="2-1.6 航天常见结论"></a>2-1.6 航天常见结论</h3><ol>
+<li><strong>同步卫星</strong></li>
+</ol>
+<ul>
+<li>定义：周期 &#x3D; 地球自转周期（24 h）。</li>
+<li>半径由公式算： $r&#x3D;\sqrt[3]{\frac{GMT^2}{4\pi^2}}\approx 4.2\times10^7\ \text{m}$</li>
+<li>高度约 <strong>36000 km</strong>。</li>
+</ul>
+<ol>
+<li><strong>轨道周期与半径关系</strong>（开普勒第三定律）</li>
+</ol>
+<p>$\frac{T^2}{r^3}&#x3D;\text{常量}$</p>
+<p>适用于围绕同一中心天体的任意卫星。</p>
+<h3 id="2-1-7-解题技巧"><a href="#2-1-7-解题技巧" class="headerlink" title="2-1.7 解题技巧"></a>2-1.7 解题技巧</h3><ol>
+<li><strong>一看题目给的是什么</strong></li>
+</ol>
+<ul>
+<li>给高度&#x2F;半径 → 用 $v, T$ 通用公式。</li>
+<li>给百分比 $g$ → 用速算版公式。</li>
+</ul>
+<ol>
+<li><strong>一看问什么量</strong></li>
+</ol>
+<ul>
+<li>问周期 → $T&#x3D;2\pi\sqrt{r^3&#x2F;GM}$。</li>
+<li>问速度 → $v&#x3D;\sqrt{GM&#x2F;r}$。</li>
+<li>问能量 → 直接代轨道能量结论。</li>
+</ul>
+<ol>
+<li><strong>善用比例</strong></li>
+</ol>
+<ul>
+<li>开普勒定律：$\frac{T_1^2}{r_1^3}&#x3D;\frac{T_2^2}{r_2^3}$。<br> 👉 考试常让你比较两个卫星周期或高度，不需要完整计算。</li>
+</ul>
 
 		</div>
 
@@ -1171,7 +1392,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-09-24 11:57:34
+                    :</strong> 2025-09-24 15:04:18
             </li>
         
         <li>
@@ -1233,33 +1454,45 @@
     <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>recommendation</span>
     </div>
-    <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/09/22/MAT135-0922/" title="MAT135 - Notes (Review)" rel="bookmark">
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/09/14/MAT135_note/" title="MAT135 知识点" rel="bookmark">
+  <img src="https://p.ipic.vip/ae6ny9.png" alt="MAT135 知识点" class="!max-w-none">
+  <span class="title">MAT135 知识点</span>
+</a><a class="recommended-article-item" href="/2025/09/22/MAT135-0922/" title="MAT135 - Notes (Review)" rel="bookmark">
   <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/mat135.png" alt="MAT135 - Notes (Review)" class="!max-w-none">
   <span class="title">MAT135 - Notes (Review)</span>
-</a><a class="recommended-article-item" href="/2025/09/22/PSY100-0922/" title="PSY100 - 0922 Neuroscience" rel="bookmark">
-  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20250922125908114.png" alt="PSY100 - 0922 Neuroscience" class="!max-w-none">
-  <span class="title">PSY100 - 0922 Neuroscience</span>
-</a><a class="recommended-article-item" href="/2025/09/17/WGS101%20-%200917/" title="WGS101 - 0917" rel="bookmark">
-  <img src="https://p.ipic.vip/g8hr23.png" alt="WGS101 - 0917" class="!max-w-none">
-  <span class="title">WGS101 - 0917</span>
+</a><a class="recommended-article-item" href="/2025/09/23/MAT135-0923/" title="MAT135 - 0923" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/mat135-IVT.webp" alt="MAT135 - 0923" class="!max-w-none">
+  <span class="title">MAT135 - 0923</span>
 </a></div>
    </div>
    <div class="recommended-mobile">
    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>recommendation</span>
    </div>
-   <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/09/22/MAT135-0922/" title="MAT135 - Notes (Review)" rel="bookmark">
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/09/14/MAT135_note/" title="MAT135 知识点" rel="bookmark">
+  <img src="https://p.ipic.vip/ae6ny9.png" alt="MAT135 知识点" class="!max-w-none">
+  <span class="title">MAT135 知识点</span>
+</a><a class="recommended-article-item" href="/2025/09/22/MAT135-0922/" title="MAT135 - Notes (Review)" rel="bookmark">
   <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/mat135.png" alt="MAT135 - Notes (Review)" class="!max-w-none">
   <span class="title">MAT135 - Notes (Review)</span>
-</a><a class="recommended-article-item" href="/2025/09/22/PSY100-0922/" title="PSY100 - 0922 Neuroscience" rel="bookmark">
-  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20250922125908114.png" alt="PSY100 - 0922 Neuroscience" class="!max-w-none">
-  <span class="title">PSY100 - 0922 Neuroscience</span>
 </a></div>
    </div>
   </div>
 
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/09/24/WGS101%20-%200924/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">WGS101 - 0924</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
@@ -1330,7 +1563,7 @@
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">PHY146 - Notes</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mechanics-%E6%9C%BA%E6%A2%B0%E5%AD%A6"><span class="nav-text">Mechanics 机械学</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kinematics-%E8%BF%90%E5%8A%A8%E5%AD%A6"><span class="nav-text">Kinematics 运动学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#xvat%E5%85%B3%E7%B3%BB"><span class="nav-text">xvat关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%8A%9B%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="nav-text">重力加速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E4%B8%89%E7%BB%B4%E7%9A%84%E8%BF%90%E5%8A%A8"><span class="nav-text">二三维的运动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spherical-Coordinates-%E7%90%83%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-text">Spherical Coordinates 球坐标系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%80%E9%80%9F%E5%9C%86%E5%91%A8%E8%BF%90%E5%8A%A8"><span class="nav-text">匀速圆周运动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Projectile-Motion-%E6%8A%9B%E5%B0%84%E8%BF%90%E5%8A%A8"><span class="nav-text">Projectile Motion 抛射运动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Force-Motion-%E5%8A%9B%E5%AD%A6"><span class="nav-text">Force &amp; Motion 力学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%9B%E9%A1%BF%E5%8A%9B%E5%AD%A6%E8%A7%84%E5%BE%8B"><span class="nav-text">牛顿力学规律</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%9B%E9%A1%BF%E5%8A%9B%E5%AD%A6%E8%A7%84%E5%BE%8B%E7%9A%84%E8%BF%90%E7%94%A8"><span class="nav-text">牛顿力学规律的运用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%91%E8%BD%AE%E7%B3%BB%E7%BB%9F"><span class="nav-text">滑轮系统</span></a></li></ol></li></ol></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mechanics-%E6%9C%BA%E6%A2%B0%E5%AD%A6"><span class="nav-text">Mechanics 机械学</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kinematics-%E8%BF%90%E5%8A%A8%E5%AD%A6"><span class="nav-text">Kinematics 运动学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#xvat%E5%85%B3%E7%B3%BB"><span class="nav-text">xvat关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%8A%9B%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="nav-text">重力加速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E4%B8%89%E7%BB%B4%E7%9A%84%E8%BF%90%E5%8A%A8"><span class="nav-text">二三维的运动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spherical-Coordinates-%E7%90%83%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-text">Spherical Coordinates 球坐标系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%80%E9%80%9F%E5%9C%86%E5%91%A8%E8%BF%90%E5%8A%A8"><span class="nav-text">匀速圆周运动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Projectile-Motion-%E6%8A%9B%E5%B0%84%E8%BF%90%E5%8A%A8"><span class="nav-text">Projectile Motion 抛射运动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Force-Motion-%E5%8A%9B%E5%AD%A6"><span class="nav-text">Force &amp; Motion 力学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%9B%E9%A1%BF%E5%8A%9B%E5%AD%A6%E8%A7%84%E5%BE%8B"><span class="nav-text">牛顿力学规律</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%9B%E9%A1%BF%E5%8A%9B%E5%AD%A6%E8%A7%84%E5%BE%8B%E7%9A%84%E8%BF%90%E7%94%A8"><span class="nav-text">牛顿力学规律的运用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%91%E8%BD%AE%E7%B3%BB%E7%BB%9F"><span class="nav-text">滑轮系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%86%92%E2%86%92%E2%86%92-Formulas-%E2%86%90%E2%86%90%E2%86%90"><span class="nav-text">→→→ Formulas ←←←</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Projectile"><span class="nav-text">1.Projectile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="nav-text">1.1常用公式总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E8%A7%A3%E9%A2%98%E6%8A%80%E5%B7%A7"><span class="nav-text">1.2解题技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Circular-Motion"><span class="nav-text">2.Circular Motion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">2.1基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="nav-text">2.2常用公式总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B-%E6%8A%80%E5%B7%A7"><span class="nav-text">2.3常见题型 &amp; 技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E4%B8%87%E6%9C%89%E5%BC%95%E5%8A%9B%E4%B8%8E%E8%88%AA%E5%A4%A9"><span class="nav-text">2-1.万有引力与航天</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-%E4%B8%87%E6%9C%89%E5%BC%95%E5%8A%9B%E5%AE%9A%E5%BE%8B"><span class="nav-text">2-1.1 万有引力定律</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-%E9%87%8D%E5%8A%9B%E5%8A%A0%E9%80%9F%E5%BA%A6%EF%BC%88%E5%B9%BF%E4%B9%89%EF%BC%89"><span class="nav-text">2-1.2 重力加速度（广义）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-3-%E5%9C%86%E8%BD%A8%E9%81%93%E8%BF%90%E5%8A%A8"><span class="nav-text">2-1.3 圆轨道运动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-%E5%87%A0%E7%B1%BB%E7%89%B9%E6%AE%8A%E9%80%9F%E5%BA%A6"><span class="nav-text">2-1.4 几类特殊速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-5%E8%83%BD%E9%87%8F%E5%85%AC%E5%BC%8F"><span class="nav-text">2-1.5能量公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-6-%E8%88%AA%E5%A4%A9%E5%B8%B8%E8%A7%81%E7%BB%93%E8%AE%BA"><span class="nav-text">2-1.6 航天常见结论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-7-%E8%A7%A3%E9%A2%98%E6%8A%80%E5%B7%A7"><span class="nav-text">2-1.7 解题技巧</span></a></li></ol></li></ol></li></ol>
 
 	</div>
 </div>
@@ -1357,11 +1590,11 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        12 posts in total
+                        14 posts in total
                     </span>
                     
                         <span>
-                            29.1k words in total
+                            33.8k words in total
                         </span>
                     
                 </p>
@@ -1409,7 +1642,7 @@
         
         
     <div class="build-meta mt-2 text-sm text-third-text-color text-center">
-  Updated @ 2025-09-24 13:22
+  Updated @ 2025-09-24 23:49
   <span class="ml-1 text-xs opacity-60">(Toronto, UTC-4)</span>
 </div></div>  
 </footer>
