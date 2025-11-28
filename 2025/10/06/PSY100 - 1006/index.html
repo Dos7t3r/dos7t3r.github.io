@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Manda">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://manda.417.red/2025/10/06/psy100 - 1006/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PSY100 - 1006">
+<meta property="og:url" content="https://manda.417.red/2025/10/06/PSY100%20-%201006/index.html">
+<meta property="og:site_name" content="Manda&#39;s Note">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://manda.417.red/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-10-06T15:33:55.000Z">
+<meta property="article:modified_time" content="2025-10-07T03:04:14.067Z">
+<meta property="article:author" content="Manda">
+<meta property="article:tag" content="Psychology">
+<meta property="article:tag" content="Class Note">
+<meta property="article:tag" content="Sensation">
+<meta property="article:tag" content="Perception">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://manda.417.red/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            PSY100 - 1006 | Manda&#39;s Notes
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <script data-swup-reload-script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+                
+    
+            
+                
+                    <script data-swup-reload-script>LA.init({id:"KVo5Yoyuv6Y1MSNX",ck:"KVo5Yoyuv6Y1MSNX"})</script>
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"manda.417.red","root":"/","language":"en","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"recommendation","limit":3,"mobile_limit":2,"placeholder":"https://placehold.co/1280x720?text=No\\nPicture","skip_dirs":[]}},"colors":{"primary":"#000000","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Serif SC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"},"english":{"enable":true,"family":"Roboto Mono","url":"https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"},"title":{"enable":true,"family":"Viaoda Libre","url":"https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"M A N D A"},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://w.wallhaven.cc/full/9o/wallhaven-9omr8k.png","dark":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E9%A3%8E%E5%85%89-%E5%AF%8C%E5%A3%AB%E5%B1%B1.png"},"title":"Welcome to <br> Manda's Notes","subtitle":{"text":["Feel the world"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn/?c=a&c=e&c=i&c=j&c=k&min_length=10&max_length=50"},"typing_speed":100,"backing_speed":0,"starting_delay":500,"backing_delay":9999,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Dos7t3r/","instagram":null,"zhihu":null,"twitter":null,"email":"hello@417.red"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"泡沫（Swang Remix|remix：多雷）","artist":"序不是序# 艺术家","url":"https://nty-assets-us01.417.red/1740798841-%E5%BA%8F%E4%B8%8D%E6%98%AF%E5%BA%8F-%E6%B3%A1%E6%B2%AB-Swang-Remix.mp3# 音乐链接","cover":"https://nty-assets-us01.417.red/1740798843-WechatIMG495.jpg","lrc":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/paomo.lrc"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"path":"/categories","icon":"fa-regular fa-archive"},"Essay":{"path":"/essay","icon":"fa-regular fa-comment"},"Bookmarks":{"path":"/bookmarks","icon":"fa-regular fa-bookmark"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Dos7t3r","Friends":"/friends"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Hi there! Welcome to Manda's Note. I'll record my university programming experience here. Wish you a great day!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        M A N D A
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Manda&#39;s Notes
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/essay"
+                                        >
+                                    <i class="fa-regular fa-comment fa-fw"></i>
+                                    ESSAY
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks"
+                                        >
+                                    <i class="fa-regular fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/Dos7t3r">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/friends">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/essay"
+                        >
+                            <span>
+                                ESSAY
+                            </span>
+                            
+                                <i class="fa-regular fa-comment fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-regular fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/Dos7t3r">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/friends">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/archives"
+                        >
+                            <span>Archives</span>
+                            <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">51</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">34</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/psy100-sensation&amp;perception.webp" alt="PSY100 - 1006" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">PSY100 - 1006</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/132345955">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Manda</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-10-06 11:33:55</span>
+        <span class="mobile">2025-10-06 11:33:55</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-10-06 23:04:14</span>
+            <span class="mobile">2025-10-06 23:04:14</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/PSY100/">PSY100</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Psychology/">Psychology</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Class-Note/">Class Note</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Sensation/">Sensation</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Perception/">Perception</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.2k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>12 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/psy100-sensation&perception.webp"
+                      alt="psy100-sensation&amp;perception"
+                ></p>
+<h2 id="Sensation-Perception-感觉和知觉"><a href="#Sensation-Perception-感觉和知觉" class="headerlink" title="Sensation &amp; Perception 感觉和知觉"></a>Sensation &amp; Perception 感觉和知觉</h2><ul>
+<li><p><strong>Sensation</strong> is  the simulation of sense organs</p>
+<p><strong>感觉</strong>是感官器官受到外界刺激时的生理反应。</p>
+</li>
+<li><p><strong>Perception</strong> is the selection, organization, and interpretation of sensory input.</p>
+<p><strong>知觉</strong>是对感觉输入的选择、组织和解释。</p>
+</li>
+</ul>
+<h2 id="Thresholds-阈限"><a href="#Thresholds-阈限" class="headerlink" title="Thresholds 阈限"></a>Thresholds 阈限</h2><ul>
+<li><p>Sensory receptors are tuned to a particular form of energy</p>
+<ul>
+<li>Auditory receptors in the ear code for sound pressure changes, not for light</li>
+</ul>
+</li>
+<li><p>Sensory systems require a <u>minimum amount</u> of energy for activation (<strong>absolute threshold</strong>) </p>
+<p>绝对阈值 - 能引起感受器反应的最小刺激强度</p>
+<ul>
+<li><p>Just-noticeable difference (<strong>JND</strong>): The minimum difference in stimulation that is just noticeable</p>
+<p>最小可觉差 - 刚刚能察觉的刺激变化</p>
+<ul>
+<li><p>Weber noted that the JND is a fraction of the original stimulus intensity: the fraction is different for different senses (<strong>Weber’s Law</strong>)</p>
+<p>韦伯定律 - JND 是原始刺激强度的一个固定比例，不同感官有不同的比例</p>
+<blockquote>
+<p>[!NOTE]</p>
+<p>Weber’s Law - 韦伯定律说</p>
+<p>人们感受到“有变化”的程度取决于刺激的相对变化比例，而不是绝对差值</p>
+<p>假设你拿着两个重物：</p>
+<ul>
+<li>A：100 克</li>
+<li>B：102 克</li>
+</ul>
+<p>你可能感觉不到差别，因为 JND 对重量大约是 1&#x2F;50，也就是需要差 2 克左右才明显。<br>但如果：</p>
+<ul>
+<li>A：1000 克</li>
+<li>B：1020 克<br>这时差 20 克（也是 2%），你刚好也能感觉出来。</li>
+</ul>
+<p>这说明感知差异取决于比例，而不是固定的数值。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Visual-System-视觉系统"><a href="#Visual-System-视觉系统" class="headerlink" title="Visual System 视觉系统"></a>Visual System 视觉系统</h2><ul>
+<li><p>The eye detects <strong>Electromagnetic radiation</strong> (light) </p>
+<p>人眼能感受到光 - 而光是电磁波的一种</p>
+<ul>
+<li><p>Vision is functional 视觉很重要</p>
+<ul>
+<li><p>Allows for detection of <strong>movement</strong> (predator or prey?)</p>
+</li>
+<li><p>Allows for detection of <strong>color</strong> (ripe or spoiled?)</p>
+<p>视觉使我们能识别运动（捕食或逃避）、分辨颜色（食物成熟度等）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Light detection is useful because:</p>
+<ul>
+<li><p>Light travels <strong>rapidly</strong> (no delay, unlike hearing)</p>
+</li>
+<li><p>Light travels in <strong>straight</strong> lines (no distortion)</p>
+</li>
+<li><p>Light <strong>interacts</strong> with the surfaces of objects in the enviroument (is reflected or absorbed)</p>
+<p>光是电磁波 - 速度很快，走直线，会与平面交互（被反射或吸收）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251006113226984.png"
+                      alt="image-20251006113226984"
+                ></p>
+<p>Electromagnetic Spectrum - 人眼可见光波长区间的电磁波谱图</p>
+<h2 id="Details-of-the-Human-Eye-眼睛"><a href="#Details-of-the-Human-Eye-眼睛" class="headerlink" title="Details of the Human Eye 眼睛"></a>Details of the Human Eye 眼睛</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251006113633696.png"
+                      alt="image-20251006113633696"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/sy_201012121334320738-1.jpg"
+                      alt="人体解剖图和器官--眼球结构图_素材公社"
+                ></p>
+<p><em>（图源见水印）</em></p>
+<p>人眼具有极其复杂和脆弱的结构。</p>
+<p><strong>角膜 (Cornea)</strong>：聚焦入射光。</p>
+<p><strong>瞳孔 (Pupil)</strong>：控制光线进入量。</p>
+<p><strong>晶状体 (Lens)</strong>：调节焦距。</p>
+<p><strong>视网膜 (Retina)</strong>：感光细胞所在。</p>
+<p><strong>视神经 (Optic nerve)</strong>：传递信号到大脑。</p>
+<p><strong>中央凹 (Fovea)</strong>：视力最清晰点。</p>
+<p><strong>盲点 (Blind spot)</strong>：无感光细胞区域。</p>
+<h2 id="Transduction-of-Light-光的传导"><a href="#Transduction-of-Light-光的传导" class="headerlink" title="Transduction of Light 光的传导"></a>Transduction of Light 光的传导</h2><ul>
+<li><p>Light travels through the retina to impinge on photoreceptors at the back of the eye</p>
+<ul>
+<li><p>Light bleaches a pigment contained within the photoreceptors:</p>
+<p>光照射到视网膜后，被感光细胞吸收，引发电信号。</p>
+<ul>
+<li>Bleaching leads to a graded receptor potential that eventually produces an action potential in the ganglion cell</li>
+</ul>
+</li>
+<li><p>Two types of photoreceptors </p>
+<p>两种类型的感光细胞</p>
+<ul>
+<li><p><strong>Cones</strong> （视锥细胞）: found in <strong>center of retina (fovea)</strong> and are sensitive to <strong>fine detail and <font color="red">color</font></strong> </p>
+<p>集中在中央凹，负责颜色与细节。</p>
+</li>
+<li><p><strong>Rods</strong> （视杆细胞）: found in periphery of retina and are sensitive to movement but not fine detail</p>
+<p>位于周边，负责运动和弱光下视觉。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251006115447417.png"
+                      alt="image-20251006115447417"
+                ></p>
+<p>视觉信息从**视网膜（retina）**开始，通过视神经（optic nerve）传到大脑后，会在两个方向上继续分化：</p>
+<ol>
+<li>一部分视觉信息进入顶叶（<strong>parietal lobe</strong>），负责<strong>空间与位置</strong>；</li>
+<li>另一部分进入颞叶（<strong>temporal lobe</strong>），负责<strong>形状与物体识别</strong>。</li>
+</ol>
+<p>两条路径：</p>
+<ul>
+<li><strong>“Where” pathway（顶叶 Parietal）</strong>：定位与运动。<ul>
+<li><strong>中文名</strong>：背侧通路（Dorsal stream）<br><strong>流向</strong>：从枕叶（Occipital lobe） → 顶叶（Parietal lobe）<br><strong>功能</strong>：<ul>
+<li>处理“物体在哪里”的信息；</li>
+<li>负责空间定位（spatial location）、运动（motion）与方向（direction）；</li>
+<li>帮助我们<u>判断物体相对位置和运动轨迹</u>。</li>
+<li>当你接球时，你的“where”通路帮助你追踪球的位置和运动速度。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>“What” pathway（颞叶 Temporal）</strong>：识别物体与形状。<ul>
+<li><strong>中文名</strong>：腹侧通路（Ventral stream）<br><strong>流向</strong>：从枕叶（Occipital lobe） → 颞叶（Temporal lobe）<br><strong>功能</strong>：<ul>
+<li>处理“那是什么”的信息；</li>
+<li>识别形状、颜色、物体、人脸等；</li>
+<li><u>负责物体识别（object recognition）与视觉记忆（visual memory）</u></li>
+<li>当你看到一辆车，你的“what”通路帮助你识别那是“汽车”，并且还能分辨出它的颜色和品牌</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>这两条通路协作，你才能完整地看见并理解世界。</p>
+<h2 id="Perception-of-Color-色感"><a href="#Perception-of-Color-色感" class="headerlink" title="Perception of Color 色感"></a>Perception of Color 色感</h2><p><strong>光的波长 (wavelength)</strong> 决定了我们感受到的颜色类型。</p>
+<ul>
+<li>波长短（约 400 nm）→ 蓝紫色</li>
+<li>波长长（约 700 nm）→ 红色</li>
+</ul>
+<p>但光线只是物理刺激，真正的“颜色体验”是大脑加工出来的。</p>
+<p>虽然我们说“红色”“绿色”听起来像是光的颜色，但实际上：</p>
+<blockquote>
+<p><strong>颜色不是光本身的属性，而是大脑对不同波长光的主观解释。</strong></p>
+<p>举例来说 红苹果反射红色波长的光 → 光进入你的眼睛 → 大脑把这种刺激解释为“红色” → 你“看到红色苹果”。</p>
+</blockquote>
+<hr>
+<ul>
+<li><p>Color is a psychological perception</p>
+<p>颜色是一种<strong>心理知觉</strong>（not physical property）</p>
+<ul>
+<li><p>Three dimensions of color:</p>
+<p>颜色有三维的属性</p>
+<ul>
+<li><p><strong>Hue</strong> is the apparent color of an object (blue)</p>
+<p>色调 - 颜色的种类，例如蓝色 - 颜色是什么</p>
+</li>
+<li><p><strong>Brightness</strong> is the internsity of a color</p>
+<p>亮度 - 颜色的明暗强度 - 有多亮</p>
+</li>
+<li><p><strong>Saturation</strong> is the purity of the color</p>
+<p>饱和度 - 颜色的纯度 - 纯不纯</p>
+</li>
+</ul>
+</li>
+<li><p>Three different types of cone are found in the eye</p>
+<p>人眼的视网膜上有三种不同的<strong>视锥细胞（cone cells）</strong>，每种都对不同波长光最敏感：</p>
+<ul>
+<li>Each is sensitive to different wavelengths of light<ul>
+<li>S-cones : <font color= "lighblue">blue</font></li>
+<li>M-cones : <font color= "green">green</font></li>
+<li>L-cones : <font color= "red">red</font></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>这三类细胞的信号组合，就像电脑的 <strong>RGB 模式</strong> 一样，构成我们能感知的所有颜色。</p>
+<h2 id="Color-Vision-Theories-色感理论"><a href="#Color-Vision-Theories-色感理论" class="headerlink" title="Color Vision Theories 色感理论"></a>Color Vision Theories 色感理论</h2><p>人眼之所以看到颜色，目前有两种主流理论：</p>
+<ul>
+<li><p><strong>Young-Helmholtz</strong> </p>
+<p>三原色理论（Trichromatic Theory &#x2F; Young–Helmholtz Theory）</p>
+<ul>
+<li><p>Color is explained by differential activation of 3 color elements in eye</p>
+<p>所有颜色都由三种视锥细胞的<strong>不同组合激活</strong>而成。</p>
+<ul>
+<li><p>Could not account for negative color afterimages</p>
+<p>但是存在局限性：无法解释“负后像（afterimage）”现象：看红色后会看到绿色残影。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Hering: Opponent-Process Theory</strong></p>
+<p>对立过程理论</p>
+<ul>
+<li><p>Colors are derived from activity of 3 antagonistic systems</p>
+<p>视觉系统中存在三对“对立色通道”，当一种颜色的通道被激活，另一方就被抑制。</p>
+<ul>
+<li>Black - White</li>
+<li>Red - Green</li>
+<li>Blue - Yellow</li>
+</ul>
+</li>
+<li><p>长时间盯着红色 → 红通道疲劳 → 看白墙时绿通道反弹 → 出现绿色残影。<br>（这就是“负后像”现象。）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>负后像 (Negative Afterimage)</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251006120625826.png"
+                      alt="image-20251006120625826"
+                ></p>
+<p>当你盯着某种颜色（比如红色圆点）一段时间，然后看向白色背景时，会看到**相反颜色（绿色）**的残影。<br>这是因为对应的神经细胞疲劳了，大脑暂时“反转”通道来平衡信号。</p>
+<blockquote>
+<p>其实两种理论并不矛盾，而是<strong>作用在不同的阶段</strong>：</p>
+<p>颜色识别 &#x3D; “三原色信号 + 对立处理机制” 的组合结果。</p>
+</blockquote>
+<h2 id="Sound-声音"><a href="#Sound-声音" class="headerlink" title="Sound 声音"></a>Sound 声音</h2><p>声音是空气分子的振动。<br><em>Sound waves are vibrations of molecules through air.</em></p>
+<blockquote>
+<p>声音是一种<strong>机械波（mechanical wave）</strong>，是<strong>空气分子的振动（vibrations of molecules）</strong>。<br>当物体振动时，会带动周围空气分子压缩（compression）和稀疏（rarefaction），这种波动传到耳朵中，就被感知为“声音”。</p>
+<hr>
+<p>声音 ≠ 看得见的东西，而是空气压力的变化。<br>你的耳朵就是一个“压力变化探测器（pressure detector）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>单位</th>
+<th align="center">心理感受</th>
+<th>举例</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Amplitude 振幅</td>
+<td>decibels 分贝（dB）</td>
+<td align="center">音量（Loudness）</td>
+<td>声音大小，吵不吵</td>
+<td></td>
+</tr>
+<tr>
+<td>Wavelength 波长（Frequency）</td>
+<td>Hz 赫兹</td>
+<td align="center">音调（pitch）</td>
+<td>低音和高音，调子高低不同</td>
+<td></td>
+</tr>
+<tr>
+<td>Purity 纯度</td>
+<td>-</td>
+<td align="center">音色（timbre）</td>
+<td>钢琴音和吉他音，种类不同</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>当你调大音量 → <strong>振幅增加</strong></p>
+<p>当你听到高音女声 → <strong>频率高</strong></p>
+<p>当你分辨不同乐器 → <strong>音色（timbre）不同</strong></p>
+<h2 id="Auditory-System-听觉系统"><a href="#Auditory-System-听觉系统" class="headerlink" title="Auditory System 听觉系统"></a>Auditory System 听觉系统</h2><p> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/05102017vldenttheear.jpg"
+                      alt="Auditory System - Neurology - Medbullets Step 1"
+                ></p>
+<ul>
+<li><p><strong>外耳 (External Ear)</strong></p>
+<ul>
+<li><p>耳廓 (pinna) + 外耳道 + 鼓膜 (eardrum)</p>
+</li>
+<li><p>收集声波并聚焦到鼓膜；</p>
+<p>鼓膜振动，把空气振动变成机械运动。</p>
+</li>
+</ul>
+<p>耳廓像一个“声波天线”，帮助判断声音的方向。</p>
+</li>
+<li><p><strong>中耳 (Middle Ear)</strong></p>
+<ul>
+<li><strong>组成：</strong> 三块听小骨（ossicles）：<ul>
+<li>锤骨 (hammer &#x2F; malleus)</li>
+<li>砧骨 (anvil &#x2F; incus)</li>
+<li>镫骨 (stirrup &#x2F; stapes)</li>
+</ul>
+</li>
+<li><strong>功能：</strong><ul>
+<li>把鼓膜的振动“放大”并传给内耳；</li>
+<li>镫骨与内耳耳蜗（cochlea）相连，把机械振动变成液体波动。</li>
+</ul>
+</li>
+<li>听小骨相当于“声波放大器”，让声音能传入液体环境的内耳。</li>
+</ul>
+</li>
+<li><p><strong>内耳 (Inner Ear)</strong></p>
+<ul>
+<li><strong>主要结构：</strong><ul>
+<li><strong>耳蜗 (Cochlea)</strong>：螺旋状结构，内部充满液体；</li>
+<li><strong>基底膜 (Basilar membrane)</strong>：上面有感受细胞；</li>
+<li><strong>毛细胞 (Hair cells)</strong>：听觉感受器，负责把机械波转化为神经信号。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>大脑听觉皮层</p>
+<ul>
+<li>解码声音</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>External ear – pinna 耳廓 , eardrum 耳膜 </p>
+<p>Middle ear – ossicles  (hammer, anvil, stirrup)</p>
+<p>Inner ear – cochlea  耳蜗</p>
+<p>basilar membrane – hair cells 毛细胞</p>
+</blockquote>
+<h2 id="Taste：the-Gustatory-System-味觉系统"><a href="#Taste：the-Gustatory-System-味觉系统" class="headerlink" title="Taste：the Gustatory System 味觉系统"></a>Taste：the Gustatory System 味觉系统</h2><p>味觉（Taste）是通过舌头上的感受器——<strong>味蕾（taste buds）</strong> 来感知溶解在唾液中的化学物质。</p>
+<blockquote>
+<p>🧠 换句话说，味觉是一种<strong>化学感官（chemical sense）</strong>，<br>它把化学刺激（食物中的分子）转换成神经信号。</p>
+</blockquote>
+<h3 id="味蕾-Taste-Buds"><a href="#味蕾-Taste-Buds" class="headerlink" title="味蕾 (Taste Buds)"></a>味蕾 (Taste Buds)</h3><ul>
+<li>每个味蕾包含大约 <strong>50–150 个味觉感受细胞（taste receptor cells）</strong>。</li>
+<li>味蕾主要位于舌头表面的突起上，叫做 <strong>乳头（papillae）</strong>。</li>
+<li>味蕾不断更新（寿命约 10 天）。</li>
+</ul>
+<h3 id="乳头-Papillae-的三种主要类型："><a href="#乳头-Papillae-的三种主要类型：" class="headerlink" title="乳头 (Papillae) 的三种主要类型："></a>乳头 (Papillae) 的三种主要类型：</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>英文名称</th>
+<th>位置</th>
+<th>特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>轮廓乳头</td>
+<td><strong>Circumvallate papillae</strong></td>
+<td>舌根部</td>
+<td>味蕾最多，呈圆环状</td>
+</tr>
+<tr>
+<td>叶状乳头</td>
+<td><strong>Foliate papillae</strong></td>
+<td>舌的两侧</td>
+<td>叶片形状</td>
+</tr>
+<tr>
+<td>蕈状乳头</td>
+<td><strong>Fungiform papillae</strong></td>
+<td>舌尖和前部</td>
+<td>味蕾分布最广、对甜最敏感</td>
+</tr>
+</tbody></table>
+<p>“舌头不同区域负责不同味道”的老说法（甜在舌尖、苦在舌根）是 <strong>误解</strong>。<br>现在我们知道，<strong>整个舌面都能感知所有基本味道</strong>，只是敏感度略有差异。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/Papillae-of-the-tongue.png"
+                      alt="Papillae of the tongue | Download Scientific Diagram"
+                ></p>
+<h3 id="基本味觉"><a href="#基本味觉" class="headerlink" title="基本味觉"></a>基本味觉</h3><table>
+<thead>
+<tr>
+<th>味道</th>
+<th>英文</th>
+<th>化学基础</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>甜</td>
+<td><strong>Sweet</strong></td>
+<td>糖类或人工甜味剂</td>
+<td>糖果、果汁</td>
+</tr>
+<tr>
+<td>酸</td>
+<td><strong>Sour</strong></td>
+<td>氢离子 (H⁺) 浓度</td>
+<td>柠檬、醋</td>
+</tr>
+<tr>
+<td>咸</td>
+<td><strong>Salty</strong></td>
+<td>钠离子 (Na⁺)</td>
+<td>盐、海水</td>
+</tr>
+<tr>
+<td>苦</td>
+<td><strong>Bitter</strong></td>
+<td>多种碱性物质、毒素</td>
+<td>咖啡、啤酒</td>
+</tr>
+<tr>
+<td><em>鲜味</em></td>
+<td><em><strong>Umami</strong></em></td>
+<td><em>谷氨酸钠 (MSG)</em></td>
+<td><em>肉汤、奶酪</em></td>
+</tr>
+</tbody></table>
+<p><em>💡 “Umami”（日语词）是第五种味道，意为“鲜美”，由日本科学家池田菊苗发现。</em></p>
+<h2 id="Smell-：-the-Olfactory-System-嗅觉系统"><a href="#Smell-：-the-Olfactory-System-嗅觉系统" class="headerlink" title="Smell ： the Olfactory System 嗅觉系统"></a>Smell ： the Olfactory System 嗅觉系统</h2><p>嗅觉是通过检测空气中**化学分子（odor molecules）**产生的感官体验。<br>这些分子溶解在鼻腔内部的黏液层中，与嗅觉感受细胞（olfactory receptors）结合，从而引发神经信号。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/17fig2.jpg"
+                      alt="Odor Monitoring and Detection Tools | BioCycle"
+                ></p>
+<table>
+<thead>
+<tr>
+<th>结构</th>
+<th>英文名</th>
+<th>功能</th>
+<th>类比记忆</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>嗅上皮</td>
+<td><strong>Olfactory epithelium</strong></td>
+<td>鼻腔顶部的一层感受膜，包含数百万个嗅觉感受细胞</td>
+<td>“嗅觉感应器阵列”</td>
+</tr>
+<tr>
+<td>嗅觉纤毛</td>
+<td><strong>Olfactory cilia</strong></td>
+<td>位于感受细胞表面，与气味分子结合</td>
+<td>“化学探针”</td>
+</tr>
+<tr>
+<td>嗅神经</td>
+<td><strong>Olfactory nerve</strong></td>
+<td>传递电信号到嗅球</td>
+<td>“数据线”</td>
+</tr>
+<tr>
+<td>嗅球</td>
+<td><strong>Olfactory bulb</strong></td>
+<td>大脑底部，整合嗅觉信息并传递给更高级区域</td>
+<td>“信号中继站”</td>
+</tr>
+</tbody></table>
+<p>💡 每个嗅觉感受细胞只识别某类特定分子，但组合起来可以识别 <strong>超过 1 万种气味</strong>！</p>
+<h3 id="Smell-Emotion-Memory"><a href="#Smell-Emotion-Memory" class="headerlink" title="Smell, Emotion &amp; Memory"></a>Smell, Emotion &amp; Memory</h3><p>嗅觉是<strong>唯一一个不经过丘脑 (thalamus)</strong> 的感官系统，信号直接进入大脑的<strong>边缘系统（limbic system）</strong>，特别是：</p>
+<ul>
+<li><strong>杏仁核 (amygdala)</strong>：情绪反应（如喜欢或厌恶某气味）</li>
+<li><strong>海马体 (hippocampus)</strong>：气味与记忆的关联</li>
+</ul>
+<p>💡 这就是为什么：</p>
+<ul>
+<li>闻到某种香水就会想起某个人；</li>
+<li>刚出炉面包的香味能让人情绪放松。</li>
+</ul>
+<p>这种现象叫做 <strong>Proust Effect（普鲁斯特效应）</strong>：气味唤起记忆。</p>
+<h2 id="Skin-Scenses-触觉"><a href="#Skin-Scenses-触觉" class="headerlink" title="Skin Scenses 触觉"></a>Skin Scenses 触觉</h2><p><strong>Receptors are localized within the skin to detect physical stimuli in the outside world</strong></p>
+<p>皮肤是人体最大的感官器官。<br>它的感受器（receptors）分布在不同深度，用来检测外界刺激，例如：</p>
+<ul>
+<li>压力（pressure &#x2F; touch）</li>
+<li>温度（temperature）</li>
+<li>疼痛（pain）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>感受类型</th>
+<th>英文名称</th>
+<th>功能</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>触觉感受器</td>
+<td><strong>Touch receptors</strong></td>
+<td>检测物体接触、压力、振动</td>
+<td>手机震动、轻拍肩膀</td>
+</tr>
+<tr>
+<td>温度感受器</td>
+<td><strong>Thermoreceptors</strong> (temperature of object)</td>
+<td>检测冷热变化</td>
+<td>冰水、热茶</td>
+</tr>
+<tr>
+<td>痛觉感受器</td>
+<td><strong>Nociceptors</strong> (pain)</td>
+<td>检测组织损伤信号（机械&#x2F;热&#x2F;化学）</td>
+<td>划伤、烫伤</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="Pain-疼痛"><a href="#Pain-疼痛" class="headerlink" title="Pain 疼痛"></a>Pain 疼痛</h2><p>痛觉（Pain）是一种<strong>警告信号</strong>，告诉我们身体正在或即将受到伤害。</p>
+<blockquote>
+<p>它的功能是<strong>保护性</strong>的（adaptive），促使我们停止伤害源或寻求帮助。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>刺激类型</th>
+<th>英文名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>机械性</td>
+<td><strong>Mechanical</strong></td>
+<td>撞击、压迫、割伤等物理破坏</td>
+</tr>
+<tr>
+<td>热性</td>
+<td><strong>Thermal</strong></td>
+<td>烫伤、冻伤</td>
+</tr>
+<tr>
+<td>化学性</td>
+<td><strong>Chemical</strong></td>
+<td>酸碱、毒素、炎症物质</td>
+</tr>
+</tbody></table>
+<p>Pain is a adaptive to a degree (motivates behaviors to terminate the source of the pain)</p>
+<p>痛觉不仅取决于物理刺激，也受到心理与文化影响：</p>
+<table>
+<thead>
+<tr>
+<th>影响因素</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>注意力</td>
+<td>集中注意会增强痛感；分散注意能减轻痛感</td>
+</tr>
+<tr>
+<td>情绪状态</td>
+<td>焦虑、恐惧使痛感更强；放松、愉悦会减弱</td>
+</tr>
+<tr>
+<td>文化信念</td>
+<td>不同文化对“忍痛”的态度不同</td>
+</tr>
+<tr>
+<td>经验</td>
+<td>之前的痛觉经历会影响对未来痛感的预期</td>
+</tr>
+</tbody></table>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> PSY100 - 1006</li>
+        <li><strong>Author:</strong> Manda</li>
+        <li><strong>Created at
+                :</strong> 2025-10-06 11:33:55</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-10-06 23:04:14
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://manda.417.red/2025/10/06/PSY100 - 1006/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Psychology/">#Psychology</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Class-Note/">#Class Note</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Sensation/">#Sensation</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Perception/">#Perception</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/09/22/PSY100%20-%200922/" title="PSY100 - 0922 Neuroscience" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20250922125908114.png" alt="PSY100 - 0922 Neuroscience" class="!max-w-none">
+  <span class="title">PSY100 - 0922 Neuroscience</span>
+</a><a class="recommended-article-item" href="/2025/09/10/CSC108_note/" title="「📌PINNED」 CSC108 Notes" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/csc108-python-notes.webp" alt="「📌PINNED」 CSC108 Notes" class="!max-w-none">
+  <span class="title">「📌PINNED」 CSC108 Notes</span>
+</a><a class="recommended-article-item" href="/2025/09/17/WGS101%20-%200917/" title="WGS101 - 0917" rel="bookmark">
+  <img src="https://p.ipic.vip/g8hr23.png" alt="WGS101 - 0917" class="!max-w-none">
+  <span class="title">WGS101 - 0917</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/09/22/PSY100%20-%200922/" title="PSY100 - 0922 Neuroscience" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20250922125908114.png" alt="PSY100 - 0922 Neuroscience" class="!max-w-none">
+  <span class="title">PSY100 - 0922 Neuroscience</span>
+</a><a class="recommended-article-item" href="/2025/09/10/CSC108_note/" title="「📌PINNED」 CSC108 Notes" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/csc108-python-notes.webp" alt="「📌PINNED」 CSC108 Notes" class="!max-w-none">
+  <span class="title">「📌PINNED」 CSC108 Notes</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/10/06/CSC108%20-%201006/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">CSC108 - 1006 课堂案例</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/10/01/WGS101%20-%201001%20-%20TUT/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">WGS101 - 1001 - TUT</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://waline-comments.417.red/',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+                    lang: 'zh-CN',
+          recaptchaV3Key: '0x4AAAAAAB2v6lpUQeVPOG-M',
+          turnstileKey: '0x4AAAAAAB2v6s7_k4ZSXVC3rpdbfeq_WcU',
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">PSY100 - 1006</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sensation-Perception-%E6%84%9F%E8%A7%89%E5%92%8C%E7%9F%A5%E8%A7%89"><span class="nav-text">Sensation &amp; Perception 感觉和知觉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thresholds-%E9%98%88%E9%99%90"><span class="nav-text">Thresholds 阈限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visual-System-%E8%A7%86%E8%A7%89%E7%B3%BB%E7%BB%9F"><span class="nav-text">Visual System 视觉系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Details-of-the-Human-Eye-%E7%9C%BC%E7%9D%9B"><span class="nav-text">Details of the Human Eye 眼睛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transduction-of-Light-%E5%85%89%E7%9A%84%E4%BC%A0%E5%AF%BC"><span class="nav-text">Transduction of Light 光的传导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Perception-of-Color-%E8%89%B2%E6%84%9F"><span class="nav-text">Perception of Color 色感</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Color-Vision-Theories-%E8%89%B2%E6%84%9F%E7%90%86%E8%AE%BA"><span class="nav-text">Color Vision Theories 色感理论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sound-%E5%A3%B0%E9%9F%B3"><span class="nav-text">Sound 声音</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Auditory-System-%E5%90%AC%E8%A7%89%E7%B3%BB%E7%BB%9F"><span class="nav-text">Auditory System 听觉系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Taste%EF%BC%9Athe-Gustatory-System-%E5%91%B3%E8%A7%89%E7%B3%BB%E7%BB%9F"><span class="nav-text">Taste：the Gustatory System 味觉系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%B3%E8%95%BE-Taste-Buds"><span class="nav-text">味蕾 (Taste Buds)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%B3%E5%A4%B4-Papillae-%E7%9A%84%E4%B8%89%E7%A7%8D%E4%B8%BB%E8%A6%81%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="nav-text">乳头 (Papillae) 的三种主要类型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%B3%E8%A7%89"><span class="nav-text">基本味觉</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smell-%EF%BC%9A-the-Olfactory-System-%E5%97%85%E8%A7%89%E7%B3%BB%E7%BB%9F"><span class="nav-text">Smell ： the Olfactory System 嗅觉系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Smell-Emotion-Memory"><span class="nav-text">Smell, Emotion &amp; Memory</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Skin-Scenses-%E8%A7%A6%E8%A7%89"><span class="nav-text">Skin Scenses 触觉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pain-%E7%96%BC%E7%97%9B"><span class="nav-text">Pain 疼痛</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Manda</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        34 posts in total
+                    </span>
+                    
+                        <span>
+                            71.8k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    <div class="build-meta mt-2 text-sm text-third-text-color text-center">
+  Updated @ 2025-11-28 14:16
+  <span class="ml-1 text-xs opacity-60">(Toronto, UTC-5)</span>
+</div></div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+	<div id="aplayer"></div>
+
+<script src="/js/build/libs/APlayer.min.js"></script>
+
+
+<script src="/js/build/plugins/aplayer.js"></script>
+
+
+	
+</body>
+
+</html>

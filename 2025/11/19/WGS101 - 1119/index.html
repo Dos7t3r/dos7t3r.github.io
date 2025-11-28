@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Manda">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://manda.417.red/2025/11/19/wgs101 - 1119/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WGS101 - 1119">
+<meta property="og:url" content="https://manda.417.red/2025/11/19/WGS101%20-%201119/index.html">
+<meta property="og:site_name" content="Manda&#39;s Note">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://manda.417.red/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-11-19T20:11:52.557Z">
+<meta property="article:modified_time" content="2025-11-26T23:46:44.192Z">
+<meta property="article:author" content="Manda">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Gender Study">
+<meta property="article:tag" content="TUT">
+<meta property="article:tag" content="LEC">
+<meta property="article:tag" content="Men and Masculinities">
+<meta property="article:tag" content="Masculinities">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://manda.417.red/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            WGS101 - 1119 | Manda&#39;s Notes
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <script data-swup-reload-script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+                
+    
+            
+                
+                    <script data-swup-reload-script>LA.init({id:"KVo5Yoyuv6Y1MSNX",ck:"KVo5Yoyuv6Y1MSNX"})</script>
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"manda.417.red","root":"/","language":"en","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"recommendation","limit":3,"mobile_limit":2,"placeholder":"https://placehold.co/1280x720?text=No\\nPicture","skip_dirs":[]}},"colors":{"primary":"#000000","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Serif SC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"},"english":{"enable":true,"family":"Roboto Mono","url":"https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"},"title":{"enable":true,"family":"Viaoda Libre","url":"https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"M A N D A"},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://w.wallhaven.cc/full/9o/wallhaven-9omr8k.png","dark":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E9%A3%8E%E5%85%89-%E5%AF%8C%E5%A3%AB%E5%B1%B1.png"},"title":"Welcome to <br> Manda's Notes","subtitle":{"text":["Feel the world"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn/?c=a&c=e&c=i&c=j&c=k&min_length=10&max_length=50"},"typing_speed":100,"backing_speed":0,"starting_delay":500,"backing_delay":9999,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Dos7t3r/","instagram":null,"zhihu":null,"twitter":null,"email":"hello@417.red"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"泡沫（Swang Remix|remix：多雷）","artist":"序不是序# 艺术家","url":"https://nty-assets-us01.417.red/1740798841-%E5%BA%8F%E4%B8%8D%E6%98%AF%E5%BA%8F-%E6%B3%A1%E6%B2%AB-Swang-Remix.mp3# 音乐链接","cover":"https://nty-assets-us01.417.red/1740798843-WechatIMG495.jpg","lrc":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/paomo.lrc"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"path":"/categories","icon":"fa-regular fa-archive"},"Essay":{"path":"/essay","icon":"fa-regular fa-comment"},"Bookmarks":{"path":"/bookmarks","icon":"fa-regular fa-bookmark"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Dos7t3r","Friends":"/friends"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Hi there! Welcome to Manda's Note. I'll record my university programming experience here. Wish you a great day!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        M A N D A
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Manda&#39;s Notes
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/essay"
+                                        >
+                                    <i class="fa-regular fa-comment fa-fw"></i>
+                                    ESSAY
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks"
+                                        >
+                                    <i class="fa-regular fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/Dos7t3r">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/friends">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/essay"
+                        >
+                            <span>
+                                ESSAY
+                            </span>
+                            
+                                <i class="fa-regular fa-comment fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-regular fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/Dos7t3r">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/friends">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/archives"
+                        >
+                            <span>Archives</span>
+                            <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">51</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">34</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/WGS101-men-and-masculinities.webp" alt="WGS101 - 1119" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">WGS101 - 1119</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/132345955">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Manda</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-11-19 15:11:52</span>
+        <span class="mobile">2025-11-19 15:11:52</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-11-26 18:46:44</span>
+            <span class="mobile">2025-11-26 18:46:44</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/WGS101/">WGS101</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Notes/">Notes</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Gender-Study/">Gender Study</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/TUT/">TUT</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/LEC/">LEC</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Men-and-Masculinities/">Men and Masculinities</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Masculinities/">Masculinities</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.4k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>16 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="LEC"><a href="#LEC" class="headerlink" title="LEC"></a>LEC</h1><p>SCRATCH</p>
+<p>Power&#x2F;Race&#x2F;Color</p>
+<p>Gender - performative &#x2F; relational</p>
+<p>Changing Relation in different circumstances (time period&#x2F; physical distance - country)</p>
+<h2 id="Masculinity"><a href="#Masculinity" class="headerlink" title="Masculinity"></a>Masculinity</h2><p>Masculinity - 男子气概</p>
+<p><strong>Masculinity</strong> (also called <strong>manhood</strong> or <strong>manliness</strong>) is a set of attributes, <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Behavior" >behaviors<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>, and roles generally associated with <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Men" >men<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> and <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Boy" >boys<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>. </p>
+<p>Masculinity can be theoretically understood as <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Social_construction_of_gender" >socially constructed<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>,[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-shehan-1" >1]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> and there is also evidence that some behaviors considered masculine are influenced by both <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cultural" >cultural<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> factors and biological factors.[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-shehan-1" >1]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-MartinFinn-2" >2]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-Lippa-3" >3]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-Wharton-4" >4]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> To what extent masculinity is biologically or socially influenced is subject to debate.[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-MartinFinn-2" >2]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-Lippa-3" >3]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-Wharton-4" >4]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> </p>
+<p>It is <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sex_and_gender_distinction" >distinct<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> from the definition of the <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Male" >biological male sex<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>,[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-Ferrante-5" >5]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-WHO-6" >6]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> as anyone can exhibit masculine traits.[<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity#cite_note-7" >7]<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> Standards of masculinity vary across different cultures and historical periods. In Western cultures, its meaning is traditionally drawn from being contrasted with <a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Femininity" >femininity<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>.</p>
+<p><em>(Source: Wiki Pedia)</em></p>
+<hr>
+<h3 id="Hegemonic-masculinity"><a href="#Hegemonic-masculinity" class="headerlink" title="Hegemonic masculinity"></a>Hegemonic masculinity</h3><ul>
+<li>Proposed by sociologist R.W. Connell</li>
+<li>Coined by sociologist Connell Hegemonic </li>
+<li>Masculinity refers to idealized and accepted form of masculinity</li>
+<li>Traits include <strong>dominance</strong>, <strong>emotional restraint</strong>, <strong>physical strength</strong>, and <strong>heterosexuality</strong>.</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251119151857120.png"
+                      alt="image-20251119151857120"
+                ></p>
+<blockquote>
+<p>Hegemonic Masculinity - 霸权式男子气概</p>
+<p>指的是一种被社会理想化（idealized）并被广泛接受的男性气概形式 。</p>
+<p>特征：包括统治&#x2F;支配 (dominance)、情感压抑 (emotional restraint)、身体强壮 (physical strength) 和异性恋 (heterosexuality)</p>
+<p>解释：这并不意味着所有男人都是这样，而是社会告诉男人“应该”是这样。</p>
+</blockquote>
+<hr>
+<p><strong>Why Hegemonic Masculinity Matters?</strong></p>
+<ul>
+<li>Shapes societal norms and expectations for men.</li>
+<li>Creates a hierarchy that marginalizes those who don’t conform.</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251119152145628.png"
+                      alt="image-20251119152145628"
+                ></p>
+<blockquote>
+<p>重要性：</p>
+<p>① 它塑造了社会对男性的规范和期望 </p>
+<p>② 它创造了一个等级制度，将那些不符合这一标准的人边缘化(Marginalize)</p>
+<p>③ 它处于社会等级的顶端</p>
+</blockquote>
+<hr>
+<h3 id="Hierarchy-of-Masculinities"><a href="#Hierarchy-of-Masculinities" class="headerlink" title="Hierarchy of Masculinities"></a>Hierarchy of Masculinities</h3><ul>
+<li>Masculinity as a Social Hierarchy</li>
+<li><strong>Hegemonic Masculinity</strong> at the top.</li>
+<li>Subordinate and Marginalized Masculinities at the bottom.</li>
+</ul>
+<blockquote>
+<p>男性气概并不是平等的，而是一个社会等级体系 。</p>
+<p>除了顶端的“支配性男性气概”，还有位于底层的其他形式 。</p>
+<p>例如Subordinate（从属）、Marginalized（边缘化）等等</p>
+</blockquote>
+<h4 id="1-Subordinate"><a href="#1-Subordinate" class="headerlink" title="1. Subordinate"></a>1. Subordinate</h4><ul>
+<li>Reject traditional norms or don’t conform to heteronormativity.</li>
+<li>Example:<ul>
+<li>Homosexual (Gay) men</li>
+<li>Men with gentle and soft characteristic (reject competitiveness or domaince)</li>
+</ul>
+</li>
+<li>Key Idea : “Othered” by hegemonic masculinity through homophobia or <strong>misogyny</strong>.</li>
+</ul>
+<blockquote>
+<ol>
+<li><strong>从属的男性气概 (Subordinate Masculinities)</strong></li>
+</ol>
+<ul>
+<li><strong>定义</strong>：指那些拒绝传统男性规范，或不符合“异性恋正统性 (heteronormativity)”的男性 。</li>
+<li><strong>例子</strong>：男同性恋者 (Gay men)，或者那些拒绝竞争、拒绝表现出支配欲的男性 。</li>
+<li><strong>关键点</strong>：他们被视为“他者 (Othered)”，常常通过恐同 (homophobia) 或厌女 (misogyny) 的手段被贬低 。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>补充： </p>
+<p><u><em>Homophobia - 恐同</em></u></p>
+<p>​	由于Hegemonic的主导地位，规定了 真正的男人必须是<strong>异性恋</strong>，这是成为顶级男人的入场要求。也在社会层面规定了异性恋正统性（heteronormativity）。</p>
+<p>​	但是当一个男人表现出同性恋的倾向（Subordinate从属男性气概）时，打破了上面的正统。此时，社会通过恐同Homophobia 心理和行为（例如 嘲笑、排斥、暴力等）贬低他，告诉他是次等的。</p>
+<p>​	<strong>恐同</strong>是那个把他们从“正常男人”的行列中踢出去、踢到社会等级底层的<strong>具体工具</strong> 。</p>
+<hr>
+<p>​	这就好比一个VIP俱乐部规定“必须穿西装”，如果你穿了裙子（打破规则），保安（恐同机制）就会把你拦在门外或赶到角落里（贬低&#x2F;边缘化）。</p>
+<hr>
+<p><u><em>Misogyny - 厌女</em></u></p>
+<p>​	<strong>厌女 (Misogyny)</strong> 在这里是<strong>支配性男性气概 (Hegemonic Masculinity)</strong> 用来打压和贬低<strong>从属男性气概 (Subordinate Masculinities)</strong> 的一种<strong>手段</strong>或<strong>工具</strong> 。</p>
+<p>​	支配性男性气概（Hegemonic）认为男人必须强壮、理性、有支配力，而女性化被视为软弱 情绪化 且次等的。因此，Hegemonic不仅排斥女性 还排斥携带女性气质的东西——广义上的“厌女”（厌恶女性气质）</p>
+<p>​	当一个男人（比如男同性恋者或者性格温柔，不爱争斗的男性）表现出被认为属于【传统女性】的特征时，支配性男性气概的维护者就会用看待女性的眼光来看待他 。因为主流标准“延误”女性特质，所以这些被认为“像女人一样”的男人，也就顺理成章地被贬低到了社会等级的底层。</p>
+<hr>
+<p>总之 社会是因为“厌女”（瞧不起女性特质），才进而瞧不起那些被认为“像女人”的男人。**</p>
+</blockquote>
+<h4 id="2-Marginalized"><a href="#2-Marginalized" class="headerlink" title="2. Marginalized"></a>2. Marginalized</h4><ul>
+<li>Excluded due to systemic inqeualities tied to race, class or disability</li>
+<li>Exampels<ul>
+<li>Black or Muslim men stereotyped as “hypermasculine” or “dangerous.”</li>
+</ul>
+</li>
+<li>Key Idea : <strong>Intersection</strong> of gender with <u>race, religion ,class, and social structures.</u></li>
+</ul>
+<blockquote>
+<p>Marginalized - 边缘化男性气质</p>
+<p>​	什么是边缘化的男性？指那些因为<strong>种族 (race)</strong>、<strong>阶级 (class)</strong> 或 <strong>残疾 (disability)</strong> 等系统性不平等因素，而被排斥在权力中心之外的男性群体 。</p>
+<p>​	注意，这里强调的是<strong>交叉性 (Intersectionality)</strong> 。也就是“性别”这个身份，与你的肤色、财富、社会地位交织在了一起。</p>
+<p>​	但说这么高级，翻译一下，说人话就是 <strong><u>身份背景不够优越</u></strong>。</p>
+<p>​	两个经典例子——黑哥们和穆斯林男性。他们经常被社会贴上 <strong>“过度男性化 (hypermasculine)”</strong> 或 <strong>“危险 (dangerous)”</strong> 的标签 。在“支配性男性气概”的标准里，男人应该强壮、有支配力。你会发现，很多黑人男性其实非常强壮、甚至很有支配力（符合标准）。 <strong>但是！</strong> 因为<u>种族歧视</u>的存在，这种“强壮”并没有让他们成为领袖，反而让他们被主流白人社会视为<strong>威胁</strong>（Threat）。 所以 像他们这样的人 虽然有男性气概，但这种气概被边缘化了，无法转化为真正的社会权力。</p>
+<p>除了种族，阶级也是一个重要的影响因素。</p>
+<p>一个从事重体力劳动的蓝领工人。他可能身体非常强壮（符合男性气概），甚至比坐在办公室里的白人CEO更强壮。但因为他没钱、社会地位低，他在这个“男性气概等级金字塔”里，依然是处于底层的。他的这种“硬汉”形象被视为粗俗或低级，而不是理想的“支配性男性气概”</p>
+</blockquote>
+<h4 id="3-Complicit"><a href="#3-Complicit" class="headerlink" title="3. Complicit"></a>3. Complicit</h4><ul>
+<li>Individuals who don’t embody hegemonic masculinity but benefit from it or reward it</li>
+<li>Intentional vs. unintentional</li>
+<li>Everyone can be complicit in reinforcing hegemonic masculinity.</li>
+</ul>
+<blockquote>
+<p><strong>共谋的男性气概 (Complicit Masculinity)</strong> </p>
+<p>首先要知道 什么是“共谋”——指那些<strong>并没有完全体现</strong>支配性男性气概特征（比如可能没那么强壮、没那么有钱、也没那么霸道）的男性，但他们<strong>支持</strong>这个系统，或者从中<strong>获益</strong> 。</p>
+<p>所以 他们不是“老大”（Hegemonic），但他们是“老大的拥护者”或者“既得利益者”。</p>
+<p>其次 为什么叫共谋——<strong>因为获益</strong></p>
+<p>虽然这类男性可能也是普通人，甚至也被“霸主”压一头，但他们<strong>享受到了作为男性的红利</strong>（在社会学里常被称为“父权红利 Patriarchal Dividend”）。</p>
+<ul>
+<li><strong>获益 (Benefit)</strong>：因为社会整体上把男性置于女性之上，所以即使是普通男性，相比女性而言，也拥有更多的社会权力、更高的收入潜力和更少的安全担忧 。</li>
+<li><strong>代价</strong>：为了保住这些好处，他们不会去挑战这个不公平的系统，甚至会奖励那个系统 。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>有意 vs 无意 —— 共谋的两种形式</p>
+<ul>
+<li>Intentional - 主动去迎合那些“阿尔法男”，比如跟着一起起哄羞辱女性，或者为了显得合群而假装自己很强硬。</li>
+<li>Unintentional - 这是更常见的情况。比如看到性别歧视的事情发生时<strong>保持沉默</strong>。虽然没有亲自施暴，但沉默本身就是一种纵容，就是在维护这个等级制度。</li>
+</ul>
+<p>所以 每个人都可能参与到这场共谋，共同强化Hegemonic——支配性男性气概</p>
+</blockquote>
+<blockquote>
+<p>举个例子🌰</p>
+<p>想象一个高中更衣室场景：</p>
+<ul>
+<li><strong>Hegemonic (霸主)</strong>：那个正在讲黄色笑话羞辱女生的校队队长。</li>
+<li><strong>Subordinate (从属)</strong>：那个被羞辱或者因为不笑而被嘲讽的“书呆子”。</li>
+<li><strong>Complicit (共谋)</strong>：<strong>在旁边跟着笑，或者虽然觉得不妥但为了不被排挤而一声不吭的普通男生</strong>。<ul>
+<li>他们可能本身并不坏，也不具备霸主的统治力，但他们的<strong>笑声或沉默</strong>，给了霸主权力，并让这个欺凌系统得以维持。</li>
+</ul>
+</li>
+</ul>
+<p><strong>总结一下 Complicit 的逻辑：</strong> 我不一定是那个制定规则的“王”，但我遵守规则，享受规则带来的好处，并且绝不造反。这就是“共谋”。</p>
+</blockquote>
+<hr>
+<p>总结对比</p>
+<table>
+<thead>
+<tr>
+<th><strong>特征维度</strong></th>
+<th><strong>从属男性气概(Subordinate)</strong></th>
+<th><strong>边缘化男性气概(Marginalized)</strong></th>
+<th><strong>共谋男性气概(Complicit)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>核心逻辑</strong></td>
+<td><strong>“不像男人”</strong> 拒绝传统规范或非异性恋</td>
+<td><strong>“社会地位低”</strong> 因种族、阶级或残疾被排斥</td>
+<td><strong>“沉默的受益者”</strong> 不完全符合霸主标准，但支持该系统</td>
+</tr>
+<tr>
+<td><strong>典型人群</strong></td>
+<td>男同性恋者 (Gay men) 温柔&#x2F;不爱竞争的男性</td>
+<td>黑人男性、穆斯林(Muslim)男性、底层工人</td>
+<td><strong>大多数普通男性</strong> (Everyone can be complicit)</td>
+</tr>
+<tr>
+<td><strong>被打压手段</strong></td>
+<td><strong>恐同 (Homophobia)</strong> <strong>厌女 (Misogyny)</strong></td>
+<td><strong>系统性不平等</strong> (种族歧视、阶级固化)</td>
+<td><em>(他们通常不被打压，而是通过从众来避免被打压)</em></td>
+</tr>
+<tr>
+<td><strong>与权力的关系</strong></td>
+<td><strong>处于底层</strong> 被视为“他者” (Othered)</td>
+<td><strong>处于边缘</strong> 可能被视为“过度男性化”或“危险”</td>
+<td><strong>分享红利</strong> 从中获益 (Benefit from it)</td>
+</tr>
+<tr>
+<td><strong>关键状态</strong></td>
+<td><strong>被排斥 (Excluded)</strong></td>
+<td><strong>被交叉影响 (Intersected)</strong></td>
+<td><strong>被同化 (Assimilation)</strong></td>
+</tr>
+</tbody></table>
+<h3 id="Multiple-Masculinity"><a href="#Multiple-Masculinity" class="headerlink" title="Multiple Masculinity"></a>Multiple Masculinity</h3><ul>
+<li>R.W. Connell introduced the concept.</li>
+<li>C.J. Pascoe: Masculinity is diverse and constantly performed and negotiated in different settings.</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251119160239351.png"
+                      alt="image-20251119160239351"
+                ></p>
+<blockquote>
+<p>R.W. Connell 提出了一个“多元男性气概”的概念，</p>
+<p>引用社会学家 C.J. Pascoe 指出 男性气概是多样化的（diverse），并且是在不同的设定中不断<strong>被表演 (performed)</strong> 和<strong>被协商 (negotiated)</strong> 的 。</p>
+<p>这意味着“像个男人”不是一种固定的天性，而是一种你必须根据环境不断去“演”出来的行为。你在更衣室里表现出的男性气概，可能和你面对老师时完全不同。</p>
+</blockquote>
+<h3 id="The-Jock"><a href="#The-Jock" class="headerlink" title="The Jock"></a>The Jock</h3><ul>
+<li>Who is the Jock?<ul>
+<li>Represents hegemonic masculinity in high school settings.</li>
+</ul>
+</li>
+<li>Embodies traits like athleticism, strength, and social dominance.</li>
+<li>Sets a standard for others to navigate their identities.</li>
+</ul>
+<blockquote>
+<p>C.J. Pascoe 的研究重点在于高中环境，而在那个环境里，“支配性男性气概”的具体化身就是 <strong>The Jock</strong>。</p>
+<p>​	在高中设定里，Jock 代表了<strong>支配性男性气概 (Hegemonic Masculinity)</strong> 。他体现了运动能力 (athleticism)、力量 (strength) 和社会支配地位 (social dominance) 。</p>
+<p>​	Jock的存在 设定了一个标准，而其他人根据这个标准给自己贴标签。</p>
+</blockquote>
+<hr>
+<h4 id="Pascoe’s-Insight-on-the-Jock"><a href="#Pascoe’s-Insight-on-the-Jock" class="headerlink" title="Pascoe’s Insight on the Jock"></a>Pascoe’s Insight on the Jock</h4><ul>
+<li>The Jock acts as a reference point for all boys, whether they align, resist, or adapt.</li>
+<li>The figure creates a social hierarchy and influences other masculinities.</li>
+</ul>
+<blockquote>
+<p>​	Pascoe 认为 在学校这个社会环境下，Jock 们不是在遵守规则，他们就是<strong>规则本身</strong>。他们设定了“什么是真正的男人”的标准，其他人只能看着这个标准来确立自己的身份 。 Jock变为了一个参照点（Reference Point）就像坐标系的（0,0），所有的男生——无论你想不想——都得被强制在这个坐标系里定位。所有的男生 大致分为这三种阵营：</p>
+<ul>
+<li><strong>Align (结盟&#x2F;模仿)</strong>：有的男生试图模仿 Jock，穿衣说话都学他们，希望能蹭到一点地位。</li>
+<li><strong>Resist (反抗)</strong>：有的男生（比如 emo 或 geek）虽然讨厌 Jock，但他们的反抗也是<strong>针对</strong> Jock 的（例如：“我才不要像那帮无脑肌肉男一样”）。你看，即使是反抗，他们的定义里也包含了 Jock。</li>
+<li><strong>Adapt (适应)</strong>：普通男生在夹缝中求生存，小心翼翼地避开 Jock 的锋芒。</li>
+</ul>
+</blockquote>
+<h4 id="Jock-Insurance"><a href="#Jock-Insurance" class="headerlink" title="Jock Insurance"></a>Jock Insurance</h4><ul>
+<li>Athleticism provides “protection” against criticism for showing non-masculine traits.</li>
+<li>Example: <ul>
+<li>A football player enjoying poetry is less likely to face ridicule due to his athletic status.</li>
+</ul>
+</li>
+<li>Highlights the flexibility and relational nature of masculinity.</li>
+</ul>
+<hr>
+<blockquote>
+<p>Jock Insurance 之所以叫保险（Insurance）是因为他的身份如同一份保险 可以免受对自己男性气概的质疑</p>
+<p>​	具有保险的 符合Hegemonic的人（Jock） 即使做了一些不符合 Hegemonic的事情 也可以被忽略。大家不会认为一个橄榄球四分卫会写诗 而怀疑他的“真男人”身份，反而会觉得更有魅力——但是普通男生不一定，只会被贴上“娘”的标签。</p>
+</blockquote>
+<blockquote>
+<p><strong>“The Jock” 不仅仅是一个人，他是一套“免死金牌”制度。</strong></p>
+<ul>
+<li><p><strong>他定义游戏</strong>：所有人都要围着他转 (Reference Point)。</p>
+</li>
+<li><p><strong>他拥有特权</strong>：因为他太“Man”了，所以他偶尔“不Man”一下不仅没事，反而显得更有魅力 (Jock Insurance)。</p>
+</li>
+<li><p><strong>其他人没资格</strong>：普通人如果没有这层“保险”，做同样的事就会被社会性死亡。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="Alpha-Male-Ideology"><a href="#Alpha-Male-Ideology" class="headerlink" title="Alpha Male Ideology"></a>Alpha Male Ideology</h3><ul>
+<li>continues to shape hegemonic masculinity</li>
+<li>Male influencers on social media platforms</li>
+<li>Traditional ideas about dominance and hierarchical power, but with a modern twist</li>
+<li>Originated from studies of animal behavior</li>
+<li>Characteristics like confidence, assertiveness, and control</li>
+<li>Male influencers use it to build followings and sell a lifestyle that prioritizes power and success above all else</li>
+</ul>
+<blockquote>
+<p>α Male Ideology - 阿尔法男意识形态</p>
+<p>​	这是一个现代化的概念，其实本质上就是延续了上面提到的 支配性男性气概（Hegemonic）</p>
+<p>​	起源于动物行为研究（狼群的头狼），在社会学中重新定义。</p>
+<p>阿尔法男的核心特征：包括 <strong>自信（confidence）、果断（assertiveness）和控制力（control）</strong></p>
+</blockquote>
+<blockquote>
+<p>直到现在 它依然强调关于支配 (dominance) 和等级权力 (hierarchical power) 的传统观念</p>
+<p>现在的男性网红 (Male influencers) 利用这一概念在社交媒体上建立粉丝群，并兜售一种将“权力”和“成功”置于一切之上的生活方式 。</p>
+</blockquote>
+<hr>
+<p>Example —— Andrew Tate</p>
+<p>Andrew Tate 是一个饱受争议的被封杀网红，观看下面的两个视频，他们展示了 Tate 的两副面孔。并且思考下面的问题。</p>
+<hr>
+<p>📺.1</p>
+<p>Tate 谈女性的真相 (The “Raw Alpha&#x2F;Dominator” Angle)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gtoR2vAguz4?si=8fxeMMYEnaGTUeTB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p><strong>风格</strong>：极度傲慢、非人化。他把自己包装成一个不受规则束缚的“叛逆者”，拿着剑、抽着雪茄，随心所欲。</p>
+<ul>
+<li><strong>核心论点：女性缺乏自主意识 (“Barely Sentient”)</strong><ul>
+<li>这个视频比第一个激进得多。他直接声称女性（即使是好女人）“几乎没有感知能力 (barely sentient)” 。</li>
+<li>他认为女性从不自己思考，她们只是“空容器 (empty vessels)”，等待别人来安装程序 。</li>
+</ul>
+</li>
+<li><strong>从属论：女性只是男性的附属品</strong><ul>
+<li>他认为女性成长过程中只是听社会的（迪士尼、Netflix），直到遇到一个男人 。</li>
+<li>如果她遇到一个“强框架 (strong framed)”的男人，她就会全盘接受这个男人的政治立场、音乐品味和思想 。</li>
+</ul>
+</li>
+<li><strong>结论</strong>：女性没有独立思想，谁强（谁是 Alpha），谁就拥有并定义她的思想。</li>
+</ul>
+<hr>
+<p>📺.2</p>
+<p>Tate 谈女性在社会中的角色 (The “Traditional Protector” Angle)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/k_BC99MjSqk?si=fWDNiPQQz16P33hJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p><strong>风格</strong>：伪装成理性的、地缘政治的讨论。他把自己包装成一个关心西方文明衰落的“传统主义者”。</p>
+<ul>
+<li><strong>核心论点：西方社会的失败源于生育率崩溃</strong><ul>
+<li>他声称西方社会正在失败，主要原因是男性被女性“套牢 (cuffed)”，只生很少的孩子 。</li>
+<li>他指责女性把追求事业、Instagram 点赞和爱马仕包包 (Birkin bags) 置于生孩子之上 。</li>
+<li>他认为女性原本的“义务 (obligation)”是繁衍后代，但女权主义把她们从这种义务中“解放”了出来，导致人口崩溃 。</li>
+</ul>
+</li>
+<li><strong>性别分工论：男性建造，女性生育</strong><ul>
+<li>他提出一种看似“互补”的观点：男人负责建造城市和道路，女人负责提供孩子 。</li>
+<li>他强调男人有责任“保护和供养 (protect and provide)”女性，但这有个前提：女性必须保持“天真 (innocence)”和听话 。</li>
+</ul>
+</li>
+<li><strong>结论</strong>：虽然他承认这是“双方的错” ，但他的解决方案是恢复传统的父权制契约：男人出钱保护，女人听话生孩子 。</li>
+</ul>
+<hr>
+<p>根据上面两个视频 有下面一些问题</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251119162604668.png"
+                      alt="image-20251119162604668"
+                ></p>
+<hr>
+<h4 id="Q1-Do-his-views-evolve"><a href="#Q1-Do-his-views-evolve" class="headerlink" title="Q1: Do his views evolve?"></a><strong>Q1: Do his views evolve?</strong></h4><p>他的观点进化了吗？ </p>
+<ul>
+<li><p><strong>答案：绝对没有 (No)。</strong></p>
+</li>
+<li><p><strong>分析</strong>：尽管他在两个视频里的语气截然不同，但核心结论是<strong>完全一致</strong>的——即<strong>男性必须拥有对女性的绝对支配权</strong>。</p>
+<ul>
+<li><strong>在视频 2 中</strong>：他用“责任”和“义务”来包装支配。他说男人的遗传遗产比女人的感受更重要 ，婚姻是一场交易：我养你，你听我的 。</li>
+<li><strong>在视频 1 中</strong>：他用“智力优越感”来包装支配。他说因为女性是“空容器” ，所以必须由男人来填补和引导。</li>
+<li><strong>总结</strong>：无论他说他在“保护”你，还是说你是“傻瓜”，结果都是一样的——<strong>剥夺女性的自主权 (Agency)</strong>。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="Q2-Why-does-he-offer-different-reasons"><a href="#Q2-Why-does-he-offer-different-reasons" class="headerlink" title="Q2: Why does he offer different reasons?"></a><strong>Q2: Why does he offer different reasons?</strong></h4><p>为什么他要给出不同的理由？</p>
+<p>这是一个满分回答的关键点，结合课件中的 <strong>Hegemonic Masculinity (支配性男性气概)</strong> 理论：</p>
+<ol>
+<li><strong>针对不同的受众 (Marketing&#x2F;Audience)</strong>：<ul>
+<li><strong>视频 2 是给保守派听的</strong>：他大谈“西方文明”、“地缘政治” 。这让他听起来像是一个严肃的社会评论家，吸引那些担心传统价值观崩溃的人。这是一种**“共谋 (Complicit)”**的策略，让普通人觉得他的话有道理。</li>
+<li><strong>视频 1 是给愤怒的年轻男性听的</strong>：他拿着剑、抽着雪茄 ，展示一种<strong>极端的阿尔法男</strong>形象。这种“女性是空容器”的理论，能让那些在现实中受挫的男性感到自己比女性优越。</li>
+</ul>
+</li>
+<li><strong>伪装与适应 (Masking &amp; Adaptability)</strong>：<ul>
+<li>正如 PPT 中提到的 <strong>Jock Insurance</strong> 和男性气概的灵活性，Tate 也很擅长变色。</li>
+<li>当他需要显得“高尚”时，他使用<strong>仁慈的性别歧视 (Benevolent Sexism)</strong>：男人是“保护者” 。</li>
+<li>当他需要显得“霸气”时，他使用<strong>敌意的性别歧视 (Hostile Sexism)</strong>：女人是“几乎没有感知能力的” 。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h1 id="TUT"><a href="#TUT" class="headerlink" title="TUT"></a>TUT</h1><h2 id="Hegemonic-Masculinity"><a href="#Hegemonic-Masculinity" class="headerlink" title="Hegemonic Masculinity"></a>Hegemonic Masculinity</h2><p>Questions mentioned in Tutorial:</p>
+<ul>
+<li>What is hegemonic (and ~ masculinity)</li>
+<li>What is toxic masculinity?</li>
+<li>Why do feminists to work with this subject?</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Masculinity" >https://en.wikipedia.org/wiki/Masculinity<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://youtu.be/gtoR2vAguz4?si=PYDann4i8MBXU6eM" >https://youtu.be/gtoR2vAguz4?si=PYDann4i8MBXU6eM<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://youtu.be/k_BC99MjSqk?si=C486ABWNGZgB-XdU" >https://youtu.be/k_BC99MjSqk?si=C486ABWNGZgB-XdU<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> WGS101 - 1119</li>
+        <li><strong>Author:</strong> Manda</li>
+        <li><strong>Created at
+                :</strong> 2025-11-19 15:11:52</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-11-26 18:46:44
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://manda.417.red/2025/11/19/WGS101 - 1119/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Notes/">#Notes</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Gender-Study/">#Gender Study</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/TUT/">#TUT</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/LEC/">#LEC</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Men-and-Masculinities/">#Men and Masculinities</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Masculinities/">#Masculinities</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/10/08/WGS101%20-%201008/" title="WGS101 - 1008" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-constructing-politics.webp" alt="WGS101 - 1008" class="!max-w-none">
+  <span class="title">WGS101 - 1008</span>
+</a><a class="recommended-article-item" href="/2025/10/15/WGS101%20-%201015/" title="WGS101 - 1015" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/genderandthepoliticsofthebody.webp" alt="WGS101 - 1015" class="!max-w-none">
+  <span class="title">WGS101 - 1015</span>
+</a><a class="recommended-article-item" href="/2025/11/26/WGS101%20-%201126/" title="WGS101 - 1126" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-health-Medicalization-20251126154918975.webp" alt="WGS101 - 1126" class="!max-w-none">
+  <span class="title">WGS101 - 1126</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/10/08/WGS101%20-%201008/" title="WGS101 - 1008" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-constructing-politics.webp" alt="WGS101 - 1008" class="!max-w-none">
+  <span class="title">WGS101 - 1008</span>
+</a><a class="recommended-article-item" href="/2025/10/15/WGS101%20-%201015/" title="WGS101 - 1015" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/genderandthepoliticsofthebody.webp" alt="WGS101 - 1015" class="!max-w-none">
+  <span class="title">WGS101 - 1015</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/11/21/Untitled/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48"></span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/11/09/CSC108%20-%201107/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">CSC108 - 1107 课堂案例</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://waline-comments.417.red/',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+                    lang: 'zh-CN',
+          recaptchaV3Key: '0x4AAAAAAB2v6lpUQeVPOG-M',
+          turnstileKey: '0x4AAAAAAB2v6s7_k4ZSXVC3rpdbfeq_WcU',
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">WGS101 - 1119</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LEC"><span class="nav-text">LEC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Masculinity"><span class="nav-text">Masculinity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hegemonic-masculinity"><span class="nav-text">Hegemonic masculinity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hierarchy-of-Masculinities"><span class="nav-text">Hierarchy of Masculinities</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiple-Masculinity"><span class="nav-text">Multiple Masculinity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Jock"><span class="nav-text">The Jock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Alpha-Male-Ideology"><span class="nav-text">Alpha Male Ideology</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TUT"><span class="nav-text">TUT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hegemonic-Masculinity"><span class="nav-text">Hegemonic Masculinity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Manda</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        34 posts in total
+                    </span>
+                    
+                        <span>
+                            71.8k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    <div class="build-meta mt-2 text-sm text-third-text-color text-center">
+  Updated @ 2025-11-28 14:16
+  <span class="ml-1 text-xs opacity-60">(Toronto, UTC-5)</span>
+</div></div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+	<div id="aplayer"></div>
+
+<script src="/js/build/libs/APlayer.min.js"></script>
+
+
+<script src="/js/build/plugins/aplayer.js"></script>
+
+
+	
+</body>
+
+</html>

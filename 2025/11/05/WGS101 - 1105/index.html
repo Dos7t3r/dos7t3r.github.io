@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Manda">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://manda.417.red/2025/11/05/wgs101 - 1105/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WGS101 - 1105">
+<meta property="og:url" content="https://manda.417.red/2025/11/05/WGS101%20-%201105/index.html">
+<meta property="og:site_name" content="Manda&#39;s Note">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://manda.417.red/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-11-05T23:11:55.000Z">
+<meta property="article:modified_time" content="2025-11-26T23:52:15.577Z">
+<meta property="article:author" content="Manda">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Gender Study">
+<meta property="article:tag" content="LEC">
+<meta property="article:tag" content="Family">
+<meta property="article:tag" content="Domestic Labor">
+<meta property="article:tag" content="Marriage">
+<meta property="article:tag" content="Colonial Devastation">
+<meta property="article:tag" content="Indigenous Families">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://manda.417.red/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            WGS101 - 1105 | Manda&#39;s Notes
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <script data-swup-reload-script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+                
+    
+            
+                
+                    <script data-swup-reload-script>LA.init({id:"KVo5Yoyuv6Y1MSNX",ck:"KVo5Yoyuv6Y1MSNX"})</script>
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"manda.417.red","root":"/","language":"en","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"recommendation","limit":3,"mobile_limit":2,"placeholder":"https://placehold.co/1280x720?text=No\\nPicture","skip_dirs":[]}},"colors":{"primary":"#000000","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Serif SC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"},"english":{"enable":true,"family":"Roboto Mono","url":"https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"},"title":{"enable":true,"family":"Viaoda Libre","url":"https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"M A N D A"},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://w.wallhaven.cc/full/9o/wallhaven-9omr8k.png","dark":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E9%A3%8E%E5%85%89-%E5%AF%8C%E5%A3%AB%E5%B1%B1.png"},"title":"Welcome to <br> Manda's Notes","subtitle":{"text":["Feel the world"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn/?c=a&c=e&c=i&c=j&c=k&min_length=10&max_length=50"},"typing_speed":100,"backing_speed":0,"starting_delay":500,"backing_delay":9999,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Dos7t3r/","instagram":null,"zhihu":null,"twitter":null,"email":"hello@417.red"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"泡沫（Swang Remix|remix：多雷）","artist":"序不是序# 艺术家","url":"https://nty-assets-us01.417.red/1740798841-%E5%BA%8F%E4%B8%8D%E6%98%AF%E5%BA%8F-%E6%B3%A1%E6%B2%AB-Swang-Remix.mp3# 音乐链接","cover":"https://nty-assets-us01.417.red/1740798843-WechatIMG495.jpg","lrc":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/paomo.lrc"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"path":"/categories","icon":"fa-regular fa-archive"},"Essay":{"path":"/essay","icon":"fa-regular fa-comment"},"Bookmarks":{"path":"/bookmarks","icon":"fa-regular fa-bookmark"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Dos7t3r","Friends":"/friends"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Hi there! Welcome to Manda's Note. I'll record my university programming experience here. Wish you a great day!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        M A N D A
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Manda&#39;s Notes
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/essay"
+                                        >
+                                    <i class="fa-regular fa-comment fa-fw"></i>
+                                    ESSAY
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks"
+                                        >
+                                    <i class="fa-regular fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/Dos7t3r">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/friends">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/essay"
+                        >
+                            <span>
+                                ESSAY
+                            </span>
+                            
+                                <i class="fa-regular fa-comment fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-regular fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/Dos7t3r">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/friends">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/archives"
+                        >
+                            <span>Archives</span>
+                            <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">51</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">34</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-FAMILIES%20&amp;CONFIGURATIONS.webp" alt="WGS101 - 1105" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">WGS101 - 1105</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/132345955">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Manda</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-11-05 18:11:55</span>
+        <span class="mobile">2025-11-05 18:11:55</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-11-26 18:52:15</span>
+            <span class="mobile">2025-11-26 18:52:15</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/WGS101/">WGS101</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Notes/">Notes</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Gender-Study/">Gender Study</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/LEC/">LEC</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Family/">Family</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Domestic-Labor/">Domestic Labor</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Marriage/">Marriage</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Colonial-Devastation/">Colonial Devastation</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Indigenous-Families/">Indigenous Families</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.7k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>17 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="Families"><a href="#Families" class="headerlink" title="Families"></a>Families</h2><p>What is family?</p>
+<ul>
+<li>Family is the most universal social organization.</li>
+<li>Family as Ancient Social Unit.</li>
+<li>Historically, in hunter-gather era, all events (give birth, food produce, trade items and power assignment) happends in unit of family.</li>
+</ul>
+<blockquote>
+<p>家庭是一个最普遍、最古老的社会组织形式（social organization）</p>
+<p>自狩猎时代起，所有的生活事务——育儿、食物生产、贸易、权力分配——都是在家庭单位内进行</p>
+</blockquote>
+<h2 id="Inequality-Domestic-Labor"><a href="#Inequality-Domestic-Labor" class="headerlink" title="Inequality @ Domestic Labor"></a>Inequality @ Domestic Labor</h2><p><strong>Nowadays, female are still responsible for primary daily grind.</strong></p>
+<h3 id="Reproductive-Labor"><a href="#Reproductive-Labor" class="headerlink" title="Reproductive Labor"></a>Reproductive Labor</h3><ul>
+<li><u><strong>Reproductive Labor - (Feminist term)</strong></u> <ul>
+<li>include not only give birth to children, but also all work needs to be done to maintain and ‘reproduce’ manpower (human) like <u>Cook, Clean, Take care of children and elderly</u>.</li>
+</ul>
+</li>
+<li>Labor of Love <ul>
+<li>society often embellish these work as ‘The Labor of Love’, which indicates that females are voluntary for doing these, not a valued ‘work’.</li>
+</ul>
+</li>
+<li>Invisible work<ul>
+<li>These works are often INVISIBLE - they are not officially considered economic devotion, not getting paid, and always be negelicted until nobody responsible for them (for example, no one at home shopping or clean)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>观点 ： <u>女性仍然承担着最主要的日常繁重家务，这是不平等的体现。</u> </p>
+<p>对此， 女权主义提出了一个叫做【<strong>再生产劳动</strong>】（Reproductive Labor）的概念，他指的不仅仅是生孩子，而是所有为了维持和“再生产”劳动力（人）所必需的工作，例如洗衣，做饭，打扫卫生，照顾孩子和老人。</p>
+<p>而社会常常把这些女性的Reproductive Labor美化为“爱の劳动”，暗示这些工作都是女性出于自愿而做的，不是一种“有价值”的工作。<font color="grey"><em>（虽然这个自愿本人可能都不知道）</em></font></p>
+<p>此外，这些Reproductive Labor通常都是无形的（Invisible），这些工作不被视为真正的经济贡献，而且也没有报酬，常常被人忽视。直到没有人做的时候才会发现。<font color="grey"><em>（例如，妈妈出差的时候，家里没人买菜 没人打扫卫生，直到这时才会发现妈妈做家务劳动时的付出。）</em></font></p>
+</blockquote>
+<hr>
+<h3 id="Females-are-facing-Double-Shift"><a href="#Females-are-facing-Double-Shift" class="headerlink" title="Females are facing Double Shift"></a><strong>Females are facing Double Shift</strong></h3><ul>
+<li><u><strong>Double shift</strong></u><ul>
+<li>Women have burden not only at work outside (do job to get paid), but also at home (the majority of housework and raise the children - without getting paid, which is the second burden) </li>
+<li>Double shift points out that females are facing dilemma like this.</li>
+<li><font color="red"><strong>FLAWS</strong></font> - this double shift limits women’s options of their lives, for example, they may not able to have occupation promotion, no time to improve or entertaining themselfves - which might cause overload physcially or mentally.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>观点 ： <u>女性面临着双重负担</u></p>
+<p>它指的是，当女性既要在外工作（从事有偿劳动，这是第一重负担），回家后又要承担绝大多数的家务和育儿责任（从事无偿的再生产劳动，这是第二重负担）时，她们所面临的困境。</p>
+<p>这种双重负担<strong>限制了女性的选择</strong> (limits women’s options)，比如她们可能无法寻求职业晋升、没有时间进行自我提升或休闲，导致身心俱疲。</p>
+</blockquote>
+<h3 id="Marriage-Economics-Control-Power"><a href="#Marriage-Economics-Control-Power" class="headerlink" title="Marriage, Economics, Control, Power"></a><strong>Marriage, Economics, Control, Power</strong></h3><p>Marriage isn’t only about love, but a complex combination of economics and social  rules. It also related to economics, control and assignment of power.</p>
+<p>Marriage has changed a lot with the development of society. Take Canada as an example in historical evolution :</p>
+<ul>
+<li><strong>1950s - Companionate marriage</strong><ul>
+<li>The companionate marriage mainly focus on strict gendered roles - Husbands must be breadwinners while Wifes must be homemakers.</li>
+</ul>
+</li>
+<li><strong>Modern - Individualized marriage</strong><ul>
+<li>Modern marriage more focus on self-development and personal happiness.</li>
+<li><font color="red">Problem Exists</font> - However, although the view of marriage have changed from companionate to individualized, the DOUBLE SHIFT of female still persistes.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Data Analysis</strong></p>
+<p><u><em><font color="green"><strong>Women &#x3D; +1 month housework&#x2F;year</strong></font></em></u></p>
+<p>If we quantify the unpaid work (house work, etc.) done by women, it equals for women to work one month more than men annually.</p>
+<blockquote>
+<p>观点 ： <u>除了爱情之外，婚姻是一种经济和社会制度，涉及到经济、控制和权力的分配</u></p>
+<p>在加拿大，从1950年至今，婚姻形式从陪伴型婚姻（男耕女织）到如今的个体化婚姻，体现了时代的进步。<strong>但是双重负担依然存在</strong></p>
+<p><strong>Women +&#x3D; 1 month housework &#x2F;year</strong> 这一条数据是为了量化“双重负担”。它意味着，如果把女性每年比男性多做的所有无偿家务劳动时间加起来，相当于她们每年要比男性多工作整整一个月。</p>
+</blockquote>
+<h3 id="Overall"><a href="#Overall" class="headerlink" title="Overall.."></a>Overall..</h3><p>​	Although the form of marriage have become more modern, the inequality still persists in housework and other areas, which contributes to the women’s Double Shift. And the essence of that is the Economics and Power Inequality.</p>
+<blockquote>
+<p>总之 尽管社会和婚姻形式已经现代化，但家务劳动的性别不平等依然顽固存在，这构成了对女性的“双重负担”，其本质是一种经济和权力的不平等</p>
+</blockquote>
+<hr>
+<h2 id="Nuclear-Family"><a href="#Nuclear-Family" class="headerlink" title="Nuclear Family"></a>Nuclear Family</h2><h3 id="Unclear-family"><a href="#Unclear-family" class="headerlink" title="Unclear family"></a>Unclear family</h3><ul>
+<li>Unclear Family - A family consisting of parents and children</li>
+<li>The term of Unclear Family was invented at 1950s, at that time, it was promoted as TIMELESS ideal model.</li>
+<li>The term of Unclear Family overlooked many othe society forms in which EXTENDED Family (multi-gen under one roof ) is considered normal.</li>
+<li>Famous Feminist <em>Bell Hooks (1981)</em> : European model doesn’t fit all. Which highlights the limitation of cultural standars.</li>
+</ul>
+<blockquote>
+<p>1950年代，核心家庭 （ Nuclear Family  - 只有父母和孩子组成的家庭 ）的概念出现，在当时被认为是【永恒的，自古以来便正确，并且一直沿用至今】的理想模型。</p>
+<p>但是 这种说法忽略了其他的许多社会形态，在那些被忽略的社会形态中【大家庭（Extended Family - 即几代人同住一个屋檐下的家庭）】才是常态。</p>
+<p>注明女权主义者 Bell hooks强调 “欧洲中心主义的家庭模式并不适用于所有人” (European model doesn’t fit all)。这强调了“核心家庭”理想是一种具有文化局限性的标准。</p>
+</blockquote>
+<hr>
+<h3 id="State-Engineered-Nuclear-Ideal"><a href="#State-Engineered-Nuclear-Ideal" class="headerlink" title="State-Engineered Nuclear Ideal"></a>State-Engineered Nuclear Ideal</h3><p><u>Canada enforce this Nuclear Ideal by legislation and setting immigration policy.</u></p>
+<p>REAL LIFE CASE : <strong><u>Live-in Caregiver Program (1992-2024)</u></strong> </p>
+<ul>
+<li>Aim</li>
+<li>Function</li>
+<li>Effect</li>
+<li>Change</li>
+</ul>
+<hr>
+<p>The Global Care Chain refers to the cross-border transfer and connection of caregiving labor, where female immigrants take on caregiving work such as childcare, elderly care, or housework, transferring caregiving responsibilities that were originally within the family to others, thereby forming a global caregiving relationship chain.</p>
+<blockquote>
+<p>加拿大 通过<strong>立法 (legislation) 和移民政策 (immigration)</strong> 来强行推行这种“核心家庭”模式</p>
+<p>同时 【住家保姆计划 （Live-in Caregiver Program）1992-2014 】作为典型案例。该计划超过90%的参与者都是来自菲律宾和加勒比地区的女性，他们被要求将自己的孩子留在她们的母国，而来加拿大照顾百人家庭的孩子。</p>
+<p>该政策一方面允许加拿大的核心家庭（通常是白人）得以维持（因为有人帮他们承担了【再生产劳动】的任务），另一方面 强行拆散了这些移民妇女自己的家庭</p>
+<p>直到2014年，这项不人道的live-in住家规则才被废除</p>
+</blockquote>
+<hr>
+<h2 id="Colonial-Devastation-of-Indigenous-Families"><a href="#Colonial-Devastation-of-Indigenous-Families" class="headerlink" title="Colonial Devastation of Indigenous Families"></a>Colonial Devastation of Indigenous Families</h2><p>The Canadian government’s colonial policies systematically destroyed Indigenous family structures.</p>
+<ul>
+<li><strong>Indian Act 1876</strong><ul>
+<li>Indian acts rules that - If Indigenous female married with a non-Native male, she will lost her Indigenous status.</li>
+<li>Indian Act is a form of legislative intervention based on gender and race. It defineds who belongs to Indigenous by control the marriage, and deprives women of their identity and family belonging.</li>
+</ul>
+</li>
+<li><strong>Residential Schools</strong><ul>
+<li>The child of Indigenous are forced to taken away from home (Kids stolen), which caused serious <u>Intergenerational Trauma</u>.</li>
+<li>The reason why it called Intergenerational Trauma is because the traumas (abuse, loss of culture and language, seperate with family) will effect current generation to pass trauma to their next generation. This have negative effect on their next gen even they dind’t go through these events on their own.</li>
+</ul>
+</li>
+<li><strong>1985 Amendments</strong><ul>
+<li>After the Sandra Lovelace UN case, this was bill finally amended.</li>
+<li><em>tip : Sandra Lovelace, an Indigenous woman who lost her identity after marrying a non-Indigenous man, took her case to the UN Human Rights Committee and ultimately won, forcing Canada to amend discriminatory clauses in the Indian Act. This once again demonstrates that family identity is a focal point of political struggle.</em></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>加拿大政府的殖民政策系统性地破坏了原住民家庭结构。</p>
+<p>其中，最重要的就是1876印第安法案、寄宿学校和1985修正案。</p>
+<ul>
+<li>① <strong>1876印第安法案</strong> <ul>
+<li>法案规定，如果原住民妇女与非原住民 (non-Native) 男性结婚，她将<strong>失去其原住民身份</strong>。</li>
+<li>这是一种基于性别和种族的立法干预，它通过控制婚姻来强行定义谁“属于”原住民社群，并剥夺了妇女的身份认同和家庭归属权。</li>
+</ul>
+</li>
+<li>② <strong>寄宿学校</strong><ul>
+<li>原住民儿童被<strong>强行从家中带走</strong> (Kids stolen)。这造成了严重的<strong>跨代创伤</strong> (intergenerational trauma)。<ul>
+<li><em>“跨代创伤”是指创伤（如虐待、语言和文化的丧失、与家人的分离）的影响会从经历创伤的一代人传递给她们的后代，即使后代没有亲身经历过这些事件。</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>③ <strong>1985修正案</strong><ul>
+<li>在 <strong>Sandra Lovelace 联合国案</strong> (Sandra Lovelace UN case) 之后，该法案才被修正。<ul>
+<li><em>Sandra Lovelace 是一名原住民妇女，她因嫁给非原住民而失去了身份。她将此案告到了联合国人权委员会，并最终胜诉，迫使加拿大修改了《印第安法案》中的歧视性条款。这再次证明了家庭身份是政治斗争的焦点。</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<p><strong>Nuclear Family in Decline</strong></p>
+<p>According to the data from StatsCan, the form of Nuclear Family have greatly declined in these years.</p>
+<ul>
+<li><p>2001 → 2011</p>
+<ul>
+<li><p>The percentage of Traditional Unclear Family have declined from 37.4% to 31.9%</p>
+</li>
+<li><p>The percentage of Common-law increased by 13.9%</p>
+<ul>
+<li><em>Tip: “Common-law” refers to a relationship where two people live together and have a marriage-like relationship, but are not legally married. In Canada, after living together for a certain period (usually a year), both parties legally enjoy the same rights and obligations as a married couple.</em></li>
+</ul>
+</li>
+<li><p>The number of Same-sex Marriage have tripled (x3)</p>
+</li>
+<li><p>The percentage of Single-parent increased by 8% </p>
+<ul>
+<li><em>Tip: 80% of the single parents are mothers.</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>These data clearly demonstrate that family patterns in Canada are becoming more diverse, while “traditional” patterns are declining.</p>
+<blockquote>
+<p>加拿大统计局的数据证明了，传统核心家庭在社会中的占比正在下降。</p>
+<p>从2001到2011年，传统核心家庭的占比从 37.4% 降到了 31.9% ，同时，事实婚姻（同居伴侣）的比例增长了 13.9% ，同性婚姻增长了三倍，而单亲家庭的比例也增长了8%（其中80%的单亲家长是母亲）</p>
+<p>这些数据清晰地表明，加拿大的家庭模式正在变得更加多样化，而“传统”模式正在减少。</p>
+</blockquote>
+<hr>
+<p><strong>2021 Census</strong></p>
+<p>Comparing the data between 1981 and 2021:</p>
+<ul>
+<li>The percentage of couple with child have droped from 64% (1981) to 50%</li>
+<li>The number of Trans&#x2F;non-bionary couple have first reached more than 32000.</li>
+<li>Now, In single parents family, the percentage of child living with father are now 21% which is higher than before 14% (this also updates the stereotype of 80% of single parent is mother, which shows that gender dynamics within single-parent families are also changing. )</li>
+<li>35% Young adult (20~34 years old) choose to live with their parents.</li>
+</ul>
+<blockquote>
+<p>截止2021年 有孩子的伴侣从1981年的 64% 大幅下降到 50%；加拿大统计局首次统计到超过 32000 对 跨性别&#x2F;非二元性别伴侣；单亲父亲的比例提升，打破了单亲母亲的认知；35%的年轻成年人选择与父母同住</p>
+</blockquote>
+<hr>
+<p>​	Family patterns (such as those with children, without children, and transgender couples) are becoming increasingly diverse. At the same time, economic factors (such as high housing prices and unstable employment) may lead more young people to be unable to live independently and choose to live with their parents (which is closer to the “extended family” model than the “nuclear family” model).</p>
+<blockquote>
+<p>家庭模式（如有孩、无孩、跨性别伴侣）日益多样化。同时，经济因素（如高房价和不稳定的就业）可能导致了更多年轻人无法独立，选择与父母同住（这更接近“大家庭”模式，而非“核心家庭”模式）。</p>
+</blockquote>
+<hr>
+<h2 id="Alternatives"><a href="#Alternatives" class="headerlink" title="Alternatives"></a>Alternatives</h2><p>The nuclear family has never been the only form; other forms of life have always existed throughout history. There are many Alternatives:</p>
+<ul>
+<li><p>Historical Alternatives:</p>
+<ul>
+<li>Beguines, 12 century<ul>
+<li>This was a medieval women’s labor collective. The women did not marry, lived and worked together, and were economically and spiritually self-sufficient.</li>
+</ul>
+</li>
+<li>Lowell Mills, 1820s<ul>
+<li>During the Industrial Revolution, factory girls left their families and lived in boarding houses.</li>
+</ul>
+</li>
+<li>Utopias<ul>
+<li>Drawing on the concept of the “Republic” by the ancient Greek philosopher Plato, he proposed the idea of communal child-rearing, in which children are raised by the whole society, rather than by a single family.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Modern Alternatives:</p>
+<ul>
+<li>Child-free by Choice<ul>
+<li>This refers to a family model where members voluntarily choose not to have children (referring to the viewpoint of scholar Christine Overall).</li>
+</ul>
+</li>
+<li>Women living alone<ul>
+<li>Data shows that 84% of women living alone help their parents, compared to only 68% of married women. This challenges the stereotype that “married women are more family-oriented.”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Core Pre-Conditions</p>
+<ul>
+<li>Freedom requires Income</li>
+<li>No job, no choice</li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>以上内容反驳了“核心家庭是唯一模式”的观点，指出历史上一直存在其他生活形式</p>
+<ul>
+<li><p><strong>贝居安修会 (Beguines, 12世纪):</strong> 这是一个中世纪的<strong>妇女劳动集体</strong> (Women’s labor collectives)。女性们不结婚，共同生活和工作，在经济和精神上自给自足。</p>
+</li>
+<li><p><strong>洛厄尔纺织厂 (Lowell Mills, 1820s):</strong> 在工业革命期间，<strong>工厂女孩</strong> (Factory girls) 离开家庭，住在<strong>集体宿舍</strong> (boarding houses) 里。</p>
+</li>
+<li><p><strong>乌托邦 (Utopias):</strong> 引用了古希腊哲学家<strong>柏拉图 (Plato)</strong> 的“理想国”概念，他提出了<strong>社区共同抚养</strong> (communal child-rearing) 的想法，即孩子由整个社会共同抚养，而不是由单一家庭。</p>
+</li>
+<li><p><strong>丁克 (Child-free by choice):</strong> 指自愿选择不生孩子的家庭模式（引用了学者 Christine Overall 的观点）。</p>
+</li>
+<li><p><strong>独居女性 (Women living alone):</strong> 数据显示，独居女性中有 84% 的人会帮助父母，而相比之下，已婚女性只有 68%。这挑战了“已婚女性更顾家”的刻板印象。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="New-Family-Forms"><a href="#New-Family-Forms" class="headerlink" title="New Family Forms"></a>New Family Forms</h3><p>Nowadays, there are many different types of family forms:</p>
+<ul>
+<li>Blended : family have step-parents</li>
+<li>Single-parents : </li>
+<li>Transnational : Fillpina Moms</li>
+<li>Chosen Families : Family formed in LGBTQ+ groups (especially in AIDS era - when they are excluded by biology family, they form family with friends or other who have no blood connection but provide care and help.)</li>
+</ul>
+<blockquote>
+<p>列举了一些当今社会中正在增长的、多样的家庭结构，以证明“核心家庭”不再是主流</p>
+<ul>
+<li><strong>重组家庭 (Blended):</strong> 即有继父或继母 (step-parents) 的家庭。</li>
+<li><strong>单亲家庭 (Single-parent):</strong> 指出 80% 的单亲家长是母亲，且她们的经济状况通常更差 (poorer)。</li>
+<li><strong>跨国家庭 (Transnational):</strong> 再次提到那个例子，比如菲律宾妈妈 (Filipina moms) 在加拿大工作，而她们的孩子在别处（如菲律宾）生活。</li>
+<li><strong>选择的家庭 (Chosen families):</strong> 这是一个重要概念，特指在 <strong>LGBTQ+ 群体</strong>中（尤其是在艾滋病 (AIDS) 流行时代）形成的家庭。当他们被原生家庭 (biology family) 排斥时，他们会与朋友、伴侣等组成<strong>没有血缘关系但提供关怀和支持的家庭网络</strong>。</li>
+<li><strong>同性家庭 (Same-sex):</strong> 引用了2011年的数据（64,575对），并指出其增长迅速（增长了 42%）。</li>
+</ul>
+</blockquote>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><ul>
+<li><p>Ineuqality still exists:</p>
+<ul>
+<li><p>Single moms annual income $42k is significantly lower than couple family $100K</p>
+</li>
+<li><p>Caregivers : they send 70% of their income back to their home</p>
+</li>
+</ul>
+</li>
+<li><p>Example:</p>
+<ul>
+<li>Q : Why do 80% of fathers in Quebec take paternity leave, compared to less than 30% in the rest of Canada?</li>
+<li>A : Because Quebec have QPIP (Quebec Parental Insurance Plan)</li>
+<li>This plan provided fathers with exclusive, non-transferable leave, which was “use it or lose it.” This meant that if the father didn’t take the leave, it was wasted, and the mother couldn’t take it for him.</li>
+<li>Result: This policy greatly promoted paternal involvement in childcare. This perfectly demonstrates how “state policy” can “construct” family behavior.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>Family &#x3D; Verb, Not Noun: This is the most important conclusion. The family is not a static “thing” (noun), but a dynamic “process” (verb) that needs to be maintained, negotiated, and practiced.</p>
+</li>
+<li><p>The family is socially constructed: It is shaped by three factors:</p>
+<ul>
+<li><p>State policy (e.g., QPIP, Indian Act)</p>
+</li>
+<li><p>Economics (e.g., income inequality, caregivers)</p>
+</li>
+<li><p>Culture (e.g., the “ideal family” propaganda of the 1950s)</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>不平等依旧存在，因此，我们需要努力减少不平等</p>
+<p><strong>家庭 &#x3D; 动词，不是名词 (Family &#x3D; Verb, Not Noun):</strong> 这是最重要的结论。家庭不是一个静止的“东西”（名词），而是一个需要被维持、协商和实践的动态“过程”（动词）。</p>
+<ul>
+<li><strong>家庭是被社会建构的 (Family is socially constructed):</strong> 它被以下三个因素共同塑造：<ol>
+<li><strong>国家政策 (State policy)</strong> (如 QPIP, 《印第安法案》)</li>
+<li><strong>经济 (Economics)</strong> (如收入差距, 护工)</li>
+<li><strong>文化 (Culture)</strong> (如 1950年代的“理想家庭”宣传)</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<hr>
+<p>Call to Action</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251105181641126.png"
+                      alt="image-20251105181641126"
+                ></p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> WGS101 - 1105</li>
+        <li><strong>Author:</strong> Manda</li>
+        <li><strong>Created at
+                :</strong> 2025-11-05 18:11:55</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-11-26 18:52:15
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://manda.417.red/2025/11/05/WGS101 - 1105/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Notes/">#Notes</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Gender-Study/">#Gender Study</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/LEC/">#LEC</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Family/">#Family</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Domestic-Labor/">#Domestic Labor</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Marriage/">#Marriage</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Colonial-Devastation/">#Colonial Devastation</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Indigenous-Families/">#Indigenous Families</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/10/08/WGS101%20-%201008/" title="WGS101 - 1008" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-constructing-politics.webp" alt="WGS101 - 1008" class="!max-w-none">
+  <span class="title">WGS101 - 1008</span>
+</a><a class="recommended-article-item" href="/2025/09/24/WGS101%20-%200924%20TUT/" title="WGS101 - 0924 - TUT" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101intersectionality.webp" alt="WGS101 - 0924 - TUT" class="!max-w-none">
+  <span class="title">WGS101 - 0924 - TUT</span>
+</a><a class="recommended-article-item" href="/2022/07/31/python_learning/" title="Legendary Python Learning Notes" rel="bookmark">
+  <img src="https://blog.iambzy.com/wp-content/uploads/2022/07/pycharm.png" alt="Legendary Python Learning Notes" class="!max-w-none">
+  <span class="title">Legendary Python Learning Notes</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/10/08/WGS101%20-%201008/" title="WGS101 - 1008" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-constructing-politics.webp" alt="WGS101 - 1008" class="!max-w-none">
+  <span class="title">WGS101 - 1008</span>
+</a><a class="recommended-article-item" href="/2025/09/24/WGS101%20-%200924%20TUT/" title="WGS101 - 0924 - TUT" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101intersectionality.webp" alt="WGS101 - 0924 - TUT" class="!max-w-none">
+  <span class="title">WGS101 - 0924 - TUT</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/11/09/CSC108%20-%201117/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">CSC108 - 1117 正则表达式</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/11/03/CSC108%20-%201103/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">CSC108 - 1103 课堂案例</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://waline-comments.417.red/',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+                    lang: 'zh-CN',
+          recaptchaV3Key: '0x4AAAAAAB2v6lpUQeVPOG-M',
+          turnstileKey: '0x4AAAAAAB2v6s7_k4ZSXVC3rpdbfeq_WcU',
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">WGS101 - 1105</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Families"><span class="nav-text">Families</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inequality-Domestic-Labor"><span class="nav-text">Inequality @ Domestic Labor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reproductive-Labor"><span class="nav-text">Reproductive Labor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Females-are-facing-Double-Shift"><span class="nav-text">Females are facing Double Shift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Marriage-Economics-Control-Power"><span class="nav-text">Marriage, Economics, Control, Power</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overall"><span class="nav-text">Overall..</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nuclear-Family"><span class="nav-text">Nuclear Family</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unclear-family"><span class="nav-text">Unclear family</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State-Engineered-Nuclear-Ideal"><span class="nav-text">State-Engineered Nuclear Ideal</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Colonial-Devastation-of-Indigenous-Families"><span class="nav-text">Colonial Devastation of Indigenous Families</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alternatives"><span class="nav-text">Alternatives</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#New-Family-Forms"><span class="nav-text">New Family Forms</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-text">Conclusion</span></a>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Manda</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        34 posts in total
+                    </span>
+                    
+                        <span>
+                            71.8k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    <div class="build-meta mt-2 text-sm text-third-text-color text-center">
+  Updated @ 2025-11-28 14:16
+  <span class="ml-1 text-xs opacity-60">(Toronto, UTC-5)</span>
+</div></div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+	<div id="aplayer"></div>
+
+<script src="/js/build/libs/APlayer.min.js"></script>
+
+
+<script src="/js/build/plugins/aplayer.js"></script>
+
+
+	
+</body>
+
+</html>

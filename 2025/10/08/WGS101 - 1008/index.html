@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Manda">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://manda.417.red/2025/10/08/wgs101 - 1008/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WGS101 - 1008">
+<meta property="og:url" content="https://manda.417.red/2025/10/08/WGS101%20-%201008/index.html">
+<meta property="og:site_name" content="Manda&#39;s Note">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://manda.417.red/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-10-08T20:30:55.000Z">
+<meta property="article:modified_time" content="2025-10-15T19:14:48.437Z">
+<meta property="article:author" content="Manda">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Gender Study">
+<meta property="article:tag" content="LEC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://manda.417.red/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            WGS101 - 1008 | Manda&#39;s Notes
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <script data-swup-reload-script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+                
+    
+            
+                
+                    <script data-swup-reload-script>LA.init({id:"KVo5Yoyuv6Y1MSNX",ck:"KVo5Yoyuv6Y1MSNX"})</script>
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"manda.417.red","root":"/","language":"en","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"recommendation","limit":3,"mobile_limit":2,"placeholder":"https://placehold.co/1280x720?text=No\\nPicture","skip_dirs":[]}},"colors":{"primary":"#000000","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Serif SC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"},"english":{"enable":true,"family":"Roboto Mono","url":"https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"},"title":{"enable":true,"family":"Viaoda Libre","url":"https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"M A N D A"},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://w.wallhaven.cc/full/9o/wallhaven-9omr8k.png","dark":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E9%A3%8E%E5%85%89-%E5%AF%8C%E5%A3%AB%E5%B1%B1.png"},"title":"Welcome to <br> Manda's Notes","subtitle":{"text":["Feel the world"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn/?c=a&c=e&c=i&c=j&c=k&min_length=10&max_length=50"},"typing_speed":100,"backing_speed":0,"starting_delay":500,"backing_delay":9999,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Dos7t3r/","instagram":null,"zhihu":null,"twitter":null,"email":"hello@417.red"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"泡沫（Swang Remix|remix：多雷）","artist":"序不是序# 艺术家","url":"https://nty-assets-us01.417.red/1740798841-%E5%BA%8F%E4%B8%8D%E6%98%AF%E5%BA%8F-%E6%B3%A1%E6%B2%AB-Swang-Remix.mp3# 音乐链接","cover":"https://nty-assets-us01.417.red/1740798843-WechatIMG495.jpg","lrc":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/paomo.lrc"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"path":"/categories","icon":"fa-regular fa-archive"},"Essay":{"path":"/essay","icon":"fa-regular fa-comment"},"Bookmarks":{"path":"/bookmarks","icon":"fa-regular fa-bookmark"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Dos7t3r","Friends":"/friends"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Hi there! Welcome to Manda's Note. I'll record my university programming experience here. Wish you a great day!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        M A N D A
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Manda&#39;s Notes
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/essay"
+                                        >
+                                    <i class="fa-regular fa-comment fa-fw"></i>
+                                    ESSAY
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks"
+                                        >
+                                    <i class="fa-regular fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/Dos7t3r">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/friends">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/essay"
+                        >
+                            <span>
+                                ESSAY
+                            </span>
+                            
+                                <i class="fa-regular fa-comment fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-regular fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/Dos7t3r">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/friends">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/archives"
+                        >
+                            <span>Archives</span>
+                            <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">51</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">34</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-constructing-politics.webp" alt="WGS101 - 1008" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">WGS101 - 1008</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/132345955">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Manda</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-10-08 16:30:55</span>
+        <span class="mobile">2025-10-08 16:30:55</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-10-15 15:14:48</span>
+            <span class="mobile">2025-10-15 15:14:48</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/WGS101/">WGS101</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Notes/">Notes</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Gender-Study/">Gender Study</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/LEC/">LEC</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.8k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>11 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-constructing-politics.webp"
+                      alt="wgs101-constructing-politics"
+                ></p>
+<h2 id="Part-1-Constructing-Gender"><a href="#Part-1-Constructing-Gender" class="headerlink" title="Part 1 - Constructing Gender"></a>Part 1 - Constructing Gender</h2><p>Constructing Gender - How do we learn gender</p>
+<p>性别认知的形成 - 如何定义性别</p>
+<h3 id="Define-Gender-定义"><a href="#Define-Gender-定义" class="headerlink" title="Define Gender 定义"></a>Define Gender 定义</h3><hr>
+<p>Philosophical Explanations for Gender Differences</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008152533620.png"
+                      alt="image-20251008152533620"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008152540806.png"
+                      alt="image-20251008152540806"
+                ></p>
+<p>社会是如何定义和学习性别的</p>
+<ul>
+<li><p>历史与哲学中的性别观念</p>
+<ul>
+<li><p><strong>宗教观点</strong>：一些宗教文本被用来论证女性的次等地位。例如，牧师约翰·托德（Rev. John Todd）在1867年就曾利用宗教来反对女性拥有与男性平等的权利，认为女性选举权违背了“上帝的法则” 。</p>
+</li>
+<li><p><strong>哲学观点</strong>：古希腊哲学家亚里士多德（Aristotle）认为，男性天生优越，是统治者；而女性则天生低劣，是被统治者 。他甚至将女性描述为“未完成的男人” 。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>间性别者 - 介于男女性之间的性别</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KeAVdOJOfKk?si=-A52PpHL5WhKnwHR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+  <div class="note p-4 mb-4 rounded-small markdown-body tip">
+    <p>该视频讲述了一个关于间性人（即性别发育变异者）新生儿的故事，重点揭示了医疗系统中针对间性儿童进行不必要且不可逆外科手术的现状。视频中提到，超声波检查无法准确判断胎儿性别，出生后医生发现孩子的生殖器官与传统意义上的男性或女性不符，属于间性状态。传统的治疗方法往往是通过手术将孩子的身体“修正”为典型男性或女性，但这些手术往往带来严重的身体和心理后果。家长们在医生的巨大压力下被迫同意手术，尽管这些手术往往没有医学必要性。视频中的当事人分享了自己在无知情同意的情况下经历多次手术的痛苦经历。许多手术会导致终身的功能障碍、失去性快感、终身激素替代治疗等问题。视频强调，除非新生儿出现危及生命的极少数情况，否则所有外生殖器手术应推迟到儿童成年后，由他们自己决定。家长们呼吁社会和医疗界尊重间性儿童的身体完整性，停止不必要的手术，让孩子们被爱护和接纳。</p>
+
+  </div>
+
+<h3 id="Science-科学"><a href="#Science-科学" class="headerlink" title="Science 科学"></a>Science 科学</h3><p>Science - objective &#x2F; value-free &#x2F; netural</p>
+<p>科学应该是客观中立的。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251015151442558.png"
+                      alt="image-20251015151442558"
+                ></p>
+<p>生物学就能决定一个人的宿命吗？</p>
+<p>Biology -&gt; Destiny?</p>
+<ul>
+<li><p>历史上，一些科学家利用看似“客观”的生物学研究来论证女性在智力和生理上的“劣势”（Scientific Racism）。</p>
+<ul>
+<li><p><strong>保罗·布罗卡 (<u>Paul Broca</u>)</strong> ：19世纪的这位外科医生声称，女性大脑比男性小，这既是她们身体劣势的原因，也是她们智力低下的原因 。</p>
+<p><em>“We might ask if the small size of the female brain depends exclusively upon the small size of her body. We must not forget that <u>women are, on average, a little less intelligent than men</u>….We are therefore permitted to suppose that the relatively small size of the female brain depends in part upon her physical inferiority and in part upon her intellectual inferiority” (1861, p.53).</em></p>
+</li>
+<li><p><strong>古斯塔夫·勒庞 (<u>Gustave Le Bon</u>)</strong> ：在1879年，他发表了更为极端的言论，称女性的大脑尺寸更接近大猩猩，代表了“人类进化的最低级形式”，并认为她们更接近于儿童和野蛮人 。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008155256680.png"
+                      alt="image-20251008155256680"
+                ></p>
+<p><em>“In the most intelligent races, as among the Parisians, there are a <u>large number of women whose brains are closer in size to those of gorillas than to the most developed of male brain</u>…. All psychologists who have studied the intelligence of women… recognize today that they represent the most inferior forms of human evolution and that they are closer to children and savages than to an adult civilized man. They excel in fickleness, inconstancy, absence of thought and logic, and incapacity to reason. Without doubt, there exists some distinguished woman, very superior to average man, but they are as an exception as the person of any monstrosity, as, for example, of a gorilla with two heads..”</em></p>
+</li>
+<li><p><strong>对生殖的刻板印象</strong>：人类学家艾米丽·马丁（<u><strong>Emily Martin</strong></u>）在《卵子与精子》一文中指出，科学叙述常常将性别刻板印象投射到生物过程中。例如，卵子被描述为“被动的”，而精子则是“主动的”，这反映了社会对男女角色的传统偏见 。</p>
+<p><em>“It is remarkable how femininely the egg behaves and masculinely the sperm. The egg is seen as large and passive. It does not move, but passively is transported is swept or even drifts along the fallopian tube. In utter contrast, sperm are small, streamlined, and invariably active.  They deliver their genes to the egg…Their tales are strong and efficiently powered.”  (Emily Martin, 2006, p. 14-15)</em></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008155420036.png"
+                      alt="image-20251008155420036"
+                ></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Edward Hammond Clarke</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008160034425.png"
+                      alt="image-20251008160034425"
+                ></p>
+<p>Edward Hammond Clarke的作品 <strong>《教育中的性别；或者，给女孩一个公平的机会》(Sex in Education; OR, A FAIR CHANCE FOR GIRLS)</strong> </p>
+<p>他与保罗·布罗卡 (Paul Broca) 和古斯塔夫·勒庞 (Gustave Le Bon) 等人并列出现，这些人都是**“科学性别歧视” (Scientific Sexism) 的代表人物**，他们曾发表言论，声称女性在智力上天生不如男性 。</p>
+<hr>
+<h3 id="Evolution-Theory-进化论"><a href="#Evolution-Theory-进化论" class="headerlink" title="Evolution Theory 进化论"></a>Evolution Theory 进化论</h3><p>The theory of evolution</p>
+<p>达尔文的进化论 - 适者生存（best adapted organisms survive &amp; reproceduce.）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008161106608.png"
+                      alt="image-20251008161106608"
+                ></p>
+<p>Scientific Racism</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008161648490.png"
+                      alt="image-20251008161648490"
+                ></p>
+<p>科学种族主义 (Scientific Racism)，代表人物是塞缪尔·乔治·莫顿 (Samuel George Morton)** ，19世纪的一位美国医生和自然科学家。它的核心理论是通过伪科学来论证种族之间存在天生的优劣等级，而这种理论的目的在于为当时社会上已经存在的种族歧视和不平等的权力结构提供“正当性” 。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008161811514.png"
+                      alt="image-20251008161811514"
+                ></p>
+<blockquote>
+<p><strong>第一张图片</strong> (白人男子测量另一名男子的面部)：这张图展示了莫顿等人所使用的典型方法——<strong>颅骨测量学 (craniometry)</strong>。他们通过测量不同种族人群的头骨大小和面部特征，试图证明白种人（尤其是欧洲人）的颅骨容量最大，因此智力最高、最为优越。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008161835005.png"
+                      alt="image-20251008161835005"
+                ></p>
+<blockquote>
+<p><strong>第二张图片</strong> (对比黑人与猿类的图画)：这张图直观地展示了科学种族主义得出的荒谬结论。它将非洲人后裔的肖像、头骨与黑猩猩等猿类并列，刻意将他们的外貌特征向猿类靠拢，以此来<strong>非人化 (dehumanize)</strong> 黑人群体，暗示他们是更低等的、更接近于动物的种族。</p>
+</blockquote>
+<p>莫顿的这类“研究”和科学种族主义理论，最终被用作**“为奴役非洲人和殖民他们的家园辩护”**的工具 。通过将其他种族描绘成劣等的，奴隶制和殖民统治就被粉饰为一种“自然”甚至“有益”的秩序</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008161920465.png"
+                      alt="image-20251008161920465"
+                ></p>
+<p>(Racial bias in pain assessment and treatment)</p>
+<hr>
+<ul>
+<li><strong>对生物决定论的挑战 (Challenging Biological Determinism)</strong> ：<ul>
+<li>仅凭生理特征（如生殖器、生育能力、月经等）来定义性别的传统二元分类法是不完全的。受限于传统分类法的局限性，例如，无法生育的女性或精子数量低的男性，其性别身份是否会因此改变？ 这说明，将复杂的性别身份完全等同于生理功能是有问题的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Eugenics-优生学"><a href="#Eugenics-优生学" class="headerlink" title="Eugenics 优生学"></a>Eugenics 优生学</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008162022417.png"
+                      alt="image-20251008162022417"
+                ></p>
+<ul>
+<li>Focuses on reducing the occurrence of “undesirable” or harmful traits within the population. </li>
+<li>Undesirable traits: e.g., genetic diseases, disabilities</li>
+<li>Sterilization</li>
+</ul>
+<p><strong>核心目标</strong>：优生学专注于减少人群中“不受欢迎的”(undesirable) 或有害的特征 。</p>
+<p><strong>“不受欢迎的特质”</strong>：这包括例如遗传性疾病和残疾等特征 。</p>
+<p><strong>实施手段</strong>：为了达到其目标，优生学采用的一种方法是<strong>绝育 (Sterilization)</strong> 。</p>
+<p><strong>具体案例</strong>：莱拉尼·缪尔 (Leilani Muir) 被强制绝育的事件。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p54BtRZbNYQ?si=WKJ-0Kjrh2tXrMlT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+<h2 id="Part-2-Power-Gender-and-Politics"><a href="#Part-2-Power-Gender-and-Politics" class="headerlink" title="Part 2 - Power, Gender and Politics"></a>Part 2 - Power, Gender and Politics</h2><h3 id="权力的定义"><a href="#权力的定义" class="headerlink" title="权力的定义"></a>权力的定义</h3><p>Power：</p>
+<ul>
+<li>DEFINATION: The capacity to get things done, whether directly or indirectly.</li>
+<li>The capacity to not do something</li>
+<li>Power is discursive.</li>
+</ul>
+<p>Michel Foucault - Power as a Discursive Practice.</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008162616033.png"
+                      alt="image-20251008162616033"
+                ></p>
+<ul>
+<li><p>Power does not solely reside in institutions, individuals, or hierarchical structures.</p>
+<p>权力并不仅仅存在于机构、个人或等级结构中</p>
+</li>
+<li><p>Power is not only about control or dominance by authorities.</p>
+<p>权力不仅仅是权威的控制或支配。</p>
+</li>
+<li><p>It operates through discourse(i.e., language, knowledge, and systems of communication)</p>
+<p>权利通过话语实施（起作用）。</p>
+</li>
+<li><p>Discourse encompasses the rules and structures that govern how topics are talked about and understood (i.e. topic of gender, sexuality, sanity, etc.)</p>
+<p>话语包含了支配话题如何被谈论和理解的规则和结构（即性别、性、理智等话题）</p>
+</li>
+<li><p>It establishes “Regime of Truth”</p>
+<p>话语建立了“真理的政权”</p>
+</li>
+</ul>
+<blockquote>
+<p> <strong>权力的定义：Foucault 的视角</strong> ：</p>
+<ul>
+<li>哲学家米歇尔·福柯（Michel Foucault）提出，权力并非仅仅掌握在某个机构或个人手中，也不是简单的控制与支配 。</li>
+<li>权力通过<strong>话语 (Discourse)</strong>——即语言、知识和沟通系统——来运作 。话语规定了我们如何谈论和理解某些话题（如性别、性行为等），并建立起一种被社会广泛接受的“真理体系” (Regime of Truth) 。</li>
+</ul>
+</blockquote>
+<p>Women and Political Positions</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008163421454.png"
+                      alt="image-20251008163421454"
+                ></p>
+<h3 id="偏见和刻板印象"><a href="#偏见和刻板印象" class="headerlink" title="偏见和刻板印象"></a>偏见和刻板印象</h3><p><strong>Gender Bias and Stereotypes</strong></p>
+<p>Gender stereotype about women (E.g., as less competent, emotional)</p>
+<p>对女性的偏见和刻板印象，例如易怒，情绪化等。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008163443756.png"
+                      alt="image-20251008163443756"
+                ></p>
+<p><strong>女性在政治中面临的障碍</strong> ：</p>
+<ul>
+<li><p><strong>性别偏见与刻板印象</strong> ：女性政治家常常被认为是“能力较差”或“情绪化”的 。</p>
+</li>
+<li><p>前美国副总统候选人杰拉丁·费拉罗（Geraldine Ferraro）曾被质问，苏联是否会因为她是一名女性而“占她的便宜”，以及她是否“足够坚强去按下核按钮” 。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008163224865.png"
+                      alt="image-20251008163224865"
+                ></p>
+</li>
+<li><p>最近，也有人评论称，如果卡玛拉·哈里斯（Kamala Harris）当选，她会成为外国领导人的“玩物” 。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008163244040.png"
+                      alt="image-20251008163244040"
+                ></p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008163925125.png"
+                      alt="image-20251008163925125"
+                ></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JD%C2%B7%E8%90%AC%E6%96%AF" >https://zh.wikipedia.org/wiki/JD%C2%B7%E8%90%AC%E6%96%AF<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<blockquote>
+<p>这段引述的完整中文翻译大致是：“我们这个国家实际上是由<strong>民主党</strong>（Democrats）在<strong>掌控</strong>（run），他们是一群<strong>没有孩子的养猫老女人</strong>（childless cat ladies），她们对自己的人生和所做的选择感到<strong>痛苦</strong>（miserable），因此她们也想让这个国家的其他人<strong>跟着痛苦</strong>。”</p>
+<p>这是一种<strong>性别歧视</strong>和<strong>刻板印象</strong>（Gender Bias and Stereotypes）的政治批评，旨在贬低女性政治人物的<strong>能力</strong>和<strong>动机</strong>（competence and motivation），通过攻击她们的<strong>私人生活选择</strong>（personal life choices）来削弱其<strong>政治权威</strong>（political authority）</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008164529744.png"
+                      alt="image-20251008164529744"
+                ></p>
+<p><em>Blair, Christopher W, and Joshua A Schwartz. “The Gendered Peace Premium.” International Studies Quarterly 67, no. 4 (2023). <a class="link"   target="_blank" rel="noopener" href="https://doi.org/10.1093/isq/sqad090" >https://doi.org/10.1093/isq/sqad090<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>.</em></p>
+<p><em>According to Barnett Rubin, a senior advisor, Hillary Clinton was “was very reluctant to move on [peace with the Taliban]…If you want to be the first woman president you cannot leave any hint or doubt that you’re not the toughest person on national security.”</em></p>
+<blockquote>
+<p><strong>“和平偏好”的束缚 (Gendered Peace Premium)</strong>：研究表明，社会普遍认为女性“爱好和平”，这反而使女性领导人在寻求和解或采取强硬外交政策时面临更多困难和质疑 。例如，希拉里·克林顿（Hillary Clinton）在处理与塔利班的和平问题时就表现得非常谨慎，因为她担心任何不够强硬的举动都会影响她成为第一位女总统的前景 。</p>
+</blockquote>
+<hr>
+<p>Double Burden of Responsibilities</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008164754133.png"
+                      alt="image-20251008164754133"
+                ></p>
+<p><strong>双重负担 (Double Burden)</strong>：女性通常需要同时承担职业和家庭的双重责任，这给她们的政治生涯增加了额外的障碍 。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008164740711.png"
+                      alt="image-20251008164740711"
+                ></p>
+<p><strong>财务困境 (Financial Hurdles)</strong>：女性（政治家）在为竞选活动筹集资金时也面临更多困难，因为她们接触到的捐助者网络通常较少 。</p>
+<h2 id="Part-3-Resistance-Change"><a href="#Part-3-Resistance-Change" class="headerlink" title="Part 3 - Resistance &amp; Change"></a>Part 3 - Resistance &amp; Change</h2><ul>
+<li><p>Resistance to dominant discourses</p>
+</li>
+<li><p>Where there is power, there is also resistance (Foucault) </p>
+<p>福柯认为，“哪里有权力，哪里就有抵抗” </p>
+</li>
+<li><p>Challenging established discourses can be a form of resistance against oppressive power structures.</p>
+<p>通过挑战和改变主流的、带有歧视性的话语，我们可以抵抗压迫性的权力结构</p>
+</li>
+</ul>
+<hr>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251008164930159.png"
+                      alt="image-20251008164930159"
+                ></p>
+<p><em><strong>“人们放弃权力的最常见方式，是认为自己根本没有任何权力。”</strong></em></p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> WGS101 - 1008</li>
+        <li><strong>Author:</strong> Manda</li>
+        <li><strong>Created at
+                :</strong> 2025-10-08 16:30:55</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-10-15 15:14:48
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://manda.417.red/2025/10/08/WGS101 - 1008/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Notes/">#Notes</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Gender-Study/">#Gender Study</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/LEC/">#LEC</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/10/15/WGS101%20-%201015/" title="WGS101 - 1015" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/genderandthepoliticsofthebody.webp" alt="WGS101 - 1015" class="!max-w-none">
+  <span class="title">WGS101 - 1015</span>
+</a><a class="recommended-article-item" href="/2025/11/19/WGS101%20-%201119/" title="WGS101 - 1119" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/WGS101-men-and-masculinities.webp" alt="WGS101 - 1119" class="!max-w-none">
+  <span class="title">WGS101 - 1119</span>
+</a><a class="recommended-article-item" href="/2025/09/17/WGS101%20-%200917/" title="WGS101 - 0917" rel="bookmark">
+  <img src="https://p.ipic.vip/g8hr23.png" alt="WGS101 - 0917" class="!max-w-none">
+  <span class="title">WGS101 - 0917</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/10/15/WGS101%20-%201015/" title="WGS101 - 1015" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/genderandthepoliticsofthebody.webp" alt="WGS101 - 1015" class="!max-w-none">
+  <span class="title">WGS101 - 1015</span>
+</a><a class="recommended-article-item" href="/2025/11/19/WGS101%20-%201119/" title="WGS101 - 1119" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/WGS101-men-and-masculinities.webp" alt="WGS101 - 1119" class="!max-w-none">
+  <span class="title">WGS101 - 1119</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/10/15/WGS101%20-%201015/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">WGS101 - 1015</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/10/06/CSC108%20-%201006/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">CSC108 - 1006 课堂案例</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://waline-comments.417.red/',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+                    lang: 'zh-CN',
+          recaptchaV3Key: '0x4AAAAAAB2v6lpUQeVPOG-M',
+          turnstileKey: '0x4AAAAAAB2v6s7_k4ZSXVC3rpdbfeq_WcU',
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">WGS101 - 1008</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-1-Constructing-Gender"><span class="nav-text">Part 1 - Constructing Gender</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-Gender-%E5%AE%9A%E4%B9%89"><span class="nav-text">Define Gender 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Science-%E7%A7%91%E5%AD%A6"><span class="nav-text">Science 科学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evolution-Theory-%E8%BF%9B%E5%8C%96%E8%AE%BA"><span class="nav-text">Evolution Theory 进化论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Eugenics-%E4%BC%98%E7%94%9F%E5%AD%A6"><span class="nav-text">Eugenics 优生学</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-2-Power-Gender-and-Politics"><span class="nav-text">Part 2 - Power, Gender and Politics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E5%8A%9B%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">权力的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%8F%E8%A7%81%E5%92%8C%E5%88%BB%E6%9D%BF%E5%8D%B0%E8%B1%A1"><span class="nav-text">偏见和刻板印象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-3-Resistance-Change"><span class="nav-text">Part 3 - Resistance &amp; Change</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Manda</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        34 posts in total
+                    </span>
+                    
+                        <span>
+                            71.8k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    <div class="build-meta mt-2 text-sm text-third-text-color text-center">
+  Updated @ 2025-11-28 14:16
+  <span class="ml-1 text-xs opacity-60">(Toronto, UTC-5)</span>
+</div></div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+	<div id="aplayer"></div>
+
+<script src="/js/build/libs/APlayer.min.js"></script>
+
+
+<script src="/js/build/plugins/aplayer.js"></script>
+
+
+	
+</body>
+
+</html>

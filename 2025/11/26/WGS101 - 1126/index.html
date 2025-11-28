@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Manda">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://manda.417.red/2025/11/26/wgs101 - 1126/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WGS101 - 1126">
+<meta property="og:url" content="https://manda.417.red/2025/11/26/WGS101%20-%201126/index.html">
+<meta property="og:site_name" content="Manda&#39;s Note">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://manda.417.red/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-11-26T20:11:58.689Z">
+<meta property="article:modified_time" content="2025-11-26T20:54:54.605Z">
+<meta property="article:author" content="Manda">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Gender Study">
+<meta property="article:tag" content="TUT">
+<meta property="article:tag" content="LEC">
+<meta property="article:tag" content="Health">
+<meta property="article:tag" content="Social Determinants of Health">
+<meta property="article:tag" content="Medicalization">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://manda.417.red/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            WGS101 - 1126 | Manda&#39;s Notes
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <script data-swup-reload-script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+                
+    
+            
+                
+                    <script data-swup-reload-script>LA.init({id:"KVo5Yoyuv6Y1MSNX",ck:"KVo5Yoyuv6Y1MSNX"})</script>
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"manda.417.red","root":"/","language":"en","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"recommendation","limit":3,"mobile_limit":2,"placeholder":"https://placehold.co/1280x720?text=No\\nPicture","skip_dirs":[]}},"colors":{"primary":"#000000","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Serif SC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"},"english":{"enable":true,"family":"Roboto Mono","url":"https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"},"title":{"enable":true,"family":"Viaoda Libre","url":"https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"M A N D A"},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://w.wallhaven.cc/full/9o/wallhaven-9omr8k.png","dark":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E9%A3%8E%E5%85%89-%E5%AF%8C%E5%A3%AB%E5%B1%B1.png"},"title":"Welcome to <br> Manda's Notes","subtitle":{"text":["Feel the world"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn/?c=a&c=e&c=i&c=j&c=k&min_length=10&max_length=50"},"typing_speed":100,"backing_speed":0,"starting_delay":500,"backing_delay":9999,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Dos7t3r/","instagram":null,"zhihu":null,"twitter":null,"email":"hello@417.red"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"泡沫（Swang Remix|remix：多雷）","artist":"序不是序# 艺术家","url":"https://nty-assets-us01.417.red/1740798841-%E5%BA%8F%E4%B8%8D%E6%98%AF%E5%BA%8F-%E6%B3%A1%E6%B2%AB-Swang-Remix.mp3# 音乐链接","cover":"https://nty-assets-us01.417.red/1740798843-WechatIMG495.jpg","lrc":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/paomo.lrc"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"path":"/categories","icon":"fa-regular fa-archive"},"Essay":{"path":"/essay","icon":"fa-regular fa-comment"},"Bookmarks":{"path":"/bookmarks","icon":"fa-regular fa-bookmark"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Dos7t3r","Friends":"/friends"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Hi there! Welcome to Manda's Note. I'll record my university programming experience here. Wish you a great day!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        M A N D A
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Manda&#39;s Notes
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/essay"
+                                        >
+                                    <i class="fa-regular fa-comment fa-fw"></i>
+                                    ESSAY
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks"
+                                        >
+                                    <i class="fa-regular fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/Dos7t3r">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/friends">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/essay"
+                        >
+                            <span>
+                                ESSAY
+                            </span>
+                            
+                                <i class="fa-regular fa-comment fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-regular fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/Dos7t3r">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/friends">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/archives"
+                        >
+                            <span>Archives</span>
+                            <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">51</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">34</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-health-Medicalization-20251126154918975.webp" alt="WGS101 - 1126" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">WGS101 - 1126</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/132345955">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Manda</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-11-26 15:11:58</span>
+        <span class="mobile">2025-11-26 15:11:58</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-11-26 15:54:54</span>
+            <span class="mobile">2025-11-26 15:54:54</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/WGS101/">WGS101</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Notes/">Notes</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Gender-Study/">Gender Study</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/TUT/">TUT</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/LEC/">LEC</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Health/">Health</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Social-Determinants-of-Health/">Social Determinants of Health</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Medicalization/">Medicalization</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.4k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>9 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="Women’s-Health-Understanding-the-Social-Determinants-of-Health"><a href="#Women’s-Health-Understanding-the-Social-Determinants-of-Health" class="headerlink" title="Women’s Health: Understanding the Social Determinants of Health"></a>Women’s Health: Understanding the Social Determinants of Health</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-health-Medicalization-20251126154918975.webp"
+                      alt="wgs101-health-Medicalization"
+                ></p>
+<hr>
+<h3 id="1-Health"><a href="#1-Health" class="headerlink" title="1. Health"></a>1. Health</h3><ul>
+<li>In 1946 WHO defines health as “a state of complete physical, mental, social well-being and not merely the absence of disease and infirmity.” (184)</li>
+<li>Health is not just “the absence of disease, but an integral part of a woman’s total life experience, intertribally linked to her place in society” (p. 184)</li>
+<li>Ontario  Women’s  Health  Council  defined women’s health as “a state of emotional, social, cultural, spiritual and physical well-being, determined  by  social,  political  and  economic  context  of  women’s  lives,  as  well  as  biology.” (p. 184)</li>
+</ul>
+<blockquote>
+<ul>
+<li><p>1946年，世界卫生组织将健康定义为“一种身心和社会完全安宁的状态，而不仅仅是没有疾病和虚弱。”（184页）</p>
+</li>
+<li><p>健康不仅仅是“没有疾病，而是女性整体生活体验不可或缺的一部分，与她在社会中的地位息息相关。”（184页）</p>
+</li>
+<li><p>安大略省妇女健康委员会将女性健康定义为“一种情感、社会、文化、精神和身体的安宁状态，它取决于女性生活的社会、政治和经济环境以及生物学因素。”（184页）</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="1-1-Re-defining-Health"><a href="#1-1-Re-defining-Health" class="headerlink" title="1.1 (Re) defining Health:"></a>1.1 (Re) defining Health:</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251126151513061.png"
+                      alt="image-20251126151513061"
+                ></p>
+<ul>
+<li>What is considered as normal and what is considered as an illness varies over time and spaces. </li>
+<li>Health is not a static state.</li>
+</ul>
+<blockquote>
+<p>“健康”并不是一个单一的、固定的概念。它的定义会随着<strong>社会 (Societies)</strong> 和 <strong>历史时期 (Historical periods)</strong> 的不同而发生变化 </p>
+</blockquote>
+<hr>
+<h4 id="1-2-What-Defines-Health"><a href="#1-2-What-Defines-Health" class="headerlink" title="1.2 What Defines Health"></a>1.2 What Defines Health</h4><p>What factors shape an individual’s or community’s experience of health? </p>
+<blockquote>
+<p>健康的社会决定因素——这是本节课最重要的理论框架，也是公共卫生（Public Health）领域的一个核心概念。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251126151621195.png"
+                      alt="image-20251126151621195"
+                ></p>
+<p>Social Determinants of health (SDH) is a specific group of social and economic factors within the broader determinants of health. These relate to an individual’s place in society, such as income, education or employment. </p>
+<blockquote>
+<p>健康的社会决定因素 是指在更广泛的健康决定因素中，特定的<strong>社会和经济因素 (Social and economic factors)</strong> </p>
+<p>这些因素与个人在社会中的地位有关，</p>
+<ul>
+<li><p><strong>Income and Social Status (收入和社会地位):</strong> <em>这是最重要的因素之一。有钱通常意味着更健康。</em>*</p>
+</li>
+<li><p><strong><em>Social Support Networks (社会支持网络):</em>* *朋友、家人支持。</strong></p>
+</li>
+<li><p>*<strong>Education (教育):</strong> <em>受教育程度高的人通常更懂如何保持健康。</em></p>
+</li>
+<li><p><strong>Employment and Working Conditions (就业和工作条件):</strong> <em>工作是否安全、压力大不大。</em></p>
+</li>
+<li><p><strong>Physical Environments (物理环境):</strong> <em>住房质量、空气污染、水质。</em>*</p>
+</li>
+<li><p><strong>Biology and Genetics (生物学和遗传学):</strong> <em>这是唯一的“生理”因素。</em></p>
+<p><strong>Personal Health Practices and Coping Skills (个人健康习惯和应对技能):</strong> <em>比如吸烟、运动、抗压能力。</em></p>
+<p><strong>Healthy Child Development (儿童健康发展):</strong> <em>童年经历影响一生。</em></p>
+<p><strong>Health Services and Social Services (卫生服务和社会服务):</strong> <em>看病方不方便。</em></p>
+<p><strong>Gender (性别):</strong> <em>男性和女性面临不同的健康风险。</em></p>
+<p><strong>Culture (文化):</strong> *文化习俗、种族背景。</p>
+<p><strong>Social Environments (社会环境):</strong> <em>社区安不安全。</em> <em>(注：通常列表里还包括原住民身份 (Indigenous Status) 和种族 (Race&#x2F;Racism)，凑齐 14 个)</em></p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>“the social determinants of health are the condition in which people are born, grow, live, work and age. These circumstances are shaped by the distribution of money, power, resources at global, national, and local levels.” (p.184)</p>
+</li>
+<li><p>Social determinants exacerbate biological vulnerabilities</p>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251126152313481.png"
+                      alt="image-20251126152313481"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251126152320613.png"
+                      alt="image-20251126152320613"
+                ></p>
+<ul>
+<li>Gender<ul>
+<li>Economic Disparities</li>
+<li>Gender Societal Norms and Biases</li>
+</ul>
+</li>
+<li>Race<ul>
+<li>Structural Racism</li>
+<li>Environmental Racism</li>
+</ul>
+</li>
+<li>Disability<ul>
+<li>Social Stigma and Isolation</li>
+<li>Employment and Economic Opportunities</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>Structural Determinants - 社会结构性决定因素</p>
+<p>结构性 这个词比“社会决定因素”更深一层，<strong>Social Determinants</strong> 是你个人的情况（比如你有多少钱）。</p>
+<p><strong>Structural Determinants</strong> 是导致你有多少钱的<strong>大背景</strong>。比如国家的税收政策、福利制度、政治体制。</p>
+<p><em>比喻：</em> 如果你掉进河里（生病），<strong>Social Determinants</strong> 是你有没有救生圈；<strong>Structural Determinants</strong> 是谁在上游把水坝放开了，导致河水暴涨。</p>
+<hr>
+<h4 id="1-3-Example-The-John-River-Story"><a href="#1-3-Example-The-John-River-Story" class="headerlink" title="1.3 Example - The John River Story"></a>1.3 Example - The John River Story</h4><p><a class="link"   target="_blank" rel="noopener" href="https://toronto.citynews.ca/2019/12/04/canada-healthcare-system-john-river/" >https://toronto.citynews.ca/2019/12/04/canada-healthcare-system-john-river/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251126152548234.png"
+                      alt="image-20251126152548234"
+                ></p>
+<p> John River 是黑人（Social Determinant） -&gt; 医生对他有刻板印象（Bias） -&gt; 误诊他为吸毒或焦虑 -&gt; 延误治疗 -&gt; 健康严重受损。</p>
+<p>这个案例也在批判 <strong>Structural Determinants (结构性决定因素)</strong>。即使加拿大有全民免费医疗（OHIP），但如果系统内部存在结构性的种族主义，某些群体的健康依然无法得到保障。</p>
+<blockquote>
+<p> PPT 的新闻标题是 <strong>“Falling through the cracks of Canada’s healthcare system: the John River story”</strong>（跌落加拿大医疗系统裂缝：John River 的故事）。</p>
+</blockquote>
+<blockquote>
+<p><strong>“Cracks” (裂缝)</strong> 这个词非常关键。它暗示了医疗系统虽然表面看起来是完整的（覆盖所有人的），但存在漏洞，有些人会漏下去，得不到保护。</p>
+</blockquote>
+<blockquote>
+<p>这是一段非常令人心碎，但也非常典型的关于<strong>隐性偏见 (Implicit Bias)</strong> 和<strong>种族定性 (Racial Profiling)</strong> 的医疗事故。</p>
+<p>John River (原名 Matthew Derrick-Huie) 是一位来自加拿大密西沙加 (Mississauga) 的说唱歌手。他在 2017 年底经历了一场“医疗噩梦”，这个案例被广泛用来揭示加拿大医疗系统中存在的系统性种族主义。</p>
+<p>2017 年 12 月，当时 23 岁的 John River 开始感到胸痛、呼吸急促和剧烈头痛。他的症状迅速恶化，甚至出现了<strong>暂时性失明</strong>、听力丧失以及无法控制四肢和膀胱的情况。他感到极度的痛苦，甚至觉得自己快要死了。</p>
+<p>尽管症状如此严重，但他在两个月内多次前往大多伦多地区的急诊室，却屡次被拒之门外或被误诊。 医生检查了他的心脏和肺部后，告诉他一切正常，认为他只是患有<strong>焦虑症 (Anxiety)</strong> 或抑郁症，觉得他在“想象”自己的病痛。更糟糕的是，医护人员对他产生了严重的刻板印象。甚至有分诊护士指责他是为了获取麻醉类药物 (Narcotics) 而<strong>装病</strong>的瘾君子。 有一次，他的症状已经非常严重（视力模糊、呼吸困难），但医院却把他送进了<strong>精神科病房 (Psychiatric Ward)</strong>，认为他精神有问题。医护人员甚至告诉他的家人，如果想要得到更好的治疗，John 不应该穿连帽衫 (Hoodie) 或宽松的衣服，并告诫他的母亲要注意说话的语气，以免被贴上“愤怒的黑人女性” (Angry Black Woman) 的标签。</p>
+<p>在经历了 60 天的折磨，并由他的家人在 Twitter 上发起了 <code>#LetsSaveMatthew</code> 的求助活动后，他终于通过舆论压力获得了一位专家的关注。 他得的根本不是焦虑症，而是一种非常痛苦的生理疾病——<strong>脑脊液渗漏 (Cerebrospinal Fluid Leak &#x2F; CSF Leak)</strong>。包裹他大脑和脊髓的液体在渗漏，导致颅内压力过低，大脑在头骨内“下沉”，压迫神经，从而导致了失明和瘫痪。他最终接受了两次手术才修补好漏洞。</p>
+</blockquote>
+<blockquote>
+<p>这个故事是<strong>Social Determinants of Health (健康的社会决定因素)</strong> 的完美反面教材：</p>
+<p>John River 自己在接受 CityNews 采访时说：“如果我不是黑人，我很可能更早就得到了更好的治疗。”。 即使是在加拿大这样拥有全民免费医疗 (Universal Healthcare) 的国家，<strong>社会偏见</strong> 依然可以阻碍一个人获得挽救生命的医疗服务。医生没有看到“病人 John”，而是看到了一个“年轻黑人男性”，并自动联想到了“毒品”和“暴力&#x2F;焦虑”，从而导致了严重的医疗延误。</p>
+<p>因此，我们得出结论 <u><strong>“健康”不仅仅取决于你的生理指标，还取决于社会如何看待你的身份</strong>。</u></p>
+</blockquote>
+<h3 id="2-Medicalization"><a href="#2-Medicalization" class="headerlink" title="2. Medicalization"></a>2. Medicalization</h3><h4 id="Medicalization-of-life-process"><a href="#Medicalization-of-life-process" class="headerlink" title="Medicalization of life process"></a>Medicalization of life process</h4><p>Medicalization of life process - 生命过程医学化</p>
+<ul>
+<li>这指的是把人类正常的生理过程（如生老病死、情绪波动）定义为<strong>医疗问题</strong>，并认为只有通过医生、吃药或手术才能“解决</li>
+<li>举例：<ul>
+<li>以前觉得“悲伤”是情绪，现在可能被诊断为“抑郁症”并需要吃药。以前“分娩”在家做，现在必须去医院被监控。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="Medicalization-of-Women"><a href="#Medicalization-of-Women" class="headerlink" title="Medicalization of Women"></a>Medicalization of Women</h4><p>​	而这种情况 在女性之间更加严重，所以提出问题：<strong>“Why has women’s health been the object of excessive medicalization?”</strong> (为什么妇女健康成为了过度医学化的对象？) </p>
+<p>​	<u>女性的身体经历了更多明显的周期性变化（月经、怀孕、哺乳、更年期）。医学界倾向于把这些自然变化看作需要“管理”或“治疗”的病症。</u></p>
+<ul>
+<li><em>考点预测： 教授可能会问为什么女性比男性更容易被医学化？（答案通常涉及父权制医学体系试图控制女性身体）。</em></li>
+</ul>
+<hr>
+<h4 id="Medicalization-of-Men"><a href="#Medicalization-of-Men" class="headerlink" title="Medicalization of Men"></a>Medicalization of Men</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251126154512289.png"
+                      alt="image-20251126154512289"
+                ></p>
+<p><strong>“Why Men’s Bodies Are Medicalized?”</strong> (为什么男性的身体被医学化？) 。</p>
+<ul>
+<li><em>解释：</em> 近年来，制药公司开始针对男性推出各种药物（如治疗脱发、勃起功能障碍、甚至“男性更年期”），将男性衰老的自然过程也变成了“可治疗的疾病”。</li>
+</ul>
+<hr>
+<h4 id="Pros-Cons"><a href="#Pros-Cons" class="headerlink" title="Pros &amp; Cons"></a>Pros &amp; Cons</h4><p>对医学化现象的总结评价</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251126154424545.png"
+                      alt="image-20251126154424545"
+                ></p>
+<ul>
+<li>Positive:<ul>
+<li><strong>“Advantages of Medicalization”</strong> (医学化的优势) </li>
+<li>比如减少了分娩死亡率，让患有精神痛苦的人得到了缓解，延长了寿命。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251126154408930-20251126154434634.png"
+                      alt="image-20251126154408930"
+                ></p>
+<ul>
+<li>Negative: <ul>
+<li><strong>Medicalization Not a One-Size-Fits-All Solution”</strong> (医学化不是放之四海而皆准的解决方案) 。</li>
+<li>不是所有社会问题都能靠吃药解决。如果不解决贫困（Social Determinants），光给穷人开药是治标不治本的。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="Summarize"><a href="#Summarize" class="headerlink" title="Summarize"></a>Summarize</h3><p><strong>打破旧观念：</strong> 健康不是固定的，是社会定义的。</p>
+<p><strong>引入新框架：</strong> <strong>Social Determinants (SDH)</strong> 才是决定健康的关键（尤其是贫穷、种族）。</p>
+<p><strong>举例证明：</strong> <strong>John River</strong> 的故事证明了种族偏见如何害人。</p>
+<p><strong>深入批判：</strong> <strong>Medicalization (医学化)</strong> 让我们反思是否把太多的社会问题都当成病来治了。</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> WGS101 - 1126</li>
+        <li><strong>Author:</strong> Manda</li>
+        <li><strong>Created at
+                :</strong> 2025-11-26 15:11:58</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-11-26 15:54:54
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://manda.417.red/2025/11/26/WGS101 - 1126/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Notes/">#Notes</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Gender-Study/">#Gender Study</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/TUT/">#TUT</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/LEC/">#LEC</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Health/">#Health</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Social-Determinants-of-Health/">#Social Determinants of Health</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Medicalization/">#Medicalization</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/10/08/WGS101%20-%201008/" title="WGS101 - 1008" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-constructing-politics.webp" alt="WGS101 - 1008" class="!max-w-none">
+  <span class="title">WGS101 - 1008</span>
+</a><a class="recommended-article-item" href="/2025/11/19/WGS101%20-%201119/" title="WGS101 - 1119" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/WGS101-men-and-masculinities.webp" alt="WGS101 - 1119" class="!max-w-none">
+  <span class="title">WGS101 - 1119</span>
+</a><a class="recommended-article-item" href="/2025/10/15/WGS101%20-%201015/" title="WGS101 - 1015" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/genderandthepoliticsofthebody.webp" alt="WGS101 - 1015" class="!max-w-none">
+  <span class="title">WGS101 - 1015</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/10/08/WGS101%20-%201008/" title="WGS101 - 1008" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/wgs101-constructing-politics.webp" alt="WGS101 - 1008" class="!max-w-none">
+  <span class="title">WGS101 - 1008</span>
+</a><a class="recommended-article-item" href="/2025/11/19/WGS101%20-%201119/" title="WGS101 - 1119" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/WGS101-men-and-masculinities.webp" alt="WGS101 - 1119" class="!max-w-none">
+  <span class="title">WGS101 - 1119</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/11/28/download_files_with_python/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">使用python批量下载学校文件</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/11/24/CSC108%20-%201124%20-%20Class%20OOP/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">CSC108 - 1124 程序复杂度</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://waline-comments.417.red/',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+                    lang: 'zh-CN',
+          recaptchaV3Key: '0x4AAAAAAB2v6lpUQeVPOG-M',
+          turnstileKey: '0x4AAAAAAB2v6s7_k4ZSXVC3rpdbfeq_WcU',
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">WGS101 - 1126</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Women%E2%80%99s-Health-Understanding-the-Social-Determinants-of-Health"><span class="nav-text">Women’s Health: Understanding the Social Determinants of Health</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Health"><span class="nav-text">1. Health</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Medicalization"><span class="nav-text">2. Medicalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summarize"><span class="nav-text">Summarize</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Manda</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        34 posts in total
+                    </span>
+                    
+                        <span>
+                            71.8k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    <div class="build-meta mt-2 text-sm text-third-text-color text-center">
+  Updated @ 2025-11-28 14:16
+  <span class="ml-1 text-xs opacity-60">(Toronto, UTC-5)</span>
+</div></div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+	<div id="aplayer"></div>
+
+<script src="/js/build/libs/APlayer.min.js"></script>
+
+
+<script src="/js/build/plugins/aplayer.js"></script>
+
+
+	
+</body>
+
+</html>
