@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Manda">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://manda.417.red/2025/12/15/csc108-final-review/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSC108 期末复习">
+<meta property="og:url" content="https://manda.417.red/2025/12/15/CSC108-final-review/index.html">
+<meta property="og:site_name" content="Manda&#39;s Note">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://manda.417.red/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-12-16T01:09:11.000Z">
+<meta property="article:modified_time" content="2025-12-18T04:36:48.224Z">
+<meta property="article:author" content="Manda">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://manda.417.red/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/cropped-1752471210-round.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            CSC108 期末复习 | Manda&#39;s Notes
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <script data-swup-reload-script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+                
+    
+            
+                
+                    <script data-swup-reload-script>LA.init({id:"KVo5Yoyuv6Y1MSNX",ck:"KVo5Yoyuv6Y1MSNX"})</script>
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"manda.417.red","root":"/","language":"en","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"recommendation","limit":3,"mobile_limit":2,"placeholder":"https://placehold.co/1280x720?text=No\\nPicture","skip_dirs":[]}},"colors":{"primary":"#000000","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Serif SC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"},"english":{"enable":true,"family":"Roboto Mono","url":"https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"},"title":{"enable":true,"family":"Viaoda Libre","url":"https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":false,"site_uv":false,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"M A N D A"},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://w.wallhaven.cc/full/9o/wallhaven-9omr8k.png","dark":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E9%A3%8E%E5%85%89-%E5%AF%8C%E5%A3%AB%E5%B1%B1.png"},"title":"Welcome to <br> Manda's Notes","subtitle":{"text":["Feel the world"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn/?c=a&c=e&c=i&c=j&c=k&min_length=10&max_length=50"},"typing_speed":100,"backing_speed":0,"starting_delay":500,"backing_delay":9999,"loop":false,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Dos7t3r/","instagram":null,"zhihu":null,"twitter":null,"email":"hello@417.red"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"泡沫（Swang Remix|remix：多雷）","artist":"序不是序# 艺术家","url":"https://nty-assets-us01.417.red/1740798841-%E5%BA%8F%E4%B8%8D%E6%98%AF%E5%BA%8F-%E6%B3%A1%E6%B2%AB-Swang-Remix.mp3# 音乐链接","cover":"https://nty-assets-us01.417.red/1740798843-WechatIMG495.jpg","lrc":"https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/paomo.lrc"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"path":"/categories","icon":"fa-regular fa-archive"},"Essay":{"path":"/essay","icon":"fa-regular fa-comment"},"Bookmarks":{"path":"/bookmarks","icon":"fa-regular fa-bookmark"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Dos7t3r","Friends":"/friends"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"Hi there! Welcome to Manda's Note. I'll record my university programming experience here. Wish you a great day!","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        M A N D A
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Manda&#39;s Notes
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/essay"
+                                        >
+                                    <i class="fa-regular fa-comment fa-fw"></i>
+                                    ESSAY
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks"
+                                        >
+                                    <i class="fa-regular fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/Dos7t3r">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/friends">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/essay"
+                        >
+                            <span>
+                                ESSAY
+                            </span>
+                            
+                                <i class="fa-regular fa-comment fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-regular fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/Dos7t3r">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/friends">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/archives"
+                        >
+                            <span>Archives</span>
+                            <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">51</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">35</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/csc108-final-review.webp" alt="CSC108 期末复习" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">CSC108 期末复习</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="https://avatars.githubusercontent.com/u/132345955">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Manda</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-12-15 20:09:11</span>
+        <span class="mobile">2025-12-15 20:09:11</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-12-17 23:36:48</span>
+            <span class="mobile">2025-12-17 23:36:48</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/CSC108/">CSC108</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Python/">Python</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Learning/">Learning</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Notes/">Notes</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>6.7k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>28 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<hr>
+<h3 id=""><a href="#" class="headerlink" title=""></a><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/csc108-final-review.webp" alt="csc108-final-review"></h3><h2 id="Knowledge-List"><a href="#Knowledge-List" class="headerlink" title="Knowledge List"></a>Knowledge List</h2><h3 id="📘-CSC108-期末考试核心知识点列表"><a href="#📘-CSC108-期末考试核心知识点列表" class="headerlink" title="📘 CSC108 期末考试核心知识点列表"></a>📘 CSC108 期末考试核心知识点列表</h3><h4 id="1-Python-基础与内存模型-Python-Basics-Memory-Model"><a href="#1-Python-基础与内存模型-Python-Basics-Memory-Model" class="headerlink" title="1. Python 基础与内存模型 (Python Basics & Memory Model)"></a>1. Python 基础与内存模型 (Python Basics &amp; Memory Model)</h4><ul>
+<li><strong>变量赋值与类型 (Variables &amp; Types):</strong> <code>int</code>, <code>float</code>, <code>bool</code>, <code>str</code>, <code>NoneType</code>。</li>
+<li><strong>内存模型 (Memory Model):</strong><ul>
+<li><strong>可变性 (Mutability) vs 不可变性 (Immutability):</strong> 哪些类型可以修改（List, Dict, Set），哪些不能（String, Tuple, Int）。</li>
+<li><strong>别名 (Aliasing):</strong> 当两个变量指向内存中同一个对象时，修改其中一个会如何影响另一个（这是期末必考题，通常在代码追踪 MCQ 中）。</li>
+<li><strong>引用复制 vs 浅拷贝 (Copying):</strong> <code>y = x</code> vs <code>y = x[:]</code> 或 <code>y = x.copy()</code> 的区别。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-控制流与逻辑-Control-Flow-Logic"><a href="#2-控制流与逻辑-Control-Flow-Logic" class="headerlink" title="2. 控制流与逻辑 (Control Flow & Logic)"></a>2. 控制流与逻辑 (Control Flow &amp; Logic)</h4><ul>
+<li><strong>布尔逻辑 (Boolean Logic):</strong> <code>and</code>, <code>or</code>, <code>not</code> 的优先级，短路求值 (Short-circuit evaluation)。</li>
+<li><strong>条件语句 (Conditionals):</strong> <code>if</code>, <code>elif</code>, <code>else</code> 结构。</li>
+<li><strong>循环 (Loops):</strong><ul>
+<li><code>for</code> 循环：遍历列表、字符串、字典、<code>range()</code>。</li>
+<li><code>while</code> 循环：条件控制，防止死循环。</li>
+<li><code>break</code> 和 <code>continue</code> 的用法。</li>
+<li><strong>嵌套循环 (Nested Loops):</strong> 理解多层循环的执行顺序（常用于处理二维列表或网格）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-字符串操作-String-Manipulation"><a href="#3-字符串操作-String-Manipulation" class="headerlink" title="3. 字符串操作 (String Manipulation)"></a>3. 字符串操作 (String Manipulation)</h4><ul>
+<li><strong>索引与切片 (Indexing &amp; Slicing):</strong> <code>s[start:stop:step]</code>，特别是负数步长（反转字符串）。</li>
+<li><strong>常用方法 (String Methods):</strong> <code>split()</code>, <code>join()</code>, <code>strip()</code>, <code>find()</code>, <code>replace()</code>, <code>upper()</code>, <code>lower()</code> (参考 API Sheet)。</li>
+<li><strong>格式化 (Formatting):</strong> f-string (例如 <code>f"Value: {x}"</code>) 或 <code>.format()</code> 方法。</li>
+<li><strong>转义字符 (Escape Characters):</strong> <code>\n</code>, <code>\t</code>, <code>\'</code>。</li>
+</ul>
+<h4 id="4-数据结构-Data-Structures"><a href="#4-数据结构-Data-Structures" class="headerlink" title="4. 数据结构 (Data Structures)"></a>4. 数据结构 (Data Structures)</h4><ul>
+<li><strong>列表 (Lists):</strong><ul>
+<li>方法：<code>append()</code>, <code>extend()</code>, <code>pop()</code>, <code>insert()</code>, <code>remove()</code>, <code>sort()</code>。</li>
+<li><strong>列表推导式 (List Comprehensions):</strong> 虽然考试不一定强制写，但要能读懂。</li>
+<li><strong>二维列表 (List of Lists):</strong> 矩阵操作，如何访问 <code>L[row][col]</code>。</li>
+</ul>
+</li>
+<li><strong>字典 (Dictionaries):</strong><ul>
+<li>键值对操作：访问 <code>d[key]</code>，修改 <code>d[key] = val</code>，删除 <code>del d[key]</code>。</li>
+<li>遍历：<code>for k in d</code>, <code>for k, v in d.items()</code>。</li>
+<li><strong>字典翻转 (Inverting a Dictionary):</strong> 这是一个经典算法（Key 变 Value，注意 Value 可能会变成 List）。</li>
+<li><strong>计数器模式 (Counter Pattern):</strong> 使用字典统计元素出现的频率。</li>
+</ul>
+</li>
+<li><strong>元组 (Tuples):</strong> 不可变序列，常用于函数返回多个值或作为字典的 Key。</li>
+<li><strong>集合 (Sets):</strong> 无序、不重复集合，操作包括 <code>add</code>, <code>remove</code>, <code>union</code> (<code>|</code>), <code>intersection</code> (<code>&amp;</code>), <code>difference</code> (<code>-</code>)。</li>
+</ul>
+<h4 id="5-函数设计与测试-Functions-Testing"><a href="#5-函数设计与测试-Functions-Testing" class="headerlink" title="5. 函数设计与测试 (Functions & Testing)"></a>5. 函数设计与测试 (Functions &amp; Testing)</h4><ul>
+<li><strong>函数定义:</strong> 参数 (Parameters)，返回值 (Return)，类型提示 (Type Hinting)。</li>
+<li><strong>作用域 (Scope):</strong> 局部变量 (Local) vs 全局变量 (Global)。</li>
+<li><strong>测试策略 (Testing Strategies):</strong><ul>
+<li><strong>白盒测试 (White-box Testing):</strong> 覆盖所有代码分支 (Branch coverage)。</li>
+<li><strong>黑盒测试 (Black-box Testing):</strong> 仅根据 Docstring 描述测试。</li>
+<li><strong>边界情况 (Edge Cases):</strong> 空列表、空字符串、0、1、列表只有一个元素、负数等。</li>
+<li><strong>Unit Testing:</strong> 使用 <code>unittest</code> 风格编写测试类和测试方法（如 2023年 WAQ4）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-面向对象编程-Object-Oriented-Programming-OOP"><a href="#6-面向对象编程-Object-Oriented-Programming-OOP" class="headerlink" title="6. 面向对象编程 (Object-Oriented Programming - OOP)"></a>6. 面向对象编程 (Object-Oriented Programming - OOP)</h4><ul>
+<li><strong>类与对象 (Classes &amp; Objects):</strong> 定义类，实例化对象。</li>
+<li><strong>特殊方法 (Magic/Dunder Methods):</strong><ul>
+<li><code>__init__</code>: 初始化属性。</li>
+<li><code>__str__</code> vs <code>__repr__</code>: 打印对象时的字符串表示（2025 Mock 专门考了这个区别）。</li>
+<li><code>__eq__</code>: 定义 <code>==</code> 的行为。</li>
+</ul>
+</li>
+<li><strong>属性 (Attributes):</strong> <code>self.variable</code> 的使用。</li>
+<li><strong>方法 (Methods):</strong> 实例方法的第一个参数总是 <code>self</code>。</li>
+<li><strong>对象组合 (Composition):</strong> 一个类的属性是另一个类的对象（例如 <code>Library</code> 类包含 <code>Book</code> 对象列表）。</li>
+</ul>
+<h4 id="7-算法与复杂度-Algorithms-Complexity"><a href="#7-算法与复杂度-Algorithms-Complexity" class="headerlink" title="7. 算法与复杂度 (Algorithms & Complexity)"></a>7. 算法与复杂度 (Algorithms &amp; Complexity)</h4><ul>
+<li><strong>大O表示法 (Big-O Notation):</strong><ul>
+<li>常数阶 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.618ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2041 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1152,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(1652,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>，线性阶 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>，对数阶 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="8.112ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 3585.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mo" transform="translate(2430,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mi" transform="translate(2596.7,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3196.7,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>，平方阶 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>。</li>
+<li><strong>分析代码片段:</strong> 能够看一段代码（特别是嵌套循环）判断其复杂度（如 2023 WAQ1）。</li>
+</ul>
+</li>
+<li><strong>搜索算法 (Searching):</strong><ul>
+<li>线性搜索 (Linear Search): <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>。</li>
+<li>二分搜索 (Binary Search): <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="8.112ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 3585.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mo" transform="translate(2430,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mi" transform="translate(2596.7,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3196.7,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>，前提是列表已排序。</li>
+</ul>
+</li>
+<li><strong>排序算法 (Sorting):</strong><ul>
+<li><strong>冒泡排序 (Bubble Sort)</strong>、<strong>选择排序 (Selection Sort)</strong>、<strong>插入排序 (Insertion Sort)</strong>。</li>
+<li><strong>核心考点:</strong> 必须能够<strong>手动追踪 (Trace)</strong> 算法。例如：“经过 3 轮循环后，列表长什么样？”（2019, 2023, 2025 Mock 都有此类题目）。</li>
+<li>知道它们的复杂度通常是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container> 以及 <code>sort()</code> 方法通常是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="9.847ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4352.3 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(1918.7,0)"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mo" transform="translate(3196.7,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mi" transform="translate(3363.3,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3963.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-文件操作-File-I-O"><a href="#8-文件操作-File-I-O" class="headerlink" title="8. 文件操作 (File I/O)"></a>8. 文件操作 (File I/O)</h4><ul>
+<li><strong>读取:</strong> <code>open()</code>, <code>readline()</code>, <code>readlines()</code>, <code>read()</code>, <code>strip()</code> 去除换行符。</li>
+<li><strong>写入:</strong> <code>write()</code>。</li>
+<li><strong>CSV 处理:</strong> 处理逗号分隔的数据，解析 Header，将数据转换为正确的类型（如 <code>int</code> 或 <code>float</code>）。</li>
+<li><strong>Context Manager:</strong> 使用 <code>with open(...) as f:</code> 语法。</li>
+</ul>
+<h4 id="9-正则表达式-Regular-Expressions-Regex"><a href="#9-正则表达式-Regular-Expressions-Regex" class="headerlink" title="9. 正则表达式 (Regular Expressions - Regex)"></a>9. 正则表达式 (Regular Expressions - Regex)</h4><ul>
+<li><strong>基本字符:</strong> <code>\d</code> (数字), <code>\w</code> (字母数字), <code>\s</code> (空白), <code>.</code> (任意字符)。</li>
+<li><strong>量词:</strong> <code>*</code> (0或多), <code>+</code> (1或多), <code>?</code> (0或1), <code>{n,m}</code>。</li>
+<li><strong>锚点:</strong> <code>^</code> (开头), <code>$</code> (结尾)。</li>
+<li><strong>组 (Groups):</strong> <code>(...)</code> 提取匹配内容。</li>
+<li><strong>字符集:</strong> <code>[a-z]</code>, <code>[^0-9]</code> (取反)。</li>
+<li><strong>函数:</strong> <code>re.findall()</code>, <code>re.search()</code>, <code>re.match()</code>。</li>
+</ul>
+<hr>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>我们基于以上内容，分区开始复习。</p>
+<h3 id="第一区：Python-基础与内存模型-Basics-Memory-Model"><a href="#第一区：Python-基础与内存模型-Basics-Memory-Model" class="headerlink" title="第一区：Python 基础与内存模型 (Basics & Memory Model)"></a><strong>第一区：Python 基础与内存模型 (Basics &amp; Memory Model)</strong></h3><p>这个部分在期末考试中通常以 <strong>MCQ（选择题）</strong> 或 <strong>代码追踪（Trace）</strong> 的形式出现。</p>
+<p><strong>核心考点只有两个字：”引用“ (Reference)。</strong> 你需要搞清楚：变量存的不是“值”，而是内存地址的“引用”（箭头）。</p>
+<h4 id="1-核心概念速记"><a href="#1-核心概念速记" class="headerlink" title="1. 核心概念速记"></a><strong>1. 核心概念速记</strong></h4><ul>
+<li><strong>不可变类型 (Immutable):</strong> <code>int</code>, <code>float</code>, <code>bool</code>, <code>str</code>, <code>tuple</code>。<ul>
+<li><strong>特点：</strong> 一旦创建，内存里的东西就不能改。</li>
+<li><strong>坑点：</strong> 如果你对字符串做 <code>s.upper()</code>，原来的 <code>s</code> <strong>不会变</strong>！它会返回一个新的字符串。必须写成 <code>s = s.upper()</code> 才能改变变量 <code>s</code> 的指向。</li>
+</ul>
+</li>
+<li><strong>可变类型 (Mutable):</strong> <code>list</code>, <code>dict</code>, <code>set</code>。<ul>
+<li><strong>特点：</strong> 可以“原地修改” (Mutate)。</li>
+<li><strong>坑点：</strong> <strong>别名 (Aliasing)</strong>。如果有两个变量指向同一个列表（比如 <code>a = list1</code>, <code>b = list1</code>），你改了 <code>a</code>，<code>b</code> 也会跟着变，因为它们指向内存里的同一个“房间”。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="2-真题实战讲解"><a href="#2-真题实战讲解" class="headerlink" title="2. 真题实战讲解"></a><strong>2. 真题实战讲解</strong></h4><p>我们直接用历年的真题来看看考官是怎么设坑的。</p>
+<h5 id="案例-A：列表的别名-Aliasing"><a href="#案例-A：列表的别名-Aliasing" class="headerlink" title="案例 A：列表的别名 (Aliasing)"></a><strong>案例 A：列表的别名 (Aliasing)</strong></h5><p>(来自 2023 Final Exam, MCQ 1 )</p>
+<p><strong>题目代码简化版：</strong></p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">board_size = <span class="number">3</span></span><br><span class="line">row = []</span><br><span class="line">board = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(board_size):</span><br><span class="line">    row.append(<span class="string">''</span>)  <span class="comment"># row 变成了 ['', '', '']</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(board_size):</span><br><span class="line">    board.append(row) <span class="comment"># 关键在这里！</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果我现在修改 board[0][0] = 'X'，会发生什么？</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>解析：</strong> 这道题问的是这段代码是否正确。</p>
+<ul>
+<li><strong>坑在哪里：</strong> <code>board.append(row)</code> 被执行了3次，但这3次添加进去的都是<strong>同一个</strong> <code>row</code> 对象的引用。</li>
+<li><strong>后果：</strong> <code>board</code> 里的三行其实是<strong>同一个列表</strong>。如果你修改了第一行的第一个元素 <code>board[0][0] = 'X'</code>，你会发现第二行、第三行的第一个元素也都变成了 <code>'X'</code>！</li>
+<li><strong>结论：</strong> 这是一个典型的 <strong>List Aliasing (列表别名)</strong> 错误。</li>
+</ul>
+<h5 id="案例-B：字符串的不可变性与作用域"><a href="#案例-B：字符串的不可变性与作用域" class="headerlink" title="案例 B：字符串的不可变性与作用域"></a><strong>案例 B：字符串的不可变性与作用域</strong></h5><p>(来自 2019 Final Exam, Part 5 )</p>
+<p><strong>题目代码：</strong></p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">"banana"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">modify</span>():</span><br><span class="line">    x = <span class="string">"apple"</span>  <span class="comment"># 这里创建了一个新的局部变量 x，不影响外面的 x</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">modify2</span>(<span class="params">x</span>):</span><br><span class="line">    x = <span class="string">"pear"</span>   <span class="comment"># 这里修改的是参数 x（局部变量），不影响外面的 x</span></span><br><span class="line"></span><br><span class="line">x = <span class="string">"pineapple"</span>  <span class="comment"># 全局变量 x 变成了 "pineapple"</span></span><br><span class="line">modify()         <span class="comment"># 调用函数，但对外面的 x 没影响</span></span><br><span class="line">x1 = x           <span class="comment"># x1 此时是 "pineapple"</span></span><br><span class="line"></span><br><span class="line">modify2(x)       <span class="comment"># 传入 "pineapple"，函数内部变成 "pear"，但函数结束就丢弃了</span></span><br><span class="line">x2 = x           <span class="comment"># x2 此时还是 "pineapple"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(x1, x2)</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>解析：</strong></p>
+<ul>
+<li><strong>坑在哪里：</strong> 很多同学以为 <code>modify()</code> 会把全局的 <code>x</code> 改掉。但在函数内部，除非用了 <code>global</code> 关键字（CSC108通常不推荐用），否则 <code>x = ...</code> 只是创建了一个<strong>局部变量</strong>。</li>
+<li><strong>重点：</strong> 字符串是不可变的，你没法通过传参去“原地修改”它。</li>
+<li><strong>答案：</strong> 输出是 <code>pineapple pineapple</code>。</li>
+</ul>
+<hr>
+<h4 id="3-这是一个高频陷阱！-2025-Mock-也有类似的"><a href="#3-这是一个高频陷阱！-2025-Mock-也有类似的" class="headerlink" title="3. 这是一个高频陷阱！(2025 Mock 也有类似的)"></a><strong>3. 这是一个高频陷阱！(2025 Mock 也有类似的)</strong></h4><p>在 <strong>2025 Mock Exam MCQ 11</strong>  中考察了字典和整数：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d = {<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>}</span><br><span class="line">d[<span class="string">'c'</span>] = d[<span class="string">'a'</span>] + d[<span class="string">'b'</span>]  <span class="comment"># d['c'] 计算结果是 3，放入字典</span></span><br><span class="line">d[<span class="string">'a'</span>] = <span class="number">10</span>               <span class="comment"># 修改 d['a'] 为 10</span></span><br><span class="line"><span class="built_in">print</span>(d[<span class="string">'c'</span>])             <span class="comment"># d['c'] 会变吗？</span></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><strong>思考：</strong> <code>d['c']</code> 里的 3 是算出来的一个新整数。整数是不可变的，它和 <code>d['a']</code> 没有“连线”关系。</li>
+<li><strong>答案：</strong> 还是 <code>3</code>。</li>
+</ul>
+<hr>
+<h3 id="第二区：循环追踪与逻辑-Loops-Logic"><a href="#第二区：循环追踪与逻辑-Loops-Logic" class="headerlink" title="第二区：循环追踪与逻辑 (Loops & Logic)"></a><strong>第二区：循环追踪与逻辑 (Loops &amp; Logic)</strong></h3><p>搞定了内存模型，接下来就是最费眼睛、也是考试最爱考的——<strong>代码追踪 (Code Tracing)</strong>，特别是<strong>嵌套循环 (Nested Loops)</strong>。</p>
+<p>这类题目通常会给一段没什么实际意义的代码（名字通常叫 <code>mystery</code> 或 <code>foo</code>），让你人肉跑一遍，问你最后某个变量等于几。</p>
+<h4 id="1-核心口诀"><a href="#1-核心口诀" class="headerlink" title="1. 核心口诀"></a><strong>1. 核心口诀</strong></h4><ul>
+<li><strong>双重循环：</strong> “外层走一步，内层跑完全程”。</li>
+<li><strong>Range 的坑：</strong> <code>range(start, stop)</code> 是 <strong>包含 start，不包含 stop</strong>。<ul>
+<li><code>range(3)</code> -&gt; <code>0, 1, 2</code></li>
+<li><code>range(1, 3)</code> -&gt; <code>1, 2</code></li>
+</ul>
+</li>
+<li><strong>累加器 (Accumulator):</strong> 注意看变量是在循环<strong>外面</strong>初始化（累积所有），还是在循环<strong>里面</strong>初始化（每轮重置）。</li>
+</ul>
+<hr>
+<h4 id="2-真题实战-2023-Final-Exam-MCQ-9"><a href="#2-真题实战-2023-Final-Exam-MCQ-9" class="headerlink" title="2. 真题实战 (2023 Final Exam, MCQ 9)"></a><strong>2. 真题实战 (2023 Final Exam, MCQ 9)</strong></h4><p>这道题是经典的双重循环追踪，没有任何复杂语法，单纯考你细不细心。</p>
+<p><strong>代码如下：</strong></p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">runthis</span>():</span><br><span class="line">    mystery = <span class="number">0</span></span><br><span class="line">    L1 = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line">    L2 = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># i 是 L1 的索引：0, 1, 2, 3</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(L1)):</span><br><span class="line">        <span class="comment"># j 是 L2 的索引：0, 1, 2, 3</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(L2)):</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 比较 L1 当前元素 和 L2 当前元素</span></span><br><span class="line">            <span class="keyword">if</span> L1[i] &lt; L2[j]:</span><br><span class="line">                mystery += L2[j]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                mystery += L1[i] + L2[j]</span><br><span class="line">                </span><br><span class="line">    <span class="comment"># 题目问：当 mystery 被修改了第3次后，它的值是多少？</span></span><br><span class="line">    <span class="comment"># 注意：初始化 mystery = 0 不算修改。</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>⚠️ 注意审题：</strong> 它不是问最后结果，而是问 <strong>“modified for the third time” (第三次修改后)</strong> 的值。</p>
+<p><strong>让我们开始手动追踪 (Tracing)：</strong></p>
+<ol>
+<li><strong>外层 i=0 (L1[0] = 2)</strong><ul>
+<li><strong>内层 j=0 (L2[0] = 1)</strong>:<ul>
+<li><code>2 &lt; 1</code>? False.</li>
+<li><code>else</code>: <code>mystery += 2 + 1</code> -&gt; <code>mystery = 3</code> (<strong>第1次修改</strong>)</li>
+</ul>
+</li>
+<li><strong>内层 j=1 (L2[1] = 5)</strong>:<ul>
+<li><code>2 &lt; 5</code>? True.</li>
+<li><code>if</code>: <code>mystery += 5</code> -&gt; <code>mystery = 3 + 5 = 8</code> (<strong>第2次修改</strong>)</li>
+</ul>
+</li>
+<li><strong>内层 j=2 (L2[2] = 6)</strong>:<ul>
+<li><code>2 &lt; 6</code>? True.</li>
+<li><code>if</code>: <code>mystery += 6</code> -&gt; <code>mystery = 8 + 6 = 14</code> (<strong>第3次修改</strong>) -&gt; <strong>Bingo!</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>正确答案是 14。</strong> (对应选项 D) </p>
+<hr>
+<h3 id="第三区：数据结构-Data-Structures-Lists-Dicts"><a href="#第三区：数据结构-Data-Structures-Lists-Dicts" class="headerlink" title="第三区：数据结构 (Data Structures - Lists & Dicts)"></a><strong>第三区：数据结构 (Data Structures - Lists &amp; Dicts)</strong></h3><p>这部分是 CSC108 的重头戏，尤其是 <strong>Dictionary (字典)</strong>，几乎每年必考大题。</p>
+<h4 id="1-列表操作-List-Operations"><a href="#1-列表操作-List-Operations" class="headerlink" title="1. 列表操作 (List Operations)"></a><strong>1. 列表操作 (List Operations)</strong></h4><p>列表最常见的考点是 <strong>Mutation (原地修改)</strong> 和 <strong>返回值</strong> 的区别。</p>
+<ul>
+<li><code>L.append(x)</code>: 修改 L，<strong>返回 None</strong>。</li>
+<li><code>L.sort()</code>: 修改 L，<strong>返回 None</strong>。</li>
+<li><code>sorted(L)</code>: <strong>不</strong>修改 L，<strong>返回新列表</strong>。</li>
+</ul>
+<p>🚨 2019年真题陷阱 (Part 10) : 题目问：<code>L = [7, 1, 4, 2, 9, 3]</code>，某种排序算法迭代两次后变成 <code>[1, 2, 4, 3, 7, 9]</code>。 这是 <strong>Selection Sort (选择排序)</strong> 还是 <strong>Insertion Sort (插入排序)</strong>？</p>
+<ul>
+<li><strong>分析：</strong><ul>
+<li>前两个元素 <code>1, 2</code> 是有序的极小值。</li>
+<li>如果是 Bubble，最大的 9 会先跑到最后。</li>
+<li>如果是 Selection，每轮选最小的放到前面。第一轮选 1，第二轮选 2。</li>
+<li><strong>答案：</strong> Selection Sort。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-字典核心-Dictionaries"><a href="#2-字典核心-Dictionaries" class="headerlink" title="2. 字典核心 (Dictionaries)"></a><strong>2. 字典核心 (Dictionaries)</strong></h4><p>字典考题通常涉及：</p>
+<ol>
+<li><strong>计数 (Counting):</strong> 统计单词出现的次数。</li>
+<li><strong>反转 (Inverting):</strong> Key 变 Value。</li>
+<li><strong>Key 的存在性:</strong> 直接访问不存在的 Key 会报错 (<code>KeyError</code>)，所以要用 <code>if key in d:</code> 或者 <code>d.get(key, default)</code>。</li>
+</ol>
+<p>🔥 经典真题重现 (2023 WAQ 1) : 这里考了一个 <code>get_term_frequency</code> 函数。 逻辑是：</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> word <span class="keyword">in</span> d:</span><br><span class="line">    d[word] += <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    d[word] = <span class="number">1</span></span><br></pre></td></tr></table></figure></div>
+
+<p>这段代码你需要能闭着眼睛写出来，这是 CSC108 的“圣经”。</p>
+<p>这个代码片段是 CSC108 里最经典、最常考的**“计数器模式” (Counter Pattern)**。</p>
+<p>这段代码的意思是：<strong>我们在统计每个单词出现了多少次。</strong></p>
+<p>举个生动的例子，假设你在帮老师统计投票，篮子里有一堆写着名字的纸条：<code>['Alice', 'Bob', 'Alice']</code>。你的本子（字典 <code>d</code>）一开始是空的。</p>
+<h3 id="手把手拆解逻辑："><a href="#手把手拆解逻辑：" class="headerlink" title="手把手拆解逻辑："></a>手把手拆解逻辑：</h3><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设 d 是你的记分本（字典）</span></span><br><span class="line"><span class="comment"># word 是你手里拿到的这张纸条上的名字</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> word <span class="keyword">in</span> d:          <span class="comment"># 1. 看看本子上有没有这个人的名字？</span></span><br><span class="line">    d[word] += <span class="number">1</span>       <span class="comment"># 2. 如果有（是老熟人），就在他的名字后面划一笔（分数 +1）</span></span><br><span class="line"><span class="keyword">else</span>:                  <span class="comment"># 3. 如果没有（是新面孔）</span></span><br><span class="line">    d[word] = <span class="number">1</span>        <span class="comment"># 4. 就把名字写上去，并且记上第 1 分</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="让我们带入数据跑一遍："><a href="#让我们带入数据跑一遍：" class="headerlink" title="让我们带入数据跑一遍："></a>让我们带入数据跑一遍：</h3><p>假设单词列表是 <code>['Alice', 'Bob', 'Alice']</code>，字典 <code>d</code> 一开始是空的 <code>{}</code>。</p>
+<p><strong>第一轮：拿到 ‘Alice’</strong></p>
+<ul>
+<li><code>if 'Alice' in d</code>: 此时字典是空的，Alice 不在里面。</li>
+<li>走 <code>else</code> 分支：<code>d['Alice'] = 1</code>。</li>
+<li><strong>结果：</strong> 字典变成 <code>{'Alice': 1}</code>（Alice 出现1次）。</li>
+</ul>
+<p><strong>第二轮：拿到 ‘Bob’</strong></p>
+<ul>
+<li><code>if 'Bob' in d</code>: 字典里只有 Alice，Bob 不在里面。</li>
+<li>走 <code>else</code> 分支：<code>d['Bob'] = 1</code>。</li>
+<li><strong>结果：</strong> 字典变成 <code>{'Alice': 1, 'Bob': 1}</code>。</li>
+</ul>
+<p><strong>第三轮：又拿到 ‘Alice’</strong></p>
+<ul>
+<li><code>if 'Alice' in d</code>: <strong>这次在里面了！</strong></li>
+<li>走 <code>if</code> 分支：<code>d['Alice'] += 1</code>（也就是 1 + 1）。</li>
+<li><strong>结果：</strong> 字典变成 <code>{'Alice': 2, 'Bob': 1}</code>。</li>
+</ul>
+<hr>
+<h3 id="为什么这个重要？"><a href="#为什么这个重要？" class="headerlink" title="为什么这个重要？"></a>为什么这个重要？</h3><p>这几行代码是 CSC108 的<strong>必考题</strong>。你会在以下地方看到它：</p>
+<ol>
+<li><strong>2025 Mock Exam MCQ 12</strong> ：这道题直接考了这个逻辑，让你选最后 <code>d['cat']</code> 是几。</li>
+<li><strong>2023 Final Exam WAQ 4</strong> ：这道大题让你写一个函数统计词频，<strong>必须</strong>默写出这段代码。</li>
+</ol>
+<p><strong>简单总结：</strong> 这就好比你去超市买东西，收银员扫码：</p>
+<ul>
+<li><strong>第一次</strong>扫到这包薯片 -&gt; 屏幕上显示“薯片 x 1”。</li>
+<li><strong>第二次</strong>又扫到同样的薯片 -&gt; 屏幕上的数字变成“薯片 x 2”。</li>
+</ul>
+<hr>
+<h3 id="第四区：面向对象编程-OOP-Classes-Objects"><a href="#第四区：面向对象编程-OOP-Classes-Objects" class="headerlink" title="第四区：面向对象编程 (OOP - Classes & Objects)"></a><strong>第四区：面向对象编程 (OOP - Classes &amp; Objects)</strong></h3><p>这个部分是很多同学的噩梦，特别是碰到 <strong><code>self</code></strong> 的时候容易晕。但其实它占分很大（通常有一道写 Class 的大题，比如 2023年考了 Tic-Tac-Toe 游戏，2025 Mock 考了 Book Class）。</p>
+<h4 id="1-核心概念速记-1"><a href="#1-核心概念速记-1" class="headerlink" title="1. 核心概念速记"></a><strong>1. 核心概念速记</strong></h4><ul>
+<li><strong>类 (Class):</strong> 图纸（比如“狗的设计图”）。</li>
+<li><strong>对象 (Object):</strong> 根据图纸造出来的真实的狗（比如“旺财”、“来福”）。</li>
+<li><strong><code>self</code>:</strong> 就是**“我”**。<ul>
+<li>当你调用 <code>wangcai.bark()</code> 时，Python 会自动把 <code>wangcai</code> 这个对象传给 <code>bark</code> 函数的第一个参数 <code>self</code>。</li>
+<li><code>self.name</code> 意思是“<strong>我</strong>的名字”，不是“别的狗”的名字。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-必须死记硬背的-Magic-Methods-魔术方法"><a href="#2-必须死记硬背的-Magic-Methods-魔术方法" class="headerlink" title="2. 必须死记硬背的 Magic Methods (魔术方法)"></a><strong>2. 必须死记硬背的 Magic Methods (魔术方法)</strong></h4><ul>
+<li><strong><code>__init__(self, ...)</code>:</strong> <strong>出生证明</strong>。对象一创建就会自动运行，用来给属性赋值。</li>
+<li><strong><code>__str__(self)</code>:</strong> <strong>给用户看的</strong>。当你 <code>print(obj)</code> 时，Python 会偷偷调用这个方法。必须返回字符串。</li>
+<li><strong><code>__repr__(self)</code>:</strong> <strong>给程序员看的</strong>。当你直接在控制台输入变量名 <code>obj</code> 回车时显示的内容。</li>
+</ul>
+<p>🚨 2025 Mock Exam 陷阱 (MCQ 5) :</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name</span>):</span><br><span class="line">        <span class="variable language_">self</span>.name = name</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f"Cat('<span class="subst">{self.name}</span>')"</span></span><br><span class="line"></span><br><span class="line">c = Cat(<span class="string">"Fluffy"</span>)</span><br><span class="line"><span class="built_in">print</span>(c)  <span class="comment"># 问这里打印什么？</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>解析：</strong></p>
+<ul>
+<li>通常 <code>print(c)</code> 会找 <code>__str__</code>。</li>
+<li><strong>但是！</strong> 如果类里<strong>没有写</strong> <code>__str__</code>，Python 会退而求其次，去调用 <code>__repr__</code>。</li>
+<li>所以答案是 <code>Cat('Fluffy')</code>。</li>
+</ul>
+<h4 id="3-属性-Attributes-vs-局部变量"><a href="#3-属性-Attributes-vs-局部变量" class="headerlink" title="3. 属性 (Attributes) vs 局部变量"></a><strong>3. 属性 (Attributes) vs 局部变量</strong></h4><p>这是最容易混淆的。</p>
+<ul>
+<li><code>self.x = 10</code>：这是对象的<strong>属性</strong>，一直存在对象肚子里，别的函数也能用。</li>
+<li><code>x = 10</code>：这是函数的<strong>临时变量</strong>，函数跑完就扔了。</li>
+</ul>
+<hr>
+<h3 id="第五区：算法与复杂度-Algorithms-Big-O"><a href="#第五区：算法与复杂度-Algorithms-Big-O" class="headerlink" title="第五区：算法与复杂度 (Algorithms & Big-O)"></a><strong>第五区：算法与复杂度 (Algorithms &amp; Big-O)</strong></h3><p>这部分主要考两个东西：</p>
+<ol>
+<li><strong>大 O 表示法 (Big-O)</strong>：这段代码跑得有多慢？</li>
+<li><strong>排序算法追踪 (Sorting Tracing)</strong>：代码跑了几圈后，列表长什么样？</li>
+</ol>
+<h4 id="1-Big-O-复杂度速查表-必背"><a href="#1-Big-O-复杂度速查表-必背" class="headerlink" title="1. Big-O 复杂度速查表 (必背)"></a><strong>1. Big-O 复杂度速查表 (必背)</strong></h4><p>考题通常会给你一段代码，问你它是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.618ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2041 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1152,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(1652,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>, <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>, 还是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>。</p>
+<table>
+<thead>
+<tr>
+<th><strong>复杂度</strong></th>
+<th><strong>名字</strong></th>
+<th><strong>典型特征 (也就是你要找什么)</strong></th>
+<th><strong>例子</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.618ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2041 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1152,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(1652,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></strong></td>
+<td>Constant (常数)</td>
+<td><strong>没有循环</strong>，或者循环次数是固定的（比如 <code>for i in range(10)</code>）。</td>
+<td>访问列表 <code>L[i]</code>，字典查找 <code>d[key]</code>。</td>
+</tr>
+<tr>
+<td><strong><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></strong></td>
+<td>Linear (线性)</td>
+<td><strong>一层循环</strong>，遍历列表或字符串。</td>
+<td>线性搜索 <code>x in L</code>，<code>L.count(x)</code>，<code>max(L)</code>。</td>
+</tr>
+<tr>
+<td><strong><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></strong></td>
+<td>Quadratic (平方)</td>
+<td><strong>双重嵌套循环</strong> (Nested Loop)。</td>
+<td>冒泡排序，选择排序，插入排序。</td>
+</tr>
+<tr>
+<td><strong><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="8.112ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 3585.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mo" transform="translate(2430,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mi" transform="translate(2596.7,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3196.7,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></strong></td>
+<td>Logarithmic (对数)</td>
+<td><strong>每次砍一半</strong>。</td>
+<td><strong>二分搜索 (Binary Search)</strong> (前提是列表已排序)。</td>
+</tr>
+</tbody></table>
+<p>⚠️ 2023年真题陷阱 (WAQ 1) 1:</p>
+<p>这道题让你判断几个代码片段打印 “Woof!” 的次数。</p>
+<ul>
+<li><code>i = 0; while i &lt; len(L): bark_like_a_dog(L[i:])</code><ul>
+<li>这里 <code>bark</code> 本身是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>（因为它遍历列表）。</li>
+<li>外面套了一个 <code>while</code> 循环也是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>。</li>
+<li>两个 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container> 嵌套，结果就是 <strong><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container> (Quadratic)</strong>。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="2-排序算法追踪-Sorting-Algorithms-Tracing"><a href="#2-排序算法追踪-Sorting-Algorithms-Tracing" class="headerlink" title="2. 排序算法追踪 (Sorting Algorithms Tracing)"></a><strong>2. 排序算法追踪 (Sorting Algorithms Tracing)</strong></h4><p>这是期末最容易拿分也最容易丢分的地方。考官会给你一个乱序列表，问你：“<strong>经过 2 轮</strong>排序后，列表长什么样？”</p>
+<p>你需要能一眼认出这三个算法的行为特征：</p>
+<p><strong>A. 选择排序 (Selection Sort)</strong></p>
+<ul>
+<li><strong>口诀：</strong> <strong>“每次把最小的抓出来，放到最前面。”</strong></li>
+<li><strong>特征：</strong> 列表的<strong>左边</strong>逐渐有序，且是<strong>最终的正确顺序</strong>。</li>
+<li><strong>例子：</strong> <code>[3, 1, 4, 2]</code><ul>
+<li>1轮后：<code>[1, 3, 4, 2]</code> (找到了 1，跟 3 交换)</li>
+<li>2轮后：<code>[1, 2, 4, 3]</code> (找到了 2，跟 3 交换)</li>
+</ul>
+</li>
+</ul>
+<p><strong>B. 冒泡排序 (Bubble Sort)</strong></p>
+<ul>
+<li><strong>口诀：</strong> <strong>“每次把最大的顶上去，放到最后面。”</strong></li>
+<li><strong>特征：</strong> 列表的<strong>右边</strong>逐渐有序，且是<strong>最终的正确顺序</strong>。</li>
+<li><strong>例子：</strong> <code>[3, 1, 4, 2]</code><ul>
+<li>1轮后：<code>[1, 3, 2, 4]</code> (最大的 4 冒泡到了最后)</li>
+<li>2轮后：<code>[1, 2, 3, 4]</code> (第二大的 3 冒泡到了倒数第二)</li>
+</ul>
+</li>
+</ul>
+<p><strong>C. 插入排序 (Insertion Sort)</strong></p>
+<ul>
+<li><strong>口诀：</strong> <strong>“把新来的插到左边已经排好的队伍里。”</strong></li>
+<li><strong>特征：</strong> 列表的<strong>左边</strong>是相对有序的，但<strong>不一定是最终位置</strong>。</li>
+<li><strong>例子：</strong> <code>[3, 1, 4, 2]</code><ul>
+<li>初始：认为 <code>[3]</code> 是排好的。</li>
+<li>1轮后：<code>[1, 3, 4, 2]</code> (把 1 插到 3 前面)</li>
+<li>2轮后：<code>[1, 3, 4, 2]</code> (把 4 插到 3 后面，不用动)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第六区：文件-I-O-与-CSV-处理-File-I-O-CSV"><a href="#第六区：文件-I-O-与-CSV-处理-File-I-O-CSV" class="headerlink" title="第六区：文件 I/O 与 CSV 处理 (File I/O & CSV)"></a><strong>第六区：文件 I/O 与 CSV 处理 (File I/O &amp; CSV)</strong></h3><p>这部分通常会考 <strong>编程大题（Code Writing）</strong> 或者 <strong>Parsons Problem（排序题）</strong>。 目标：读取一个文件，把里面的数据拿出来，变成列表或字典。</p>
+<h4 id="1-核心套路-必须要背下来的模版"><a href="#1-核心套路-必须要背下来的模版" class="headerlink" title="1. 核心套路 (必须要背下来的模版)"></a><strong>1. 核心套路 (必须要背下来的模版)</strong></h4><p>CSC108 处理文件只有两种固定套路，背下来就能应付 90% 的题目。</p>
+<p><strong>套路 A：不带 Header 的简单文本</strong></p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设文件每一行是一个分数： "85\n", "90\n"</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'grades.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:  <span class="comment"># 1. 打开</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:                  <span class="comment"># 2. 逐行遍历</span></span><br><span class="line">        line = line.strip()         <span class="comment"># 3. 去掉换行符 \n (最重要的一步！)</span></span><br><span class="line">        score = <span class="built_in">int</span>(line)           <span class="comment"># 4. 类型转换 (str -&gt; int)</span></span><br><span class="line">        <span class="comment"># ...做点什么...</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>套路 B：带 Header 的 CSV 文件 (逗号分隔)</strong></p>
+<p>(这是 2025 Mock Exam Q32 考的 )</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv  <span class="comment"># 必须导入</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'inventory.csv'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    reader = csv.reader(f)          <span class="comment"># 1. 创建 reader</span></span><br><span class="line">    header = <span class="built_in">next</span>(reader)           <span class="comment"># 2. 跳过标题行 (Skip Header) - 必考！</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:              <span class="comment"># 3. 遍历剩下的数据</span></span><br><span class="line">        <span class="comment"># row 是一个列表，比如 ['Apples', '45']</span></span><br><span class="line">        name = row[<span class="number">0</span>]</span><br><span class="line">        quantity = <span class="built_in">int</span>(row[<span class="number">1</span>])      <span class="comment"># 4. 记得转数字！CSV 读出来全是字符串</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="2-常见陷阱-🕳️"><a href="#2-常见陷阱-🕳️" class="headerlink" title="2. 常见陷阱 🕳️"></a><strong>2. 常见陷阱 🕳️</strong></h4><ol>
+<li><strong>忘记 <code>strip()</code>:</strong> 如果不用 <code>csv</code> 模块自己读，读出来的字符串末尾会有 <code>\n</code>。</li>
+<li><strong>忘记类型转换:</strong> 读出来的所有东西默认都是 <code>str</code>。如果你要算总分，必须 <code>int()</code> 或 <code>float()</code>，否则会报错。</li>
+<li><strong>忘记跳过 Header:</strong> 如果第一行是 “Name,Age”，你直接 <code>int(row[1])</code> 就会报错，因为 “Age” 没法转成数字。</li>
+</ol>
+<hr>
+<h4 id="3-真题实战-2025-Mock-Exam-Q29"><a href="#3-真题实战-2025-Mock-Exam-Q29" class="headerlink" title="3. 真题实战 (2025 Mock Exam Q29)"></a><strong>3. 真题实战 (2025 Mock Exam Q29)</strong></h4><p>这道题是 Parsons Problem（乱序重排），要求读取 CSV 并存入字典 。</p>
+<p><strong>打乱的代码块：</strong></p>
+<ul>
+<li><code>import csv</code></li>
+<li><code>data = {}</code></li>
+<li><code>with open(filename) as f:</code></li>
+<li><code>reader = csv.reader(f)</code></li>
+<li><code>next(reader)</code></li>
+<li><code>for row in reader:</code></li>
+<li><code>data[row[0]] = row[1]</code>  (注意：题目可能把 Key/Value 反着写来坑你)</li>
+<li><code>return data</code></li>
+</ul>
+<p><strong>正确逻辑：</strong></p>
+<ol>
+<li>导入库。</li>
+<li>初始化空字典。</li>
+<li>打开文件。</li>
+<li>创建 reader。</li>
+<li><strong>跳过 Header (<code>next(reader)</code>)</strong>。</li>
+<li>循环读取。</li>
+<li>存入字典。</li>
+<li>返回。</li>
+</ol>
+<hr>
+<h3 id="第七区：测试与调试-Testing-Debugging"><a href="#第七区：测试与调试-Testing-Debugging" class="headerlink" title="第七区：测试与调试 (Testing & Debugging)"></a><strong>第七区：测试与调试 (Testing &amp; Debugging)</strong></h3><p>这部分在 <strong>2025 Mock Exam</strong> 里比重<strong>非常大</strong>（Q20 到 Q28 全是测试题，占了整整 5 页！）。这也是很多同学容易忽视的“送分童子”。</p>
+<h4 id="1-必考概念：黑盒-vs-白盒"><a href="#1-必考概念：黑盒-vs-白盒" class="headerlink" title="1. 必考概念：黑盒 vs 白盒"></a><strong>1. 必考概念：黑盒 vs 白盒</strong></h4><p>这是 2025 年的新考点，必须搞清楚区别：</p>
+<ul>
+<li><p><strong>黑盒测试 (Black-box Testing):</strong></p>
+<ul>
+<li><strong>即使你看不见代码</strong>，只看 Docstring（说明书），你也能写的测试。</li>
+<li><strong>关注点：</strong> 输入什么？应该输出什么？</li>
+<li><strong>例子：</strong> 比如函数说明说“输入年龄返回票价”，你不用看代码是怎么写的，就知道要测 <code>age=18</code> 或 <code>age=65</code> 这种边界。</li>
+</ul>
+</li>
+<li><p><strong>白盒测试 (White-box Testing):</strong></p>
+<ul>
+<li><p><strong>你必须看着代码写</strong>。</p>
+</li>
+<li><p><strong>关注点：</strong> <strong>分支覆盖 (Branch Coverage)</strong>。你要保证代码里的每一个 <code>if</code>、每一个 <code>else</code>、每一个 <code>return</code> 至少被运行一次。</p>
+</li>
+<li><p>真题 (2025 Mock Q21) :</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">classify</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> x &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"positive even"</span>  <span class="comment"># 分支 A</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"positive odd"</span>   <span class="comment"># 分支 B</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"non-positive"</span>       <span class="comment"># 分支 C</span></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>问：为了走到“分支 A”，你需要输入什么 x？</li>
+<li>答：需要 <code>x &gt; 0</code> 且 <code>x</code> 是偶数，比如 <code>x = 2</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-核心考点：边界情况-Edge-Cases"><a href="#2-核心考点：边界情况-Edge-Cases" class="headerlink" title="2. 核心考点：边界情况 (Edge Cases)"></a><strong>2. 核心考点：边界情况 (Edge Cases)</strong></h4><p>考官最喜欢问：“请给出 3 个测试用例，包含 1 个<strong>边界情况 (Edge Case)</strong>。”</p>
+<p><strong>什么是边界？</strong> 就是由于“规则改变”而可能出点错的地方。</p>
+<ul>
+<li><strong>列表：</strong> 空列表 <code>[]</code>，只有一个元素的列表 <code>[1]</code>。</li>
+<li><strong>字符串：</strong> 空字符串 <code>""</code>，只有 1 个字符的字符串。</li>
+<li><strong>数字（除法）：</strong> 除数是 <code>0</code>。</li>
+<li><strong>数字（范围）：</strong> 如果规则是 <code>age &gt;= 18</code>，那么 <strong>17</strong>、<strong>18</strong>、<strong>19</strong> 就是边界。18 是边界点（Boundary），17 是边界外（Off-by-one）。</li>
+</ul>
+<hr>
+<h3 id="第八区：正则表达式-Regular-Expressions-Regex"><a href="#第八区：正则表达式-Regular-Expressions-Regex" class="headerlink" title="第八区：正则表达式 (Regular Expressions - Regex)"></a><strong>第八区：正则表达式 (Regular Expressions - Regex)</strong></h3><p>这是最后一个大考点，也是很多人觉得像天书的部分。但只要你会查表（API Sheet），这其实是填空题。</p>
+<p>在 <strong>2025 Mock Exam</strong> 的 Cheat Sheet 里 ，所有符号都给你了。你只需要知道怎么组合它们。</p>
+<h4 id="1-必背符号-Cheat-Sheet-上有，但你要眼熟"><a href="#1-必背符号-Cheat-Sheet-上有，但你要眼熟" class="headerlink" title="1. 必背符号 (Cheat Sheet 上有，但你要眼熟)"></a><strong>1. 必背符号 (Cheat Sheet 上有，但你要眼熟)</strong></h4><ul>
+<li><code>\d</code> : 任何数字 (0-9)。</li>
+<li><code>\w</code> : 任何单词字符 (字母、数字、下划线 <code>_</code>)。<strong>注意：不包含点号 <code>.</code> 或 <code>@</code></strong>。</li>
+<li><code>+</code> : 前面的东西出现 <strong>1次或更多</strong>。</li>
+<li><code>*</code> : 前面的东西出现 <strong>0次或更多</strong>。</li>
+<li><code>?</code> : 前面的东西出现 <strong>0次或1次</strong> (可有可无)。</li>
+<li><code>\.</code> : 真正的点号 (因为 <code>.</code> 在正则里代表“任意字符”，所以要加斜杠转义)。</li>
+</ul>
+<h4 id="2-真题实战-2023-Final-Exam-MCQ-8"><a href="#2-真题实战-2023-Final-Exam-MCQ-8" class="headerlink" title="2. 真题实战 (2023 Final Exam MCQ 8)"></a><strong>2. 真题实战 (2023 Final Exam MCQ 8)</strong></h4><p>这道题  让你选一个能匹配邮箱 <code>name@domain.org</code> 或 <code>name@domain.net</code> 的正则。 <strong>规则：</strong></p>
+<ul>
+<li>name: 字母数字，长度 1-6。</li>
+<li>domain: 字母数字。</li>
+<li>后缀: <code>.net</code> 或 <code>.org</code>。</li>
+</ul>
+<p><strong>我们来拆解正确答案：</strong> <code>[A-Za-z0-9]{1,6}@[A-Za-z0-9]+(\.net|\.org)</code></p>
+<ol>
+<li><code>[A-Za-z0-9]</code>: 表示字母或数字。</li>
+<li><code>{1,6}</code>: 长度限制 1 到 6 位。</li>
+<li><code>@</code>: 匹配 <code>@</code> 符号。</li>
+<li><code>[A-Za-z0-9]+</code>: 域名的名字，<code>+</code> 表示至少要有 1 个字符。</li>
+<li><code>(\.net|\.org)</code>: 括号表示分组，<code>|</code> 表示“或”。要么是 <code>.net</code>，要么是 <code>.org</code>。</li>
+</ol>
+<h4 id="3-2025-Mock-的新趋势-Parsons-填空"><a href="#3-2025-Mock-的新趋势-Parsons-填空" class="headerlink" title="3. 2025 Mock 的新趋势 (Parsons & 填空)"></a><strong>3. 2025 Mock 的新趋势 (Parsons &amp; 填空)</strong></h4><p>现在可能会让你写简单的正则。比如：<strong>“匹配一个多伦多的电话号码 (416-xxx-xxxx)”</strong>。</p>
+<p><strong>写法：</strong> <code>416-\d{3}-\d{4}</code></p>
+<h2 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h2><h4 id="Part1-OOP"><a href="#Part1-OOP" class="headerlink" title="Part1.OOP"></a>Part1.OOP</h4><div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TicTacToe</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="string">"""docstring for TicTacToe"""</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.board = [<span class="string">" "</span>] * <span class="number">9</span></span><br><span class="line">        <span class="variable language_">self</span>.move_count = <span class="number">0</span></span><br><span class="line">        <span class="variable language_">self</span>.next_player = <span class="string">'X'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line"></span><br><span class="line">        row1_list = <span class="variable language_">self</span>.board[<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">        row2_list = <span class="variable language_">self</span>.board[<span class="number">3</span>:<span class="number">6</span>]</span><br><span class="line">        row3_list = <span class="variable language_">self</span>.board[<span class="number">6</span>:<span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">        row1_str = <span class="string">"|"</span>.join(row1_list)</span><br><span class="line">        row2_str = <span class="string">"|"</span>.join(row2_list)</span><br><span class="line">        row3_str = <span class="string">"|"</span>.join(row3_list)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> row1_str + <span class="string">"\n"</span> + row2_str + <span class="string">"\n"</span> + row3_str</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__eq__</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(other, TicTacToe):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.board == other.board</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_next</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Player "</span> + <span class="variable language_">self</span>.next_player</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">make_move</span>(<span class="params">self,position</span>):</span><br><span class="line">        <span class="variable language_">self</span>.board[position] = <span class="variable language_">self</span>.next_player</span><br><span class="line">        <span class="variable language_">self</span>.move_count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.next_player == <span class="string">'X'</span>:</span><br><span class="line">            <span class="variable language_">self</span>.next_player = <span class="string">'O'</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="variable language_">self</span>.next_player = <span class="string">'X'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_finished</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.board[<span class="number">0</span>] == <span class="variable language_">self</span>.board[<span class="number">1</span>] == <span class="variable language_">self</span>.board[<span class="number">2</span>] != <span class="string">" "</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.board[<span class="number">3</span>] == <span class="variable language_">self</span>.board[<span class="number">4</span>] == <span class="variable language_">self</span>.board[<span class="number">5</span>] != <span class="string">" "</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.board[<span class="number">6</span>] == <span class="variable language_">self</span>.board[<span class="number">7</span>] == <span class="variable language_">self</span>.board[<span class="number">8</span>] != <span class="string">" "</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.board[<span class="number">0</span>] == <span class="variable language_">self</span>.board[<span class="number">3</span>] == <span class="variable language_">self</span>.board[<span class="number">6</span>] != <span class="string">" "</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.board[<span class="number">1</span>] == <span class="variable language_">self</span>.board[<span class="number">4</span>] == <span class="variable language_">self</span>.board[<span class="number">7</span>] != <span class="string">" "</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.board[<span class="number">2</span>] == <span class="variable language_">self</span>.board[<span class="number">5</span>] == <span class="variable language_">self</span>.board[<span class="number">8</span>] != <span class="string">" "</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.board[<span class="number">0</span>] == <span class="variable language_">self</span>.board[<span class="number">4</span>] == <span class="variable language_">self</span>.board[<span class="number">8</span>] != <span class="string">" "</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.board[<span class="number">2</span>] == <span class="variable language_">self</span>.board[<span class="number">4</span>] == <span class="variable language_">self</span>.board[<span class="number">6</span>] != <span class="string">""</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.move_count == <span class="number">9</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 自动测试脚本 ---</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"=== 开始自动对战测试 ==="</span>)</span><br><span class="line">game = TicTacToe()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 打印空棋盘</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"初始棋盘："</span>)</span><br><span class="line"><span class="built_in">print</span>(game)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. X 下在中间 (位置 4)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"\n[<span class="subst">{game.get_next()}</span>] 下在位置 4"</span>)</span><br><span class="line">game.make_move(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(game)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. O 下在左上 (位置 0)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"\n[<span class="subst">{game.get_next()}</span>] 下在位置 0"</span>)</span><br><span class="line">game.make_move(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(game)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. X 下在右边 (位置 5)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"\n[<span class="subst">{game.get_next()}</span>] 下在位置 5"</span>)</span><br><span class="line">game.make_move(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(game)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"\n游戏结束了吗？ <span class="subst">{game.is_finished()}</span>"</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="Part2-FileIO-CSV"><a href="#Part2-FileIO-CSV" class="headerlink" title="Part2.FileIO - CSV"></a>Part2.FileIO - CSV</h4><div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fruit_colors</span>(<span class="params">filename:<span class="built_in">str</span></span>) -&gt; <span class="built_in">dict</span>:</span><br><span class="line">    color_dict = {}</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            line = line.strip()</span><br><span class="line">            <span class="keyword">if</span> line:</span><br><span class="line">                name, color = line.split(<span class="string">','</span>)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> color <span class="keyword">not</span> <span class="keyword">in</span> color_dict:</span><br><span class="line">                    color_dict[color] = [name]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    color_dict[color].append(name)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="Part3-OOP-Practice"><a href="#Part3-OOP-Practice" class="headerlink" title="Part3. OOP Practice"></a>Part3. OOP Practice</h4><h5 id="Q36-Charity-Campaign-Class-10-pts"><a href="#Q36-Charity-Campaign-Class-10-pts" class="headerlink" title="Q36. Charity Campaign Class (10 pts)"></a>Q36. Charity Campaign Class (10 pts)</h5><p><strong>Task:</strong> Implement a <code>Charity</code> class based on the behavior shown in the examples below.</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = Charity(<span class="string">"Save the Cats"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.donate(<span class="string">"Alice"</span>, <span class="number">20.0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.donate(<span class="string">"Bob"</span>, <span class="number">50.0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.donate(<span class="string">"Alice"</span>, <span class="number">30.0</span>)   <span class="comment"># Alice donates again! Note the behavior.</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.get_total_raised()</span><br><span class="line"><span class="number">100.0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.get_largest_donor()</span><br><span class="line"><span class="string">'Bob'</span>   <span class="comment"># Alice total is 50.0, Bob is 50.0. Tie? See notes.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.donate(<span class="string">"Alice"</span>, <span class="number">10.0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.get_largest_donor()</span><br><span class="line"><span class="string">'Alice'</span> <span class="comment"># Alice total is now 60.0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line">Charity(Save the Cats, <span class="number">2</span> donors)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c2 = Charity(<span class="string">"Empty Fund"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c2.get_total_raised()</span><br><span class="line"><span class="number">0.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c2.get_largest_donor()</span><br><span class="line"><span class="string">''</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>Notes:</strong></p>
+<ul>
+<li><strong><code>donate</code></strong>: If a donor already exists, <strong>add</strong> the new amount to their existing total. If they are new, record them. </li>
+<li><strong><code>get_largest_donor</code></strong>: Return the name of the donor who has donated the <strong>highest total amount</strong>.<ul>
+<li>If there is a tie, return any one of them.</li>
+<li>If there are no donors, return an empty string.</li>
+</ul>
+</li>
+<li><strong><code>get_total_raised</code></strong>: Returns the sum of all donations from all donors.</li>
+</ul>
+<p><strong>Write your complete <code>Charity</code> class in the space below.</strong></p>
+<p>尝试：</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 思考： 需要的def</span></span><br><span class="line"><span class="comment"># ① donate</span></span><br><span class="line"><span class="comment"># ② get_total_raised</span></span><br><span class="line"><span class="comment"># ③ get_largest_donor</span></span><br><span class="line"><span class="comment"># ④ 直接访问c 返回 需要有__repr__</span></span><br><span class="line"><span class="comment"># c = Charity("Save the Cats") 需要传入名字 后面还有别的c2 然后需要展示道__repr_-</span></span><br><span class="line"><span class="comment"># ok 我开始尝试写代码</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Charity</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name</span>):</span><br><span class="line">        <span class="variable language_">self</span>.name = name</span><br><span class="line">        <span class="variable language_">self</span>.donors = {}</span><br><span class="line"><span class="comment"># 既然说了 If a donor already exists, **add** the new amount to their existing total. If they are new, record them.</span></span><br><span class="line"><span class="comment"># 那么暗示我使用词典~</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">donate</span>(<span class="params">self, name:<span class="built_in">str</span>, amount:<span class="built_in">float</span></span>):</span><br><span class="line">        <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> <span class="variable language_">self</span>.donors:</span><br><span class="line">            <span class="variable language_">self</span>.donors[name] = amount <span class="comment"># 没有则创建</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="variable language_">self</span>.donors[name] += amount <span class="comment"># 有的话直接加钱 （一定要写if else 而不是缩进！）</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_total_raised</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span>(<span class="variable language_">self</span>.donors.values())</span><br><span class="line"><span class="comment"># python中</span></span><br><span class="line"><span class="comment"># 默认 (self.donors)：拿到的是名字 (Alice, Bob)。</span></span><br><span class="line"><span class="comment"># .values()：拿到的是钱 (20.0, 50.0)。</span></span><br><span class="line"><span class="comment"># .items()：拿到的是一对对 (Alice+20.0, Bob+50.0)。</span></span><br><span class="line"><span class="comment"># 算总金额，用 sum() 加 .values() 是最完美、最快的方法。</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_largest_donor</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.donors) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    <span class="comment"># 不要写别的例如“No donors”</span></span><br><span class="line">    <span class="comment"># 因为题目要求 If there are no donors, return an empty string.</span></span><br><span class="line">    <span class="comment"># 依旧擂台打法确定最喜欢！</span></span><br><span class="line">        best_donor = <span class="string">""</span></span><br><span class="line">        max_amount = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> name, amount <span class="keyword">in</span> <span class="variable language_">self</span>.donors.items():</span><br><span class="line">            <span class="comment"># 如上所述 如果既要名字 也要钱 使用items</span></span><br><span class="line">            <span class="keyword">if</span> amount &gt; max_amount:</span><br><span class="line">                best_donor = name</span><br><span class="line">                max_amount = amount</span><br><span class="line">        <span class="keyword">return</span> best_donor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f"Charity(<span class="subst">{self.name}</span>, <span class="subst">{<span class="built_in">len</span>(self.donors)}</span> donors)"</span></span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h5 id="Q37-Fitness-Tracker-Class-10-pts"><a href="#Q37-Fitness-Tracker-Class-10-pts" class="headerlink" title="Q37. Fitness Tracker Class (10 pts)"></a>Q37. Fitness Tracker Class (10 pts)</h5><p><strong>Task:</strong> Implement a <code>FitnessTracker</code> class based on the behavior shown in the examples below</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = FitnessTracker(<span class="string">"Manda"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.log_workout(<span class="string">"Running"</span>, <span class="number">30</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.log_workout(<span class="string">"Yoga"</span>, <span class="number">45</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.log_workout(<span class="string">"Running"</span>, <span class="number">20</span>)   <span class="comment"># Running total becomes 30 + 20 = 50</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.get_total_minutes()</span><br><span class="line"><span class="number">95</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.get_favorite_activity()</span><br><span class="line"><span class="string">'Running'</span>   <span class="comment"># Running (50) &gt; Yoga (45)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.log_workout(<span class="string">"Swimming"</span>, <span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.get_favorite_activity()</span><br><span class="line"><span class="string">'Swimming'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f</span><br><span class="line">FitnessTracker(Manda, <span class="number">3</span> activities)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f2 = FitnessTracker(<span class="string">"Lazy Bob"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f2.get_favorite_activity()</span><br><span class="line"><span class="string">''</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>Notes:</strong></p>
+<ul>
+<li><strong><code>log_workout</code></strong>: If the activity already exists, <strong>add</strong> the minutes to its current total. If it is new, record it.</li>
+<li><strong><code>get_favorite_activity</code></strong>: Return the name of the activity with the <strong>highest total minutes</strong>.<ul>
+<li>If there is a tie, return any one of them.</li>
+<li>If there are no activities logged, return an empty string.</li>
+</ul>
+</li>
+<li><strong><code>get_total_minutes</code></strong>: Returns the sum of duration for all activities.</li>
+</ul>
+<p><strong>Write your complete <code>FitnessTracker</code> class in the space below.</strong></p>
+<p>(tip :这次是找花费时间最长的运动，逻辑和找捐款最多的人是一样的，别被变量名绕晕了)</p>
+<hr>
+<p>尝试:</p>
+<div class="code-container" data-rel="Py"><figure class="iseeu highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 思考</span></span><br><span class="line"><span class="comment"># 需要的def</span></span><br><span class="line"><span class="comment"># ① log_workout 两个参数 还可以累加 词典？</span></span><br><span class="line"><span class="comment"># ② get_total_minutes() 啊哈 又来了</span></span><br><span class="line"><span class="comment"># ③ get_favourite_activity() 按时间排序？</span></span><br><span class="line"><span class="comment"># ④ f 直接输出 需要__repr__</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 果然用词典：**`log_workout`**: If the activity already exists, **add** the minutes to its current total. If it is new, record it.</span></span><br><span class="line"><span class="comment"># 最喜欢 需要同时返回名字和时间 items() 如果空的话还要返回空的</span></span><br><span class="line"><span class="comment"># 总时长 sum() .value()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FitnessTracker</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, user_name</span>):</span><br><span class="line">        <span class="variable language_">self</span>.user_name = user_name</span><br><span class="line">        <span class="variable language_">self</span>.activities = {}</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">log_workout</span>(<span class="params">self, activity:<span class="built_in">str</span>, minutes:<span class="built_in">int</span></span>):</span><br><span class="line">        <span class="keyword">if</span> activity <span class="keyword">not</span> <span class="keyword">in</span> <span class="variable language_">self</span>.activities:</span><br><span class="line">            <span class="variable language_">self</span>.activities[activity] = minutes</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="variable language_">self</span>.activities[activity] += minutes</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_total_minutes</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span>(<span class="variable language_">self</span>.activities.values())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_favourite_activity</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.activities) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line">        best_activity = <span class="string">""</span></span><br><span class="line">        max_minutes = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> activity, time <span class="keyword">in</span> <span class="variable language_">self</span>.activities.items():</span><br><span class="line">            <span class="keyword">if</span> time &gt; max_minutes:</span><br><span class="line">                max_minutes = time</span><br><span class="line">                best_activity = activity</span><br><span class="line">        <span class="keyword">return</span> best_activity</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f"FitnessTracker(<span class="subst">{self.user_name}</span>, <span class="subst">{<span class="built_in">len</span>(self.activities)}</span> activities)"</span></span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h4 id="Part4-Parsons-Problem"><a href="#Part4-Parsons-Problem" class="headerlink" title="Part4. Parsons Problem"></a>Part4. Parsons Problem</h4><p>方块 模块排序题目</p>
+<p>例题：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251217144433435.png" alt="q29-csv-data-processing"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251217151112156.png" alt="image-20251217151112156"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251217144454852.png" alt="bubble-sort"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251217151133580.png" alt="image-20251217151133580"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251217144507561.png" alt="dictionary-update-pattern"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/image-20251217151150440.png" alt="image-20251217151150440"></p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> CSC108 期末复习</li>
+        <li><strong>Author:</strong> Manda</li>
+        <li><strong>Created at
+                :</strong> 2025-12-15 20:09:11</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-12-17 23:36:48
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://manda.417.red/2025/12/15/CSC108-final-review/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Python/">#Python</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Learning/">#Learning</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Notes/">#Notes</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/09/10/CSC108_note/" title="「📌PINNED」 CSC108 Notes" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/csc108-python-notes.webp" alt="「📌PINNED」 CSC108 Notes" class="!max-w-none">
+  <span class="title">「📌PINNED」 CSC108 Notes</span>
+</a><a class="recommended-article-item" href="/2025/11/24/CSC108%20-%201124%20-%20Class%20OOP/" title="CSC108 - 1124 程序复杂度" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/csc108-lecture-note.webp" alt="CSC108 - 1124 程序复杂度" class="!max-w-none">
+  <span class="title">CSC108 - 1124 程序复杂度</span>
+</a><a class="recommended-article-item" href="/2025/11/21/CSC108-Sorting-Method/" title="Python Sorting Methods" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/CSC108Sorting%20Methods.webp" alt="Python Sorting Methods" class="!max-w-none">
+  <span class="title">Python Sorting Methods</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>recommendation</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/2025/09/10/CSC108_note/" title="「📌PINNED」 CSC108 Notes" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/csc108-python-notes.webp" alt="「📌PINNED」 CSC108 Notes" class="!max-w-none">
+  <span class="title">「📌PINNED」 CSC108 Notes</span>
+</a><a class="recommended-article-item" href="/2025/11/24/CSC108%20-%201124%20-%20Class%20OOP/" title="CSC108 - 1124 程序复杂度" rel="bookmark">
+  <img src="https://raw.githubusercontent.com/Dos7t3r/oss-pic/master/uPic/csc108-lecture-note.webp" alt="CSC108 - 1124 程序复杂度" class="!max-w-none">
+  <span class="title">CSC108 - 1124 程序复杂度</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/11/28/download_files_with_python/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">使用python批量下载学校文件</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://waline-comments.417.red/',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+                    lang: 'zh-CN',
+          recaptchaV3Key: '0x4AAAAAAB2v6lpUQeVPOG-M',
+          turnstileKey: '0x4AAAAAAB2v6s7_k4ZSXVC3rpdbfeq_WcU',
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">CSC108 期末复习</div>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Knowledge-List"><span class="nav-text">Knowledge List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%93%98-CSC108-%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E5%88%97%E8%A1%A8"><span class="nav-text">📘 CSC108 期末考试核心知识点列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Review"><span class="nav-text">Review</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%8C%BA%EF%BC%9APython-%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B-Basics-Memory-Model"><span class="nav-text">第一区：Python 基础与内存模型 (Basics &amp; Memory Model)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%8C%BA%EF%BC%9A%E5%BE%AA%E7%8E%AF%E8%BF%BD%E8%B8%AA%E4%B8%8E%E9%80%BB%E8%BE%91-Loops-Logic"><span class="nav-text">第二区：循环追踪与逻辑 (Loops &amp; Logic)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E5%8C%BA%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-Data-Structures-Lists-Dicts"><span class="nav-text">第三区：数据结构 (Data Structures - Lists &amp; Dicts)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E6%8A%8A%E6%89%8B%E6%8B%86%E8%A7%A3%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="nav-text">手把手拆解逻辑：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A9%E6%88%91%E4%BB%AC%E5%B8%A6%E5%85%A5%E6%95%B0%E6%8D%AE%E8%B7%91%E4%B8%80%E9%81%8D%EF%BC%9A"><span class="nav-text">让我们带入数据跑一遍：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E4%B8%AA%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="nav-text">为什么这个重要？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E5%8C%BA%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-OOP-Classes-Objects"><span class="nav-text">第四区：面向对象编程 (OOP - Classes &amp; Objects)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E5%8C%BA%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%A4%8D%E6%9D%82%E5%BA%A6-Algorithms-Big-O"><span class="nav-text">第五区：算法与复杂度 (Algorithms &amp; Big-O)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E5%8C%BA%EF%BC%9A%E6%96%87%E4%BB%B6-I-O-%E4%B8%8E-CSV-%E5%A4%84%E7%90%86-File-I-O-CSV"><span class="nav-text">第六区：文件 I&#x2F;O 与 CSV 处理 (File I&#x2F;O &amp; CSV)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E5%8C%BA%EF%BC%9A%E6%B5%8B%E8%AF%95%E4%B8%8E%E8%B0%83%E8%AF%95-Testing-Debugging"><span class="nav-text">第七区：测试与调试 (Testing &amp; Debugging)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E5%8C%BA%EF%BC%9A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-Regular-Expressions-Regex"><span class="nav-text">第八区：正则表达式 (Regular Expressions - Regex)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practice"><span class="nav-text">Practice</span></a>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Manda</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        35 posts in total
+                    </span>
+                    
+                        <span>
+                            78.5k words in total
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    <div class="build-meta mt-2 text-sm text-third-text-color text-center">
+  Updated @ 2025-12-17 23:38
+  <span class="ml-1 text-xs opacity-60">(Toronto, UTC-5)</span>
+</div></div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+	<div id="aplayer"></div>
+
+<script src="/js/build/libs/APlayer.min.js"></script>
+
+
+<script src="/js/build/plugins/aplayer.js"></script>
+
+
+	
+</body>
+
+</html>
